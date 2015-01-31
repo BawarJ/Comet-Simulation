@@ -1,0 +1,5 @@
+Content\Star.xnb
+Content\Comet.xnb
+Content\Planet.xnb
+Content\Pixel.xnb
+Content\Menu.xnb
