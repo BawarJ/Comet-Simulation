@@ -27,15 +27,15 @@ namespace CometSimulation
 
         public void Initialize()
         {
-            stars.Add(new Star(new Vector2(500, 200), 50000, 80, Color.White));
+            stars.Add(new Star(new Vector2(600, 300), 500000, 80, Color.White));
             //stars.Add(new Star(new Vector2(700, 200), 10000, 80, Color.Red));
 
             //for (int i = 0; i <= 100; i++)
-            comets.Add(new Comet(new Vector2(rand.Next(900), 100 + rand.Next(300)), 3, 30, 0, Color.White));
-            comets.Add(new Comet(new Vector2(rand.Next(900), 100 + rand.Next(300)), 2, 20, 0, Color.Gray));
-            comets.Add(new Comet(new Vector2(rand.Next(900), 100 + rand.Next(300)), 2, 20, 0, Color.LightYellow));
-            comets.Add(new Comet(new Vector2(rand.Next(900), 100 + rand.Next(300)), 1, 10, 0, Color.DarkGray));
-            //comets.Add(new Comet(new Vector2(600, 200), 1, 30, Color.White));
+            comets.Add(new Comet (new Vector2(1200 + rand.Next(100), 200 + rand.Next(100)), 1, 10, 0, Color.White));
+
+            planets.Add(new Planet(new Vector2(      rand.Next(100), 300 + rand.Next(100)), 1, 40, Color.LightBlue));
+            planets.Add(new Planet(new Vector2(100 + rand.Next(100), 300 + rand.Next(100)), 1, 20, Color.Blue));
+            planets.Add(new Planet(new Vector2(200 + rand.Next(100), 300 + rand.Next(100)), 1, 30, Color.Green));
         }
 
         public void Update()
@@ -58,6 +58,24 @@ namespace CometSimulation
                     }
                     c.Angle = theta;
                     Console.WriteLine(theta);
+                    }
+                }
+
+                foreach (Planet p in planets)
+                {
+                    p.Force = Vector2.Zero;
+                    foreach (Star s in stars)
+                    {
+                        dSq = Vector2.DistanceSquared(s.Position, p.Position);
+                        if (dSq != 0)
+                        {
+                            d.X = s.Position.X - p.Position.X;
+                            d.Y = s.Position.Y - p.Position.Y;
+                            p.F = G * p.m * s.m / dSq;
+                            theta = (float)Math.Atan2(d.Y, d.X);
+                            p.Force.X += (float)Math.Cos(theta) * (float)p.F;
+                            p.Force.Y += (float)Math.Sin(theta) * (float)p.F;
+                        }
                     }
                 }
 

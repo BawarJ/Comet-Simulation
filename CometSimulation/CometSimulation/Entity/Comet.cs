@@ -36,7 +36,7 @@ namespace CometSimulation
             Colour = col;
             Angle = ang;
             m = mass;
-            Velocity.Y = (float)rand.NextDouble();
+            Velocity.Y = (float)rand.NextDouble()*0.5f;
         }
 
         public void Update()
@@ -46,7 +46,7 @@ namespace CometSimulation
 
             dots.Add(Position);
 
-            particles.Add(new Particle(Position, Angle));
+            particles.Add(new Particle(Position, Angle, new Color(0,255,255)));
 
             foreach (Particle p in particles)
             {
@@ -70,7 +70,7 @@ namespace CometSimulation
             foreach (Vector2 d in dots)
                 spriteBatch.Draw(Texture, new Rectangle((int)d.X, (int)d.Y, 1, 1), Colour);
             foreach (Particle p in particles)
-                spriteBatch.Draw(Texture, new Rectangle((int)p.Position.X, (int)p.Position.Y, 2, 2), Color.DarkSlateBlue);
+                spriteBatch.Draw(Texture, new Rectangle((int)p.Position.X, (int)p.Position.Y, 2, 2), p.Colour);
 
             spriteBatch.Draw(Texture, Rectangle, Colour);
         }

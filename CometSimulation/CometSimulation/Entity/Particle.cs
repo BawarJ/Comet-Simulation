@@ -17,13 +17,16 @@ namespace CometSimulation
         public Vector2 Position;
         public float Angle;
         public float ttl;
+        public Color Colour;
         private Random random = new Random();
 
-        public Particle(Vector2 pos, float ang)
+        public Particle(Vector2 pos, float ang, Color col)
         {
             Position = pos;
             Angle = ang;
-            ttl = 100;
+            Colour = col;
+            ttl = 255;
+
         }
 
         public void Update()
@@ -31,6 +34,9 @@ namespace CometSimulation
             Position.X += (float)Math.Cos(Angle) + (float)random.NextDouble();
             Position.Y += (float)Math.Sin(Angle) + (float)random.NextDouble();
             ttl--;
+            Colour.R = (byte)ttl;
+            Colour.G = (byte)ttl;
+            Colour.B = (byte)ttl;
         }
     }
 }

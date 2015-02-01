@@ -20,3 +20,4 @@ N:\Downloads\CometSimulation\CometSimulation\CometSimulation\CometSimulation\obj
 N:\Downloads\CometSimulation\CometSimulation\CometSimulation\CometSimulation\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 N:\Downloads\CometSimulation\CometSimulation\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.exe
 N:\Downloads\CometSimulation\CometSimulation\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.pdb
+C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Font.xnb

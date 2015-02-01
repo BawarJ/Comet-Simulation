@@ -15,6 +15,7 @@ namespace CometSimulation
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        SpriteFont font;
         Manager manager = new Manager();
         Texture2D texComet;
         Texture2D texPlanet;
@@ -42,6 +43,7 @@ namespace CometSimulation
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            font = Content.Load<SpriteFont>("Font");
             texComet = Content.Load<Texture2D>("Comet");
             texPlanet = Content.Load<Texture2D>("Planet");
             texStar = Content.Load<Texture2D>("Star");
@@ -64,7 +66,7 @@ namespace CometSimulation
             spriteBatch.Begin();
 
             manager.Draw(spriteBatch, texComet, texPlanet, texStar);
-            menu.Draw(spriteBatch, texMenu);
+            menu.Draw(spriteBatch, font, texMenu);
 
             spriteBatch.End();
             base.Draw(gameTime);

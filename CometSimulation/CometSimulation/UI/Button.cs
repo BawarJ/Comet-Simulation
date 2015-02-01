@@ -14,5 +14,16 @@ namespace CometSimulation
 {
     class Button
     {
+
+
+        public Button()
+        {
+
+        }
+
+        public void Update()
+        {
+
+        }
     }
 }

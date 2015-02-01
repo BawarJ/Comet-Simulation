@@ -38,13 +38,13 @@
       <Time>2015-01-26T12:22:28+00:00</Time>
     </Item>
     <Item>
-      <Source>Pixel.png</Source>
-      <Name>Pixel</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Source>Font.spritefont</Source>
+      <Name>Font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Pixel.xnb</Output>
-      <Time>2015-01-26T12:22:28+00:00</Time>
+      <Output>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Font.xnb</Output>
+      <Time>2015-02-01T01:43:49.5122735+00:00</Time>
     </Item>
     <Item>
       <Source>Menu.png</Source>
@@ -53,9 +53,22 @@
       <Processor>TextureProcessor</Processor>
       <Parameters>
         <Data Key="ColorKeyColor">255, 255, 255, 255</Data>
+        <Data Key="ColorKeyEnabled">False</Data>
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Menu.xnb</Output>
+      <Time>2015-01-31T19:04:01.6328125+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Pixel.png</Source>
+      <Name>Pixel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor">0, 0, 0, 255</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Pixel.xnb</Output>
       <Time>2015-01-26T12:22:28+00:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
