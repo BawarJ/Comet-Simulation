@@ -31,7 +31,7 @@ namespace CometSimulation
             //stars.Add(new Star(new Vector2(700, 200), 10000, 80, Color.Red));
 
             //for (int i = 0; i <= 100; i++)
-            comets.Add(new Comet (new Vector2(1200 + rand.Next(100), 200 + rand.Next(100)), 1, 10, 0, Color.White));
+            comets.Add(new Comet (new Vector2(1200 + rand.Next(100), 250 + rand.Next(100)), 1, 10, 0, Color.White));
 
             planets.Add(new Planet(new Vector2(      rand.Next(100), 300 + rand.Next(100)), 1, 40, Color.LightBlue));
             planets.Add(new Planet(new Vector2(100 + rand.Next(100), 300 + rand.Next(100)), 1, 20, Color.Blue));
@@ -56,8 +56,17 @@ namespace CometSimulation
                         c.Force.X += (float)Math.Cos(theta) * (float)c.F;
                         c.Force.Y += (float)Math.Sin(theta) * (float)c.F;
                     }
-                    c.Angle = theta;
-                    Console.WriteLine(theta);
+
+                    theta = (float)Math.Atan2(d.X, d.Y);
+
+                    if (c.Position.X > s.Position.X && c.Position.Y < s.Position.Y) //TOP RIGHT QUADRANT
+                        c.Quadrant = 2;
+                    if (c.Position.X < s.Position.X && c.Position.Y < s.Position.Y) //TOP LEFT QUADRANT
+                        c.Quadrant = 1;
+                    if (c.Position.X > s.Position.X && c.Position.Y > s.Position.Y) //BOTTOM RIGHT QUADRANT
+                        c.Quadrant = 4;
+                    if (c.Position.X < s.Position.X && c.Position.Y > s.Position.Y) //BOTTOM LEFT QUADRANT
+                        c.Quadrant = 3;
                     }
                 }
 

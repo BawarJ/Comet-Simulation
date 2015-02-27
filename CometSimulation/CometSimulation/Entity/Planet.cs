@@ -21,7 +21,6 @@ namespace CometSimulation
         public double F;
         public double m;
         public double Diameter;
-        public float Angle;
         Color Colour;
         List<Vector2> dots = new List<Vector2>();
         Random rand = new Random();

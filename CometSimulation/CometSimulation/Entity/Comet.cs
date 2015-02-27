@@ -18,6 +18,7 @@ namespace CometSimulation
         public Vector2 Acceleration;
         public Vector2 Velocity;
         public Vector2 Force;
+        public int Quadrant;
         public double F;
         public double m;
         public double Diameter;
@@ -46,13 +47,13 @@ namespace CometSimulation
 
             dots.Add(Position);
 
-            particles.Add(new Particle(Position, Angle, new Color(0,255,255)));
+            particles.Add(new Particle(Position, Angle, new Color(0,255,255), Quadrant));
 
             foreach (Particle p in particles)
             {
                 p.Update();
                 p.Angle = Angle;
-                if (p.ttl == 0)
+                if (p.Length == 0)
                     particlesToRemove.Add(p);
             }
 
