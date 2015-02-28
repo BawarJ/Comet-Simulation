@@ -28,9 +28,7 @@ namespace CometSimulation
         public void Initialize()
         {
             stars.Add(new Star(new Vector2(600, 300), 500000, 80, Color.White));
-            //stars.Add(new Star(new Vector2(700, 200), 10000, 80, Color.Red));
 
-            //for (int i = 0; i <= 100; i++)
             comets.Add(new Comet (new Vector2(1200 + rand.Next(100), 250 + rand.Next(100)), 1, 5, Color.White));
 
             planets.Add(new Planet(new Vector2(      rand.Next(100), 300 + rand.Next(100)), 1, 40, Color.LightBlue));
@@ -46,29 +44,19 @@ namespace CometSimulation
                     c.Force = Vector2.Zero;
                     foreach (Star s in stars)
                     {
-                    dSq = Vector2.DistanceSquared(s.Position, c.Position);
-                    if (dSq != 0)
-                    {
-                        d.X = s.Position.X - c.Position.X;
-                        d.Y = s.Position.Y - c.Position.Y;
-                        c.F = G * c.m * s.m / dSq;
-                        theta = (float)Math.Atan2(d.X, d.Y);
-                        c.Force.X += (float)Math.Sin(theta) * (float)c.F;
-                        c.Force.Y += (float)Math.Cos(theta) * (float)c.F;
+                        dSq = Vector2.DistanceSquared(s.Position, c.Position);
+                        if (dSq != 0)
+                        {
+                            d.X = s.Position.X - c.Position.X;
+                            d.Y = s.Position.Y - c.Position.Y;
+                            c.F = G * c.m * s.m / dSq;
+                            theta = (float)Math.Atan2(d.X, d.Y);
+                            c.Force.X += (float)Math.Sin(theta) * (float)c.F;
+                            c.Force.Y += (float)Math.Cos(theta) * (float)c.F;
 
 
-                        c.particleVelocity = -d*0.001f;
-                    }
-/* quadrants
-                    if (c.Position.X > s.Position.X && c.Position.Y < s.Position.Y) //TOP RIGHT QUADRANT
-                        c.Quadrant = 1;
-                    if (c.Position.X < s.Position.X && c.Position.Y < s.Position.Y) //TOP LEFT QUADRANT
-                        c.Quadrant = 2;
-                    if (c.Position.X < s.Position.X && c.Position.Y > s.Position.Y) //BOTTOM LEFT QUADRANT
-                        c.Quadrant = 3;
-                    if (c.Position.X > s.Position.X && c.Position.Y > s.Position.Y) //BOTTOM RIGHT QUADRANT
-                        c.Quadrant = 4;
-*/
+                            c.particleVelocity = -d*0.0001f;
+                        }
                     }
                 }
 

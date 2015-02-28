@@ -44,7 +44,7 @@ namespace CometSimulation
 
             dots.Add(Position);
 
-            particles.Add(new Particle(Position, new Color(50,100,255), particleVelocity));
+            particles.Add(new Particle(Position, new Color(50,100,255), particleVelocity+Velocity));
 
             foreach (Particle p in particles)
             {

@@ -33,31 +33,6 @@ namespace CometSimulation
 
         public void Update()
         {
-            /*quadrants
-            if (Quadrant == 1) //TOP RIGHT QUADRANT
-            {
-                Velocity.X = (float)Math.Sin(Angle);
-                Velocity.Y = (float)Math.Cos(Angle);
-            }
-            if (Quadrant == 2) //TOP LEFT QUADRANT
-            {
-                Velocity.X = (float)Math.Sin(Angle);
-                Velocity.Y = (float)Math.Cos(Angle);
-            }
-            if (Quadrant == 3) //BOTTOM LEFT QUADRANT
-            {
-                Velocity.X = (float)Math.Sin(2*PI-Angle);
-                Velocity.Y = (float)Math.Cos(2*PI-Angle);
-            }
-            if (Quadrant == 4) //BOTTOM RIGHT QUADRANT
-            {
-                Velocity.X = (float)Math.Sin(Angle);
-                Velocity.Y = (float)Math.Cos(Angle);
-            }
-            */
-
-
-
             Position = Vector2.Add(Position, Velocity);
             Position = Vector2.Add(Position, new Vector2((float)random.NextDouble()-0.5f,(float)random.NextDouble()-0.5f));
             Length--;
