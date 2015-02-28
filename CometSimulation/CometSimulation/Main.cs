@@ -55,6 +55,12 @@ namespace CometSimulation
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Escape) == true)
                 Exit();
+            if (menu.btnComet.isClicking)
+                manager.createComet();
+            if (menu.btnPlanet.isClicking)
+                manager.createPlanet();
+            if (menu.btnReset.isClicking)
+                manager.resetScreen();
             manager.Update();
             menu.Update();
             base.Update(gameTime);

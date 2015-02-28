@@ -29,16 +29,31 @@ namespace CometSimulation
         {
             stars.Add(new Star(new Vector2(600, 300), 500000, 80, Color.White));
 
+            /*
             comets.Add(new Comet (new Vector2(1200 + rand.Next(100), 250 + rand.Next(100)), 1, 5, Color.White));
 
             planets.Add(new Planet(new Vector2(      rand.Next(100), 300 + rand.Next(100)), 1, 40, Color.LightBlue));
             planets.Add(new Planet(new Vector2(100 + rand.Next(100), 300 + rand.Next(100)), 1, 20, Color.Blue));
             planets.Add(new Planet(new Vector2(200 + rand.Next(100), 300 + rand.Next(100)), 1, 30, Color.Green));
+            */
+        }
+
+        public void createComet()
+        {
+            comets.Add(new Comet(new Vector2(1200 + rand.Next(100), 250 + rand.Next(100)), 1, 5, Color.White));
+        }
+        public void createPlanet()
+        {
+            planets.Add(new Planet(new Vector2(rand.Next(100), 300 + rand.Next(100)), 1, 40, Color.LightBlue));
+        }
+        public void resetScreen()
+        {
+            comets.RemoveRange(0, comets.Count);
+            planets.RemoveRange(0, planets.Count);
         }
 
         public void Update()
         {
-            
                 foreach (Comet c in comets)
                 {
                     c.Force = Vector2.Zero;

@@ -19,20 +19,26 @@ namespace CometSimulation
         int Inc = 8;
         int Width = 200;
         MouseState ms;
-        Rectangle mouseRectangle;
-        Rectangle contRectangle;
+        Rectangle rectMouse;
+        Rectangle rectContainer;
+        public Button btnComet;
+        public Button btnPlanet;
+        public Button btnReset;
 
         public Menu()
         {
+            btnComet = new Button("Comet", Width, 100);
+            btnPlanet = new Button("Planet", Width, 200);
+            btnReset = new Button("Reset", Width, 600);
         }
 
         public void Update()
         {
             ms = Mouse.GetState();
-            mouseRectangle = new Rectangle(ms.X, ms.Y, 1, 1);
-            contRectangle = new Rectangle(X, 0, Width, 768);
+            rectMouse = new Rectangle(ms.X, ms.Y, 1, 1);
+            rectContainer = new Rectangle(X, 0, Width, 768);
 
-            if (ms.X < 10 || mouseRectangle.Intersects(contRectangle))
+            if (ms.X < 10 || rectMouse.Intersects(rectContainer))
             {
                 showMenu = true;
                 if (X < 0)
@@ -47,17 +53,25 @@ namespace CometSimulation
                     X = -Width;
                     showMenu = false;
                 }
-            } 
+            }
+
+            //update menu items below
+            btnComet.Update(X);
+            btnPlanet.Update(X);
+            btnReset.Update(X);
         }
 
         public void Draw(SpriteBatch spriteBatch, SpriteFont font, Texture2D tex)
         {
             if (showMenu == true)
             {
-                spriteBatch.Draw(tex, contRectangle, Color.White);
+                spriteBatch.Draw(tex, rectContainer, Color.White);
 
                 //draw menu items below
                 spriteBatch.DrawString(font, "Comet Simulation", new Vector2(X + 20 , 10), Color.Black);
+                btnComet.Draw(spriteBatch, tex, font, X);
+                btnPlanet.Draw(spriteBatch, tex, font, X);
+                btnReset.Draw(spriteBatch, tex, font, X);
             }
         }
     }
