@@ -14,49 +14,52 @@ namespace CometSimulation
 {
     class Particle
     {
+        const float PI = MathHelper.Pi;
         public Vector2 Position;
         public Vector2 Velocity;
+        public int Quadrant;
         public float Angle;
         public float Length;
         public Color Colour;
         private Random random = new Random();
 
-        public Particle(Vector2 pos, float ang, Color col, int Quadrant)
+        public Particle(Vector2 pos, float ang, Color col, int quad)
         {
             Position = pos;
             Angle = ang;
             Colour = col;
-            Length = 200;
-
-            if (Quadrant == 2) //TOP RIGHT QUADRANT
-            {
-                Velocity.X = (float)Math.Cos(Angle);
-                Velocity.Y = (float)Math.Sin(Angle);
-            }
-            if (Quadrant == 1) //TOP LEFT QUADRANT
-            {
-                Velocity.X = (float)Math.Cos(MathHelper.ToRadians(360) - Angle);
-                Velocity.Y = (float)Math.Sin(MathHelper.ToRadians(360) - Angle);
-            }
-            if (Quadrant == 4) //BOTTOM RIGHT QUADRANT
-            {
-                Velocity.X = (float)Math.Cos(MathHelper.ToRadians(180) - Angle);
-                Velocity.Y = (float)Math.Sin(MathHelper.ToRadians(180) - Angle);
-            }
-            if (Quadrant == 3) //BOTTOM LEFT QUADRANT
-            {
-                Velocity.X = (float)Math.Cos(MathHelper.ToRadians(180) + Angle);
-                Velocity.Y = (float)Math.Sin(MathHelper.ToRadians(180) + Angle);
-            }
+            Length = 50;
+            Quadrant = quad;
         }
 
         public void Update()
         {
+            if (Quadrant == 1) //TOP RIGHT QUADRANT
+            {
+                Velocity.X = (float)Math.Sin(Angle);
+                Velocity.Y = (float)Math.Cos(Angle);
+            }
+            if (Quadrant == 2) //TOP LEFT QUADRANT
+            {
+                Velocity.X = (float)Math.Sin(Angle);
+                Velocity.Y = (float)Math.Cos(Angle);
+            }
+            if (Quadrant == 3) //BOTTOM LEFT QUADRANT
+            {
+                Velocity.X = (float)Math.Sin(2*PI-Angle);
+                Velocity.Y = (float)Math.Cos(2*PI-Angle);
+            }
+            if (Quadrant == 4) //BOTTOM RIGHT QUADRANT
+            {
+                Velocity.X = (float)Math.Sin(Angle);
+                Velocity.Y = (float)Math.Cos(Angle);
+            }
+
             Position = Vector2.Add(Position, Velocity);
             Length--;
-            Colour.R = (byte)(Length/200*255);
-            Colour.G = (byte)(Length/200*255);
-            Colour.B = (byte)(Length/20*255);
+            Colour.R = (byte)(Length/50*255);
+            Colour.G = (byte)(Length/50*255);
+            Colour.B = (byte)(Length/50*255);
         }
     }
 }

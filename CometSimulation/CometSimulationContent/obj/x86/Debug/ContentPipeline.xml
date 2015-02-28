@@ -74,7 +74,7 @@
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
-      <TargetProfile>HiDef</TargetProfile>
+      <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
       <RootDirectory>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulationContent\</RootDirectory>

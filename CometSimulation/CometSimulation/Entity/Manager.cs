@@ -52,21 +52,19 @@ namespace CometSimulation
                         d.X = s.Position.X - c.Position.X;
                         d.Y = s.Position.Y - c.Position.Y;
                         c.F = G * c.m * s.m / dSq;
-                        theta = (float)Math.Atan2(d.Y, d.X);
-                        c.Force.X += (float)Math.Cos(theta) * (float)c.F;
-                        c.Force.Y += (float)Math.Sin(theta) * (float)c.F;
+                        theta = (float)Math.Atan2(d.X, d.Y);
+                        c.Force.X += (float)Math.Sin(theta) * (float)c.F;
+                        c.Force.Y += (float)Math.Cos(theta) * (float)c.F;
                     }
 
-                    theta = (float)Math.Atan2(d.X, d.Y);
-
                     if (c.Position.X > s.Position.X && c.Position.Y < s.Position.Y) //TOP RIGHT QUADRANT
-                        c.Quadrant = 2;
-                    if (c.Position.X < s.Position.X && c.Position.Y < s.Position.Y) //TOP LEFT QUADRANT
                         c.Quadrant = 1;
-                    if (c.Position.X > s.Position.X && c.Position.Y > s.Position.Y) //BOTTOM RIGHT QUADRANT
-                        c.Quadrant = 4;
+                    if (c.Position.X < s.Position.X && c.Position.Y < s.Position.Y) //TOP LEFT QUADRANT
+                        c.Quadrant = 2;
                     if (c.Position.X < s.Position.X && c.Position.Y > s.Position.Y) //BOTTOM LEFT QUADRANT
                         c.Quadrant = 3;
+                    if (c.Position.X > s.Position.X && c.Position.Y > s.Position.Y) //BOTTOM RIGHT QUADRANT
+                        c.Quadrant = 4;
                     }
                 }
 
@@ -81,9 +79,9 @@ namespace CometSimulation
                             d.X = s.Position.X - p.Position.X;
                             d.Y = s.Position.Y - p.Position.Y;
                             p.F = G * p.m * s.m / dSq;
-                            theta = (float)Math.Atan2(d.Y, d.X);
-                            p.Force.X += (float)Math.Cos(theta) * (float)p.F;
-                            p.Force.Y += (float)Math.Sin(theta) * (float)p.F;
+                            theta = (float)Math.Atan2(d.X, d.Y);
+                            p.Force.X += (float)Math.Sin(theta) * (float)p.F;
+                            p.Force.Y += (float)Math.Cos(theta) * (float)p.F;
                         }
                     }
                 }
