@@ -17,23 +17,23 @@ namespace CometSimulation
         const float PI = MathHelper.Pi;
         public Vector2 Position;
         public Vector2 Velocity;
-        public int Quadrant;
-        public float Angle;
         public float Length;
         public Color Colour;
+        public Color startingColour;
         private Random random = new Random();
 
-        public Particle(Vector2 pos, float ang, Color col, int quad)
+        public Particle(Vector2 pos, Color col, Vector2 vel)
         {
             Position = pos;
-            Angle = ang;
             Colour = col;
+            startingColour = col;
             Length = 50;
-            Quadrant = quad;
+            Velocity = vel;
         }
 
         public void Update()
         {
+            /*quadrants
             if (Quadrant == 1) //TOP RIGHT QUADRANT
             {
                 Velocity.X = (float)Math.Sin(Angle);
@@ -54,12 +54,16 @@ namespace CometSimulation
                 Velocity.X = (float)Math.Sin(Angle);
                 Velocity.Y = (float)Math.Cos(Angle);
             }
+            */
+
+
 
             Position = Vector2.Add(Position, Velocity);
+            Position = Vector2.Add(Position, new Vector2((float)random.NextDouble()-0.5f,(float)random.NextDouble()-0.5f));
             Length--;
-            Colour.R = (byte)(Length/50*255);
-            Colour.G = (byte)(Length/50*255);
-            Colour.B = (byte)(Length/50*255);
+            Colour.R = (byte)(Length/50*startingColour.R);
+            Colour.G = (byte)(Length/50*startingColour.G);
+            Colour.B = (byte)(Length/50*startingColour.B);
         }
     }
 }

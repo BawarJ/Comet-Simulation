@@ -18,24 +18,21 @@ namespace CometSimulation
         public Vector2 Acceleration;
         public Vector2 Velocity;
         public Vector2 Force;
-        public int Quadrant;
         public double F;
         public double m;
         public double Diameter;
-        public float Angle;
         Color Colour;
         List<Vector2> dots = new List<Vector2>();
         List<Particle> particles = new List<Particle>();
         List<Particle> particlesToRemove = new List<Particle>();
         Random rand = new Random();
-        
+        public Vector2 particleVelocity;
 
-        public Comet(Vector2 pos, double mass, double dia, float ang, Color col)
+        public Comet(Vector2 pos, double mass, double dia, Color col)
         {
             Position = pos;
             Diameter = dia;
             Colour = col;
-            Angle = ang;
             m = mass;
             Velocity.Y = (float)rand.NextDouble()*0.5f;
         }
@@ -47,12 +44,11 @@ namespace CometSimulation
 
             dots.Add(Position);
 
-            particles.Add(new Particle(Position, Angle, new Color(0,255,255), Quadrant));
+            particles.Add(new Particle(Position, new Color(50,100,255), particleVelocity));
 
             foreach (Particle p in particles)
             {
                 p.Update();
-                p.Angle = Angle;
                 if (p.Length == 0)
                     particlesToRemove.Add(p);
             }
