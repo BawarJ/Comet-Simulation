@@ -22,13 +22,15 @@ namespace CometSimulation
         Texture2D texStar;
         Texture2D texSolid;
         Texture2D texMenu;
+        string obj = "";
         Menu menu = new Menu();
+        ParameterMenu popup = new ParameterMenu();
 
         public Main()
         {
             Content.RootDirectory = "Content";
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1360;
+            graphics.PreferredBackBufferWidth = 1366;
             graphics.PreferredBackBufferHeight = 768;
             graphics.IsFullScreen = true;
             IsMouseVisible = true;
@@ -56,13 +58,29 @@ namespace CometSimulation
             if (Keyboard.GetState().IsKeyDown(Keys.Escape) == true)
                 Exit();
             if (menu.btnComet.isClicking)
-                manager.createComet();
+            {
+                popup.showMenu = true;
+                obj = "comet";
+            }
             if (menu.btnPlanet.isClicking)
-                manager.createPlanet();
+            {
+                popup.showMenu = true;
+                obj = "planet";
+            }
             if (menu.btnReset.isClicking)
                 manager.resetScreen();
+
+            if (popup.createObject)
+            {
+                if (obj == "comet")
+                    manager.createComet(popup.startX, popup.startY, popup.mass, popup.diameter);
+                if (obj == "planet")
+                    manager.createPlanet(popup.startX, popup.startY, popup.mass, popup.diameter);
+            }
+
             manager.Update();
             menu.Update();
+            popup.Update();
             base.Update(gameTime);
         }
 
@@ -73,7 +91,7 @@ namespace CometSimulation
 
             manager.Draw(spriteBatch, texComet, texPlanet, texStar);
             menu.Draw(spriteBatch, font, texMenu);
-
+            popup.Draw(spriteBatch, font, texMenu);
             spriteBatch.End();
             base.Draw(gameTime);
         }

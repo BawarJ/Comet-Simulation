@@ -38,13 +38,13 @@ namespace CometSimulation
             */
         }
 
-        public void createComet()
+        public void createComet(float startX, float startY, float mass, float diameter)
         {
-            comets.Add(new Comet(new Vector2(1200 + rand.Next(100), 250 + rand.Next(100)), 1, 5, Color.White));
+            comets.Add(new Comet(new Vector2(startX, startY), mass, diameter, Color.White));
         }
-        public void createPlanet()
+        public void createPlanet(float startX, float startY, float mass, float diameter)
         {
-            planets.Add(new Planet(new Vector2(rand.Next(100), 300 + rand.Next(100)), 1, 40, Color.LightBlue));
+            planets.Add(new Planet(new Vector2(startX, startY), mass, diameter, Color.LightBlue));
         }
         public void resetScreen()
         {
