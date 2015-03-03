@@ -26,11 +26,12 @@ namespace CometSimulation
         Random rand = new Random();
 
 
-        public Planet(Vector2 pos, double mass, double dia, Color col)
+        public Planet(Vector2 pos, double mass, double dia)
         {
             Position = pos;
             Diameter = dia;
-            Colour = col;
+            Colour = new Color((float)rand.NextDouble()*255,(float)rand.NextDouble()*255,(float)rand.NextDouble()*255);
+            Console.WriteLine(Colour);
             m = mass;
             Velocity.Y = 1;
         }

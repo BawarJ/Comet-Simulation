@@ -34,7 +34,7 @@ namespace CometSimulation
                 if (!lastPressedKeys.Contains(key))
                     OnKeyDown(key);
             }
-
+            
             //save the currently pressed keys so we can compare on the next update
             lastPressedKeys = pressedKeys;
         }

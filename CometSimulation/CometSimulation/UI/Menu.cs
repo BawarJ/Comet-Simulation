@@ -29,7 +29,7 @@ namespace CometSimulation
         {
             btnComet = new Button("Comet", Width, 100);
             btnPlanet = new Button("Planet", Width, 200);
-            btnReset = new Button("Reset", Width, 600);
+            btnReset = new Button("Reset", Width, 500);
         }
 
         public void Update()

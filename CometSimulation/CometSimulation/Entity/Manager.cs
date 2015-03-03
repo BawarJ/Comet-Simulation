@@ -44,7 +44,7 @@ namespace CometSimulation
         }
         public void createPlanet(float startX, float startY, float mass, float diameter)
         {
-            planets.Add(new Planet(new Vector2(startX, startY), mass, diameter, Color.LightBlue));
+            planets.Add(new Planet(new Vector2(startX, startY), mass, diameter));
         }
         public void resetScreen()
         {

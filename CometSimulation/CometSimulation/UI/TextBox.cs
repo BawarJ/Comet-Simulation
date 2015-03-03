@@ -25,6 +25,7 @@ namespace CometSimulation
         Color Colour;
         public KbHandler kb = new KbHandler();
         public string textInput = "";
+        int cursorPosition;
 
         public TextBox(int wid, int y)
         {
@@ -70,15 +71,18 @@ namespace CometSimulation
                 Colour.G = 200;
                 kb.tekst = "";
             }
-            
-            pms = Mouse.GetState();
+
+            cursorPosition = textInput.Length;
             kb.Update();
+            pms = Mouse.GetState();
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture, SpriteFont Font)
         {
             spriteBatch.Draw(Texture, new Rectangle(20, Y, Width - 20, 50), Colour);
             spriteBatch.DrawString(Font, textInput, new Vector2(50, Y + 10), Color.Black);
+            if (inFocus)
+                spriteBatch.Draw(Texture, new Rectangle(50 + 10 * cursorPosition, Y + 10, 1, 30), Color.Black);
         }
     }
 }
