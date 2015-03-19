@@ -20,14 +20,16 @@ namespace CometSimulation
         MouseState ms;
         Rectangle rectMouse;
         Rectangle rectContainer;
-        Button btnCreate = new Button("Create", 200, 650);
+        Button btnCreate = new Button("Create", 200, 700);
         TextBox txt_startX = new TextBox(200, 200);
         TextBox txt_startY = new TextBox(200, 300);
-        TextBox txt_mass = new TextBox(200, 400);
-        TextBox txt_diameter = new TextBox(200, 500);
+        TextBox txt_velX = new TextBox(200, 400);
+        TextBox txt_velY = new TextBox(200, 500);
+        TextBox txt_diameter = new TextBox(200, 600);
         public float startX;
         public float startY;
-        public float mass;
+        public float velX;
+        public float velY;
         public float diameter;
         public bool createObject;
 
@@ -36,42 +38,49 @@ namespace CometSimulation
             
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             ms = Mouse.GetState();
             rectMouse = new Rectangle(ms.X, ms.Y, 1, 1);
             rectContainer = new Rectangle(X, 0, Width, 768);
             
             //update menu items below
-            if (txt_startX.kb.tekst != "" && txt_startX.inFocus)
+            if (txt_startX.kb.text != "" && txt_startX.inFocus)
             {
-                txt_startX.textInput = txt_startX.kb.tekst;
-                startX = float.Parse(txt_startX.kb.tekst);
+                txt_startX.textInput =  txt_startX.kb.text;
+                startX = txt_startX.kb.minus * float.Parse(txt_startX.kb.text);
             }
-            if (txt_startY.kb.tekst != "" && txt_startY.inFocus)
+            if (txt_startY.kb.text != "" && txt_startY.inFocus)
             {
-                txt_startY.textInput = txt_startY.kb.tekst;
-                startY = float.Parse(txt_startY.kb.tekst);
+                txt_startY.textInput = txt_startY.kb.text;
+                startY = txt_startY.kb.minus * float.Parse(txt_startY.kb.text);
             }
-            if (txt_mass.kb.tekst != "" && txt_mass.inFocus)
+            if (txt_velX.kb.text != "" && txt_velX.inFocus)
             {
-                txt_mass.textInput = txt_mass.kb.tekst;
-                mass = float.Parse(txt_mass.kb.tekst);
+                txt_velX.textInput = txt_velX.kb.text;
+                velX = txt_velX.kb.minus * float.Parse(txt_velX.kb.text);
             }
-            if (txt_diameter.kb.tekst != "" && txt_diameter.inFocus)
+            if (txt_velY.kb.text != "" && txt_velY.inFocus)
             {
-                txt_diameter.textInput = txt_diameter.kb.tekst;
-                diameter = float.Parse(txt_diameter.kb.tekst);
+                txt_velY.textInput = txt_velY.kb.text;
+                velY = txt_velY.kb.minus * float.Parse(txt_velY.kb.text);
+            }
+            if (txt_diameter.kb.text != "" && txt_diameter.inFocus)
+            {
+                txt_diameter.textInput = txt_diameter.kb.text;
+                diameter = txt_diameter.kb.minus * float.Parse(txt_diameter.kb.text);
             }
 
-            txt_startX.Update();
-            txt_startY.Update();
-            txt_mass.Update();
-            txt_diameter.Update();
+            txt_startX.Update(gameTime);
+            txt_startY.Update(gameTime);
+            txt_velX.Update(gameTime);
+            txt_velY.Update(gameTime);
+            txt_diameter.Update(gameTime);
             btnCreate.Update(0);
 
-            if (btnCreate.isClicking)
+            if (btnCreate.Clicked)
             {
+
                 showMenu = false;
                 createObject = true;
             }
@@ -79,22 +88,24 @@ namespace CometSimulation
                 createObject = false;
         }
 
-        public void Draw(SpriteBatch spriteBatch, SpriteFont font, Texture2D tex)
+        public void Draw(SpriteBatch spriteBatch, SpriteFont font, Texture2D texPixel, Texture2D texBox)
         {
             if (showMenu == true)
             {
-                spriteBatch.Draw(tex, rectContainer, Color.White);
+                spriteBatch.Draw(texPixel, rectContainer, Color.White);
 
                 //draw menu items below
-                btnCreate.Draw(spriteBatch, tex, font, 0);
-                spriteBatch.DrawString(font, "X:", new Vector2(20, 170), Color.Black);
-                txt_startX.Draw(spriteBatch, tex, font);
-                spriteBatch.DrawString(font, "Y:", new Vector2(20, 270), Color.Black);
-                txt_startY.Draw(spriteBatch, tex, font);
-                spriteBatch.DrawString(font, "Mass:", new Vector2(20, 370), Color.Black);
-                txt_mass.Draw(spriteBatch, tex, font);
-                spriteBatch.DrawString(font, "Diameter:", new Vector2(20, 470), Color.Black);
-                txt_diameter.Draw(spriteBatch, tex, font);
+                btnCreate.Draw(spriteBatch, texPixel, font, 0);
+                spriteBatch.DrawString(font, "X Position:", new Vector2(20, 170), Color.Black);
+                txt_startX.Draw(spriteBatch, texBox, font);
+                spriteBatch.DrawString(font, "Y Position:", new Vector2(20, 270), Color.Black);
+                txt_startY.Draw(spriteBatch, texBox, font);
+                spriteBatch.DrawString(font, "X Velocity:", new Vector2(20, 370), Color.Black);
+                txt_velX.Draw(spriteBatch, texBox, font);
+                spriteBatch.DrawString(font, "Y Velocity:", new Vector2(20, 470), Color.Black);
+                txt_velY.Draw(spriteBatch, texBox, font);
+                spriteBatch.DrawString(font, "Diameter:", new Vector2(20, 570), Color.Black);
+                txt_diameter.Draw(spriteBatch, texBox, font);
             }
         }
     }

@@ -18,28 +18,27 @@ namespace CometSimulation
         public Vector2 Acceleration;
         public Vector2 Velocity;
         public Vector2 Force;
-        public double F;
-        public double m;
-        public double Diameter;
+        public float F;
+        public float m;
+        public float Diameter;
         Color Colour;
         List<Vector2> dots = new List<Vector2>();
         Random rand = new Random();
 
 
-        public Planet(Vector2 pos, double mass, double dia)
+        public Planet(Vector2 pos, Vector2 vel, float dia)
         {
             Position = pos;
             Diameter = dia;
-            Colour = new Color((float)rand.NextDouble()*255,(float)rand.NextDouble()*255,(float)rand.NextDouble()*255);
-            Console.WriteLine(Colour);
-            m = mass;
-            Velocity.Y = 1;
+            Colour = new Color((float)rand.NextDouble(),(float)rand.NextDouble(),(float)rand.NextDouble());
+            Velocity = vel;
+            m = 1;
         }
 
         public void Update()
         {
-            Acceleration.X = Force.X / (float)m;
-            Acceleration.Y = Force.Y / (float)m;
+            Acceleration.X = Force.X / m;
+            Acceleration.Y = Force.Y / m;
 
             dots.Add(Position);
 

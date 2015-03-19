@@ -20,8 +20,8 @@ namespace CometSimulation
         Texture2D texComet;
         Texture2D texPlanet;
         Texture2D texStar;
-        Texture2D texSolid;
-        Texture2D texMenu;
+        Texture2D texPixel;
+        Texture2D texBox;
         string obj = "";
         Menu menu = new Menu();
         ParameterMenu popup = new ParameterMenu();
@@ -49,38 +49,41 @@ namespace CometSimulation
             texComet = Content.Load<Texture2D>("Comet");
             texPlanet = Content.Load<Texture2D>("Planet");
             texStar = Content.Load<Texture2D>("Star");
-            texSolid = Content.Load<Texture2D>("Pixel");
-            texMenu = Content.Load<Texture2D>("Menu");
+            texPixel = Content.Load<Texture2D>("Pixel");
+            texBox = Content.Load<Texture2D>("Box");
         }
 
         protected override void Update(GameTime gameTime)
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Escape) == true)
                 Exit();
-            if (menu.btnComet.isClicking)
+            if (menu.btnComet.Clicked && !popup.showMenu)
             {
                 popup.showMenu = true;
                 obj = "comet";
             }
-            if (menu.btnPlanet.isClicking)
+            if (menu.btnPlanet.Clicked && !popup.showMenu)
             {
                 popup.showMenu = true;
                 obj = "planet";
             }
-            if (menu.btnReset.isClicking)
+            if (menu.btnReset.Clicked && !popup.showMenu)
+            {
                 manager.resetScreen();
+                menu.showMenu = false;
+            }
 
             if (popup.createObject)
             {
                 if (obj == "comet")
-                    manager.createComet(popup.startX, popup.startY, popup.mass, popup.diameter);
+                    manager.createComet(popup.startX, popup.startY, popup.velX, popup.velY, popup.diameter);
                 if (obj == "planet")
-                    manager.createPlanet(popup.startX, popup.startY, popup.mass, popup.diameter);
+                    manager.createPlanet(popup.startX, popup.startY, popup.velX, popup.velY, popup.diameter);
             }
 
             manager.Update();
             menu.Update();
-            popup.Update();
+            popup.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -90,8 +93,8 @@ namespace CometSimulation
             spriteBatch.Begin();
 
             manager.Draw(spriteBatch, texComet, texPlanet, texStar);
-            menu.Draw(spriteBatch, font, texMenu);
-            popup.Draw(spriteBatch, font, texMenu);
+            menu.Draw(spriteBatch, font, texPixel, texBox);
+            popup.Draw(spriteBatch, font, texPixel, texBox);
             spriteBatch.End();
             base.Draw(gameTime);
         }

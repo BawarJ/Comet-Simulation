@@ -15,7 +15,7 @@ namespace CometSimulation
     class Button
     {
         bool isHovering;
-        public bool isClicking;
+        public bool Clicked;
         int Width;
         int Y;
         Rectangle mousePos;
@@ -37,22 +37,22 @@ namespace CometSimulation
             ms = Mouse.GetState();
             mousePos = new Rectangle(ms.X, ms.Y, 1, 1);
 
-            if (mousePos.Intersects(new Rectangle(menuX, Y, Width, 100)))
+            if (mousePos.Intersects(new Rectangle(menuX, Y, Width, 50)))
                 isHovering = true;
             else
                 isHovering = false;
 
-            if (isHovering && ms.LeftButton == ButtonState.Pressed && pms.LeftButton == ButtonState.Released)
-                isClicking = true;
+            if (isHovering && pms.LeftButton == ButtonState.Pressed && ms.LeftButton == ButtonState.Released)
+                Clicked = true;
             else
-                isClicking = false;
+                Clicked = false;
 
             if (isHovering)
                 Colour.R = 100;
             else
                 Colour.R = 200;
 
-            if (isClicking)
+            if (Clicked)
                 Colour.B = 100;
             else
                 Colour.B = 200;
@@ -62,7 +62,7 @@ namespace CometSimulation
 
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture, SpriteFont Font, int menuX)
         {
-            spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, Width - 20, 100), Colour);
+            spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, Width - 20, 50), Colour);
             spriteBatch.DrawString(Font, Message, new Vector2(menuX + 50, Y + 10), Color.Black);
         }
     }

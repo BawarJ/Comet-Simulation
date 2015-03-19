@@ -25,7 +25,6 @@ C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimul
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Comet.xnb
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Planet.xnb
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Pixel.xnb
-C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Menu.xnb
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Font.xnb
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\CometSimulation.exe
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\CometSimulation.pdb
@@ -33,3 +32,16 @@ C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimul
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.exe
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.pdb
+N:\Downloads\Comet-Simulation-master(cursor)\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\Content\Star.xnb
+N:\Downloads\Comet-Simulation-master(cursor)\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\Content\Comet.xnb
+N:\Downloads\Comet-Simulation-master(cursor)\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\Content\Planet.xnb
+N:\Downloads\Comet-Simulation-master(cursor)\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\Content\Pixel.xnb
+N:\Downloads\Comet-Simulation-master(cursor)\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\Content\Menu.xnb
+N:\Downloads\Comet-Simulation-master(cursor)\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\Content\Font.xnb
+N:\Downloads\Comet-Simulation-master(cursor)\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\CometSimulation.exe
+N:\Downloads\Comet-Simulation-master(cursor)\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\CometSimulation.pdb
+N:\Downloads\Comet-Simulation-master(cursor)\Comet-Simulation-master\CometSimulation\CometSimulation\obj\x86\Debug\ResolveAssemblyReference.cache
+N:\Downloads\Comet-Simulation-master(cursor)\Comet-Simulation-master\CometSimulation\CometSimulation\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+N:\Downloads\Comet-Simulation-master(cursor)\Comet-Simulation-master\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.exe
+N:\Downloads\Comet-Simulation-master(cursor)\Comet-Simulation-master\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.pdb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Box.xnb

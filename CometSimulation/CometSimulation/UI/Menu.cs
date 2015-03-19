@@ -14,7 +14,7 @@ namespace CometSimulation
 {
     class Menu
     {
-        Boolean showMenu;
+        public Boolean showMenu;
         int X = 0;
         int Inc = 8;
         int Width = 200;
@@ -28,8 +28,8 @@ namespace CometSimulation
         public Menu()
         {
             btnComet = new Button("Comet", Width, 100);
-            btnPlanet = new Button("Planet", Width, 200);
-            btnReset = new Button("Reset", Width, 500);
+            btnPlanet = new Button("Planet", Width, 400);
+            btnReset = new Button("Reset", Width, 700);
         }
 
         public void Update()
@@ -61,17 +61,17 @@ namespace CometSimulation
             btnReset.Update(X);
         }
 
-        public void Draw(SpriteBatch spriteBatch, SpriteFont font, Texture2D tex)
+        public void Draw(SpriteBatch spriteBatch, SpriteFont font, Texture2D texPixel, Texture2D texBox)
         {
             if (showMenu == true)
             {
-                spriteBatch.Draw(tex, rectContainer, Color.White);
+                spriteBatch.Draw(texPixel, rectContainer, Color.White);
 
                 //draw menu items below
                 spriteBatch.DrawString(font, "Comet Simulation", new Vector2(X + 20 , 10), Color.Black);
-                btnComet.Draw(spriteBatch, tex, font, X);
-                btnPlanet.Draw(spriteBatch, tex, font, X);
-                btnReset.Draw(spriteBatch, tex, font, X);
+                btnComet.Draw(spriteBatch, texPixel, font, X);
+                btnPlanet.Draw(spriteBatch, texPixel, font, X);
+                btnReset.Draw(spriteBatch, texPixel, font, X);
             }
         }
     }

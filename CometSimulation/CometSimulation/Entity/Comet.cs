@@ -18,33 +18,33 @@ namespace CometSimulation
         public Vector2 Acceleration;
         public Vector2 Velocity;
         public Vector2 Force;
-        public double F;
-        public double m;
-        public double Diameter;
-        Color Colour;
+        public float F;
+        public float m;
+        public float Diameter;
+        Color tailColour;
         List<Vector2> dots = new List<Vector2>();
         List<Particle> particles = new List<Particle>();
         List<Particle> particlesToRemove = new List<Particle>();
         Random rand = new Random();
         public Vector2 particleVelocity;
 
-        public Comet(Vector2 pos, double mass, double dia, Color col)
+        public Comet(Vector2 pos, Vector2 vel, float dia, Color col)
         {
             Position = pos;
             Diameter = dia;
-            Colour = col;
-            m = mass;
-            Velocity.Y = (float)rand.NextDouble()*0.5f;
+            tailColour = col;
+            Velocity = vel;
+            m = 1;
         }
 
         public void Update()
         {
-            Acceleration.X = Force.X / (float)m;
-            Acceleration.Y = Force.Y / (float)m;
+            Acceleration.X = Force.X / m;
+            Acceleration.Y = Force.Y / m;
 
             dots.Add(Position);
 
-            particles.Add(new Particle(Position, new Color(50,100,255), particleVelocity+Velocity));
+            particles.Add(new Particle(Position, Color.Gray, particleVelocity)); //dust tail (could u use 1 class to make both?)
 
             foreach (Particle p in particles)
             {
@@ -65,11 +65,11 @@ namespace CometSimulation
             Rectangle Rectangle = new Rectangle((int)Position.X - (int)Diameter / 2, (int)Position.Y - (int)Diameter / 2, (int)Diameter, (int)Diameter);
 
             foreach (Vector2 d in dots)
-                spriteBatch.Draw(Texture, new Rectangle((int)d.X, (int)d.Y, 1, 1), Colour);
+                spriteBatch.Draw(Texture, new Rectangle((int)d.X, (int)d.Y, 1, 1), Color.White);
             foreach (Particle p in particles)
                 spriteBatch.Draw(Texture, new Rectangle((int)p.Position.X, (int)p.Position.Y, 2, 2), p.Colour);
 
-            spriteBatch.Draw(Texture, Rectangle, Colour);
+            spriteBatch.Draw(Texture, Rectangle, Color.White);
         }
     }
 }
