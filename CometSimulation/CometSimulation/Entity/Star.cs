@@ -19,12 +19,19 @@ namespace CometSimulation
         public double m;
         public double Diameter;
         Color Colour;
+        Color startingColour;
+        MouseState ms;
+        MouseState pms;
+        Rectangle mousePos;
+        public Boolean isClicking;
+        public Boolean isHovering;
 
         public Star(Vector2 pos, double mass, double dia, Color col)
         {
             Position = pos;
             Diameter = dia;
             Colour = col;
+            startingColour = col;
             m = mass;
             Velocity.X = 0;
         }
@@ -32,6 +39,28 @@ namespace CometSimulation
         public void Update()
         {
             Position = Vector2.Add(Position, Velocity);
+
+            //mouse code
+            ms = Mouse.GetState();
+            mousePos = new Rectangle(ms.X, ms.Y, 1, 1);
+
+            if (mousePos.Intersects(new Rectangle((int)(Position.X-Diameter/2), (int)(Position.Y-Diameter/2), (int)Diameter, (int)Diameter)))
+                isHovering = true;
+            else
+                isHovering = false;
+
+            if (isHovering && pms.LeftButton == ButtonState.Pressed && ms.LeftButton == ButtonState.Pressed)
+                isClicking = true;
+            else
+                isClicking = false;
+
+            if (isHovering)
+                Colour.R = 100;
+            else
+                Colour.R = startingColour.R;
+
+
+            pms = Mouse.GetState();
         }
         
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture)

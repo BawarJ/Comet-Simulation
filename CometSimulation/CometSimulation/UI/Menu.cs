@@ -24,12 +24,14 @@ namespace CometSimulation
         public Button btnComet;
         public Button btnPlanet;
         public Button btnReset;
+        public Button btnExit;
 
         public Menu()
         {
-            btnComet = new Button("Comet", Width, 100);
+            btnComet = new Button("Comet", Width, 200);
             btnPlanet = new Button("Planet", Width, 400);
-            btnReset = new Button("Reset", Width, 700);
+            btnReset = new Button("Reset", Width, 650);
+            btnExit = new Button("Exit", Width, 700);
         }
 
         public void Update()
@@ -59,6 +61,7 @@ namespace CometSimulation
             btnComet.Update(X);
             btnPlanet.Update(X);
             btnReset.Update(X);
+            btnExit.Update(X);
         }
 
         public void Draw(SpriteBatch spriteBatch, SpriteFont font, Texture2D texPixel, Texture2D texBox)
@@ -72,6 +75,7 @@ namespace CometSimulation
                 btnComet.Draw(spriteBatch, texPixel, font, X);
                 btnPlanet.Draw(spriteBatch, texPixel, font, X);
                 btnReset.Draw(spriteBatch, texPixel, font, X);
+                btnExit.Draw(spriteBatch, texPixel, font, X);
             }
         }
     }

@@ -34,6 +34,7 @@ namespace CometSimulation
 
         public void Update(int menuX)
         {
+            pms = ms;
             ms = Mouse.GetState();
             mousePos = new Rectangle(ms.X, ms.Y, 1, 1);
 
@@ -42,7 +43,7 @@ namespace CometSimulation
             else
                 isHovering = false;
 
-            if (isHovering && pms.LeftButton == ButtonState.Pressed && ms.LeftButton == ButtonState.Released)
+            if (isHovering && pms.LeftButton == ButtonState.Released && ms.LeftButton == ButtonState.Pressed)
                 Clicked = true;
             else
                 Clicked = false;
@@ -57,7 +58,6 @@ namespace CometSimulation
             else
                 Colour.B = 200;
 
-            pms = Mouse.GetState();
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture, SpriteFont Font, int menuX)

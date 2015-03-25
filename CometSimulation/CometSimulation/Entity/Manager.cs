@@ -26,6 +26,9 @@ namespace CometSimulation
         double dSq;
         Vector2 d;
 
+        MouseState ms;
+        Vector2 mousePos;
+
         public void Initialize()
         {
             stars.Add(new Star(new Vector2(600, 300), mass, 80, Color.White));
@@ -47,6 +50,8 @@ namespace CometSimulation
 
         public void Update()
         {
+            ms = Mouse.GetState();
+            mousePos = new Vector2(ms.X, ms.Y);
                 foreach (Comet c in comets)
                 {
                     c.Force = Vector2.Zero;
@@ -91,7 +96,13 @@ namespace CometSimulation
             foreach (Planet p in planets)
                 p.Update();
             foreach (Star s in stars)
+            {
+                if (s.isClicking)
+                {
+                    s.Position = mousePos;
+                }
                 s.Update();
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D texComet, Texture2D texPlanet, Texture2D texStar)

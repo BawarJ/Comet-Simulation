@@ -20,7 +20,8 @@ namespace CometSimulation
         MouseState ms;
         Rectangle rectMouse;
         Rectangle rectContainer;
-        Button btnCreate = new Button("Create", 200, 700);
+        Button btnCreate = new Button("Create", 200, 650);
+        Button btnBack = new Button("Back", 200, 700); 
         TextBox txt_startX = new TextBox(200, 200);
         TextBox txt_startY = new TextBox(200, 300);
         TextBox txt_velX = new TextBox(200, 400);
@@ -77,13 +78,18 @@ namespace CometSimulation
             txt_velY.Update(gameTime);
             txt_diameter.Update(gameTime);
             btnCreate.Update(0);
-
+            btnBack.Update(0);
+            
             if (btnCreate.Clicked)
             {
-
                 showMenu = false;
                 createObject = true;
             }
+            else
+                createObject = false;
+
+            if (btnBack.Clicked)
+                showMenu = false;
             else
                 createObject = false;
         }
@@ -96,6 +102,7 @@ namespace CometSimulation
 
                 //draw menu items below
                 btnCreate.Draw(spriteBatch, texPixel, font, 0);
+                btnBack.Draw(spriteBatch, texPixel, font, 0);
                 spriteBatch.DrawString(font, "X Position:", new Vector2(20, 170), Color.Black);
                 txt_startX.Draw(spriteBatch, texBox, font);
                 spriteBatch.DrawString(font, "Y Position:", new Vector2(20, 270), Color.Black);

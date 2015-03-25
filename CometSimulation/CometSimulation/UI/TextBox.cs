@@ -39,6 +39,7 @@ namespace CometSimulation
 
         public void Update(GameTime gameTime)
         {
+            pms = ms;
             ms = Mouse.GetState();
             mousePos = new Rectangle(ms.X, ms.Y, 1, 1);
 
@@ -79,7 +80,6 @@ namespace CometSimulation
 
             cursorPosition = textInput.Length;
             kb.Update();
-            pms = Mouse.GetState();
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture, SpriteFont Font)

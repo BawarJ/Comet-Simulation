@@ -55,8 +55,6 @@ namespace CometSimulation
 
         protected override void Update(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape) == true)
-                Exit();
             if (menu.btnComet.Clicked && !popup.showMenu)
             {
                 popup.showMenu = true;
@@ -72,6 +70,8 @@ namespace CometSimulation
                 manager.resetScreen();
                 menu.showMenu = false;
             }
+            if (menu.btnExit.Clicked && !popup.showMenu)
+                Exit();
 
             if (popup.createObject)
             {
