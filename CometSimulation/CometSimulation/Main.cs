@@ -35,24 +35,19 @@ namespace CometSimulation
         Button btnExit = new Button("Exit", 200, 700);
         Button btnCreate = new Button("Create", 200, 650);
         Button btnBack = new Button("Back", 200, 700);
-        TextBox txt_startX = new TextBox(200, 200);
-        TextBox txt_startY = new TextBox(200, 300);
-        TextBox txt_velX = new TextBox(200, 400);
-        TextBox txt_velY = new TextBox(200, 500);
-        TextBox txt_diameter = new TextBox(200, 600);
-        public float startX;
-        public float startY;
-        public float velX;
-        public float velY;
-        public float diameter;
+        TextBox txt_startX = new TextBox("X Position:", 200, 200);
+        TextBox txt_startY = new TextBox("Y Position:", 200, 300);
+        TextBox txt_velX = new TextBox("X Velocity:", 200, 400);
+        TextBox txt_velY = new TextBox("Y Velocity:", 200, 500);
+        TextBox txt_diameter = new TextBox("Diameter:", 200, 600);
 
         public Main()
         {
             Content.RootDirectory = "Content";
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1360;
-            graphics.PreferredBackBufferHeight = 700;
-            //graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferWidth = 1366;
+            graphics.PreferredBackBufferHeight = 768;
+            graphics.IsFullScreen = true;
             IsMouseVisible = true;
 
             state = MenuState.Main;
@@ -127,7 +122,7 @@ namespace CometSimulation
                     btnBack.Update(X);
 
                     if (btnCreate.Clicked)
-                        manager.createComet(startX, startY, velX, velY, diameter);
+                        manager.createComet(txt_startX.Value, txt_startY.Value, txt_velX.Value, txt_velY.Value, txt_diameter.Value);
 
                     if (btnBack.Clicked)
                         state = MenuState.Main;
@@ -137,35 +132,6 @@ namespace CometSimulation
                     txt_velX.Update(gameTime, X);
                     txt_velY.Update(gameTime, X);
                     txt_diameter.Update(gameTime, X);
-
-                    #region Textboxes
-                    if (txt_startX.kb.text != "" && txt_startX.inFocus)
-                    {
-                        txt_startX.textInput = txt_startX.kb.text;
-                        startX = txt_startX.kb.minus * float.Parse(txt_startX.kb.text);
-                    }
-                    if (txt_startY.kb.text != "" && txt_startY.inFocus)
-                    {
-                        txt_startY.textInput = txt_startY.kb.text;
-                        startY = txt_startY.kb.minus * float.Parse(txt_startY.kb.text);
-                    }
-                    if (txt_velX.kb.text != "" && txt_velX.inFocus)
-                    {
-                        txt_velX.textInput = txt_velX.kb.text;
-                        velX = txt_velX.kb.minus * float.Parse(txt_velX.kb.text);
-                    }
-                    if (txt_velY.kb.text != "" && txt_velY.inFocus)
-                    {
-                        txt_velY.textInput = txt_velY.kb.text;
-                        velY = txt_velY.kb.minus * float.Parse(txt_velY.kb.text);
-                    }
-                    if (txt_diameter.kb.text != "" && txt_diameter.inFocus)
-                    {
-                        txt_diameter.textInput = txt_diameter.kb.text;
-                        diameter = txt_diameter.kb.minus * float.Parse(txt_diameter.kb.text);
-                    }
-                    #endregion
-
                     break;
 
                 case MenuState.Planet:
@@ -200,15 +166,10 @@ namespace CometSimulation
                 case MenuState.Comet:
                     btnCreate.Draw(spriteBatch, texPixel, font, X);
                     btnBack.Draw(spriteBatch, texPixel, font, X);
-                    spriteBatch.DrawString(font, "X Position:", new Vector2(X + 20, 170), Color.Black);
                     txt_startX.Draw(spriteBatch, texBox, font, X);
-                    spriteBatch.DrawString(font, "Y Position:", new Vector2(X + 20, 270), Color.Black);
                     txt_startY.Draw(spriteBatch, texBox, font, X);
-                    spriteBatch.DrawString(font, "X Velocity:", new Vector2(X + 20, 370), Color.Black);
                     txt_velX.Draw(spriteBatch, texBox, font, X);
-                    spriteBatch.DrawString(font, "Y Velocity:", new Vector2(X + 20, 470), Color.Black);
                     txt_velY.Draw(spriteBatch, texBox, font, X);
-                    spriteBatch.DrawString(font, "Diameter:", new Vector2(X + 20, 570), Color.Black);
                     txt_diameter.Draw(spriteBatch, texBox, font, X);
                     break;
 

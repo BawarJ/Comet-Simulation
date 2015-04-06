@@ -12,10 +12,8 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CometSimulation
 {
-    class TextBox
+    class Slider
     {
-        public float Value;
-        byte x;
         bool isHovering;
         public bool isClicking;
         public bool inFocus;
@@ -25,18 +23,13 @@ namespace CometSimulation
         MouseState pms;
         MouseState ms;
         Color Colour;
-        Color cursorColour;
-        public KbHandler kb = new KbHandler();
-        public string textInput = "";
-        int cursorPosition;
         string Message;
 
-        public TextBox(string msg, int wid, int y)
+        public Slider(int wid, int y, string msg)
         {
             Width = wid - 20;
             Y = y;
             Colour = new Color(255, 255, 255);
-            cursorColour = new Color(0, 0, 0);
             Message = msg;
         }
 
@@ -71,34 +64,18 @@ namespace CometSimulation
             if (inFocus)
             {
                 Colour.R = 230;
-                x = (byte)(gameTime.TotalGameTime.Milliseconds/4);
-                cursorColour.A = x;
-                if (kb.text != "")
-                {
-                    textInput = kb.text;
-                    Value = kb.minus * float.Parse(kb.text);
-                }
-            }
-            else
-            {
-                kb.text = "";
             }
 
-            cursorPosition = textInput.Length;
-            kb.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture, SpriteFont Font, int menuX)
         {
             spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, Width - 20, 50), Colour);
-            spriteBatch.DrawString(Font, Message, new Vector2(menuX + 20, Y - 30), Color.Black);
-            spriteBatch.DrawString(Font, textInput, new Vector2(menuX + 25, Y + 10), Color.Black);
+            
+            spriteBatch.DrawString(Font, Message, new Vector2(menuX + 25, Y + 10), Color.Black);
             if (inFocus)
             {
-                spriteBatch.Draw(Texture, new Rectangle(menuX + 25 + 10 * cursorPosition, Y + 10, 1, 30), cursorColour); //draws cursor
-
-                if (kb.minus == -1)
-                    spriteBatch.DrawString(Font, "-", new Vector2(menuX + 7, Y + 10), Color.Black);
+                //draw stuff
             }
         }
     }

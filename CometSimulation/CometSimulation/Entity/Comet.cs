@@ -52,8 +52,8 @@ namespace CometSimulation
             //create gas tail
             for (int i = 0; i <= 99; i++)
             {
-                gasParticles.Insert(i, new Vector2(Position.X + ((float)(rand.NextDouble()/20) + gParticleVelocity.X) * ((i+1)),
-                                                   Position.Y + ((float)(rand.NextDouble()/20) + gParticleVelocity.Y) * ((i+1)) ));
+                gasParticles.Insert(i, new Vector2(Position.X + ((float)(rand.NextDouble()/50) + gParticleVelocity.X) * ((i+1)),
+                                                   Position.Y + ((float)(rand.NextDouble()/50) + gParticleVelocity.Y) * ((i+1)) ));
                 if (gasParticles.Count > 99)
                     gasParticles.RemoveRange(99, gasParticles.Count-100);
             }
@@ -82,7 +82,7 @@ namespace CometSimulation
                 spriteBatch.Draw(Texture, new Rectangle((int)p.Position.X, (int)p.Position.Y, 2, 2), p.Colour);
             for (int i = 0; i <= 99; i++)
             {
-                Color gColour = new Color(255 / 100 * i, 255 / 100 * i, 255);
+                Color gColour = new Color((255 / 100) * i, (255 / 100) * i, 255);
                 spriteBatch.Draw(Texture, new Rectangle((int)gasParticles[i].X, (int)gasParticles[i].Y, 1, 1), gColour);
             }
 

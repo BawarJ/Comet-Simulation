@@ -129,6 +129,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="Entity\Star.cs" />
     <Compile Include="UI\Button.cs" />
+    <Compile Include="UI\Slider.cs" />
     <Compile Include="UI\TextBox.cs" />
     <Compile Include="UI\Input\kbHandler.cs" />
   </ItemGroup>
