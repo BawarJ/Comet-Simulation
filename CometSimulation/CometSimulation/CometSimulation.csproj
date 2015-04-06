@@ -131,8 +131,6 @@
     <Compile Include="UI\Button.cs" />
     <Compile Include="UI\TextBox.cs" />
     <Compile Include="UI\Input\kbHandler.cs" />
-    <Compile Include="UI\ParameterMenu.cs" />
-    <Compile Include="UI\Menu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon\Game.ico" />

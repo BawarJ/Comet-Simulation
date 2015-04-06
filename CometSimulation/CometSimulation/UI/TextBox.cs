@@ -37,13 +37,13 @@ namespace CometSimulation
             cursorColour = new Color(0, 0, 0);
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, int menuX)
         {
             pms = ms;
             ms = Mouse.GetState();
             mousePos = new Rectangle(ms.X, ms.Y, 1, 1);
 
-            if (mousePos.Intersects(new Rectangle(0, Y, Width, 50)))
+            if (mousePos.Intersects(new Rectangle(menuX, Y, Width, 50)))
             {
                 isHovering = true;
                 Colour.R = 245;
@@ -82,17 +82,17 @@ namespace CometSimulation
             kb.Update();
         }
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D Texture, SpriteFont Font)
+        public void Draw(SpriteBatch spriteBatch, Texture2D Texture, SpriteFont Font, int menuX)
         {
-            spriteBatch.Draw(Texture, new Rectangle(20, Y, Width - 20, 50), Colour);
+            spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, Width - 20, 50), Colour);
             
-            spriteBatch.DrawString(Font, textInput, new Vector2(25, Y + 10), Color.Black);
+            spriteBatch.DrawString(Font, textInput, new Vector2(menuX + 25, Y + 10), Color.Black);
             if (inFocus)
             {
-                spriteBatch.Draw(Texture, new Rectangle(25 + 10 * cursorPosition, Y + 10, 1, 30), cursorColour); //draws cursor
+                spriteBatch.Draw(Texture, new Rectangle(menuX + 25 + 10 * cursorPosition, Y + 10, 1, 30), cursorColour); //draws cursor
 
                 if (kb.minus == -1)
-                    spriteBatch.DrawString(Font, "-", new Vector2(7, Y + 10), Color.Black);
+                    spriteBatch.DrawString(Font, "-", new Vector2(menuX + 7, Y + 10), Color.Black);
             }
         }
     }
