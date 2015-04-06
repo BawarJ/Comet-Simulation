@@ -67,8 +67,8 @@ namespace CometSimulation
                             c.Force.X += (float)Math.Sin(theta) * (float)c.F;
                             c.Force.Y += (float)Math.Cos(theta) * (float)c.F;
 
-
-                            c.particleVelocity = -d*0.001f + c.Velocity;
+                            c.gParticleVelocity = -d * 0.001f;
+                            c.particleVelocity = -d*0.0001f + c.Velocity;
                         }
                     }
                 }

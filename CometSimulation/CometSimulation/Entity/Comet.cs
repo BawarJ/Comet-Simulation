@@ -23,10 +23,12 @@ namespace CometSimulation
         public float Diameter;
         Color tailColour;
         List<Vector2> dots = new List<Vector2>();
-        List<Particle> particles = new List<Particle>();
-        List<Particle> particlesToRemove = new List<Particle>();
+        List<Vector2> gasParticles = new List<Vector2>();
+        List<Particle> dustParticles = new List<Particle>();
+        List<Particle> dustParticlesToRemove = new List<Particle>();
         Random rand = new Random();
         public Vector2 particleVelocity;
+        public Vector2 gParticleVelocity;
 
         public Comet(Vector2 pos, Vector2 vel, float dia, Color col)
         {
@@ -39,35 +41,50 @@ namespace CometSimulation
 
         public void Update()
         {
+            //motion of the comet
             Acceleration.X = Force.X / m;
             Acceleration.Y = Force.Y / m;
+            Velocity = Vector2.Add(Velocity, Acceleration);
+            Position = Vector2.Add(Position, Velocity);
 
-            dots.Add(Position);
+            //dots.Add(Position); //orbit line
 
-            particles.Add(new Particle(Position, Color.Gray, particleVelocity)); //dust tail (could u use 1 class to make both?)
+            //create gas tail
+            for (int i = 0; i <= 99; i++)
+            {
+                gasParticles.Insert(i, new Vector2(Position.X + ((float)(rand.NextDouble()/20) + gParticleVelocity.X) * ((i+1)),
+                                                   Position.Y + ((float)(rand.NextDouble()/20) + gParticleVelocity.Y) * ((i+1)) ));
+                if (gasParticles.Count > 99)
+                    gasParticles.RemoveRange(99, gasParticles.Count-100);
+            }
 
-            foreach (Particle p in particles)
+            //create dust tail
+            dustParticles.Add(new Particle(Position, Color.Gray, particleVelocity));
+
+            foreach (Particle p in dustParticles)
             {
                 p.Update();
                 if (p.Length == 0)
-                    particlesToRemove.Add(p);
+                    dustParticlesToRemove.Add(p);
             }
 
-            foreach (Particle r in particlesToRemove)
-                particles.Remove(r);
-
-            Velocity = Vector2.Add(Velocity, Acceleration);
-            Position = Vector2.Add(Position, Velocity);
+            foreach (Particle r in dustParticlesToRemove)
+                dustParticles.Remove(r);
         }
         
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture)
         {
             Rectangle Rectangle = new Rectangle((int)Position.X - (int)Diameter / 2, (int)Position.Y - (int)Diameter / 2, (int)Diameter, (int)Diameter);
-
+            /*
             foreach (Vector2 d in dots)
-                spriteBatch.Draw(Texture, new Rectangle((int)d.X, (int)d.Y, 1, 1), Color.White);
-            foreach (Particle p in particles)
+                spriteBatch.Draw(Texture, new Rectangle((int)d.X, (int)d.Y, 1, 1), Color.White);*/
+            foreach (Particle p in dustParticles)
                 spriteBatch.Draw(Texture, new Rectangle((int)p.Position.X, (int)p.Position.Y, 2, 2), p.Colour);
+            for (int i = 0; i <= 99; i++)
+            {
+                Color gColour = new Color(255 / 100 * i, 255 / 100 * i, 255);
+                spriteBatch.Draw(Texture, new Rectangle((int)gasParticles[i].X, (int)gasParticles[i].Y, 1, 1), gColour);
+            }
 
             spriteBatch.Draw(Texture, Rectangle, Color.White);
         }

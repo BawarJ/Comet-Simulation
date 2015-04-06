@@ -81,17 +81,12 @@ namespace CometSimulation
             btnBack.Update(0);
             
             if (btnCreate.Clicked)
-            {
-                showMenu = false;
                 createObject = true;
-            }
             else
                 createObject = false;
 
             if (btnBack.Clicked)
                 showMenu = false;
-            else
-                createObject = false;
         }
 
         public void Draw(SpriteBatch spriteBatch, SpriteFont font, Texture2D texPixel, Texture2D texBox)

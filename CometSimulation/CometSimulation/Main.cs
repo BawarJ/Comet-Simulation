@@ -30,9 +30,9 @@ namespace CometSimulation
         {
             Content.RootDirectory = "Content";
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1366;
-            graphics.PreferredBackBufferHeight = 768;
-            graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferWidth = 1360;
+            graphics.PreferredBackBufferHeight = 700;
+            //graphics.IsFullScreen = true;
             IsMouseVisible = true;
         }
 

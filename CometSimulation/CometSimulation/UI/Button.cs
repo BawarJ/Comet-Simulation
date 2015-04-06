@@ -34,7 +34,7 @@ namespace CometSimulation
 
         public void Update(int menuX)
         {
-            pms = ms;
+            
             ms = Mouse.GetState();
             mousePos = new Rectangle(ms.X, ms.Y, 1, 1);
 
@@ -57,6 +57,7 @@ namespace CometSimulation
                 Colour.B = 100;
             else
                 Colour.B = 200;
+            pms = ms;
 
         }
 
