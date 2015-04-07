@@ -24,6 +24,7 @@ namespace CometSimulation
         Texture2D texBox;
 
         MenuState state;
+        FileManager fileManager = new FileManager();
         int X = 0;
         int Inc = 10;
         MouseState ms;
@@ -115,6 +116,10 @@ namespace CometSimulation
                         state = MenuState.Comet;
                     if (btnPlanet.Clicked)
                         state = MenuState.Planet;
+                    if (btnSave.Clicked)
+                        fileManager.Save(manager);
+                    if (btnLoad.Clicked)
+                        fileManager.Load(manager);
                     if (btnReset.Clicked)
                         manager.resetScreen();
                     if (btnExit.Clicked)

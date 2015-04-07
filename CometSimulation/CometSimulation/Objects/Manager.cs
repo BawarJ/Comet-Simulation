@@ -14,9 +14,9 @@ namespace CometSimulation
 {
     class Manager
     {
-        List<Comet> comets = new List<Comet>();
-        List<Planet> planets = new List<Planet>();
-        List<Star> stars = new List<Star>();
+        public List<Comet> comets = new List<Comet>();
+        public List<Planet> planets = new List<Planet>();
+        public List<Star> stars = new List<Star>();
 
         Random rand = new Random();
 

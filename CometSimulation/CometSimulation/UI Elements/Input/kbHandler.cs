@@ -108,7 +108,7 @@ namespace CometSimulation
                     text += ".";
                     break;
                 case Keys.Back:
-                    if (text.Length > 1)
+                    if (!string.IsNullOrWhiteSpace(text))
                     {
                         text = text.Remove(text.Length - 1, 1);
                     }

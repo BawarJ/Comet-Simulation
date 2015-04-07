@@ -28,7 +28,6 @@ namespace CometSimulation
         Color cursorColour;
         public KbHandler kb = new KbHandler();
         public string textInput = "";
-        int cursorPosition;
         string Message;
         float Minimum;
         float Maximum;
@@ -100,7 +99,6 @@ namespace CometSimulation
                 kb.text = "";
             }
 
-            cursorPosition = textInput.Length;
             kb.Update();
         }
 
@@ -111,7 +109,7 @@ namespace CometSimulation
             spriteBatch.DrawString(Font, textInput, new Vector2(menuX + 25, Y + 10), textColour);
             if (inFocus)
             {
-                spriteBatch.Draw(Texture, new Rectangle(menuX + 25 + 10 * cursorPosition, Y + 10, 1, 30), cursorColour); //draws cursor
+                spriteBatch.Draw(Texture, new Rectangle(menuX + 25 + (int)Font.MeasureString(textInput).X, Y + 10, 1, 30), cursorColour); //draws cursor
             }
         }
     }
