@@ -10,7 +10,6 @@ namespace CometSimulation
     {
         private Keys[] lastPressedKeys;
         public string text = "";
-        public float minus = 1;
 
         public KbHandler()
         {
@@ -107,9 +106,6 @@ namespace CometSimulation
                     break;
                 case Keys.OemPeriod:
                     text += ".";
-                    break;
-                case Keys.OemMinus:
-                    minus *= -1;
                     break;
                 case Keys.Back:
                     if (text.Length > 1)

@@ -19,7 +19,7 @@ namespace CometSimulation
         bool isHovering;
         public bool isClicking;
         public bool inFocus;
-        int Width;
+        int Width = 160;
         int Y;
         Rectangle mousePos;
         MouseState pms;
@@ -30,14 +30,20 @@ namespace CometSimulation
         public string textInput = "";
         int cursorPosition;
         string Message;
+        float Minimum;
+        float Maximum;
+        bool isValid;
+        Color textColour;
 
-        public TextBox(string msg, int wid, int y)
+        public TextBox(string msg, float min, float max, int y)
         {
-            Width = wid - 20;
             Y = y;
             Colour = new Color(255, 255, 255);
             cursorColour = new Color(0, 0, 0);
+            textColour = Color.Black;
             Message = msg;
+            Minimum = min;
+            Maximum = max;
         }
 
         public void Update(GameTime gameTime, int menuX)
@@ -46,7 +52,7 @@ namespace CometSimulation
             ms = Mouse.GetState();
             mousePos = new Rectangle(ms.X, ms.Y, 1, 1);
 
-            if (mousePos.Intersects(new Rectangle(menuX, Y, Width, 50)))
+            if (mousePos.Intersects(new Rectangle(menuX+20, Y, Width, 50)))
             {
                 isHovering = true;
                 Colour.R = 245;
@@ -76,7 +82,17 @@ namespace CometSimulation
                 if (kb.text != "")
                 {
                     textInput = kb.text;
-                    Value = kb.minus * float.Parse(kb.text);
+                    Value = float.Parse(kb.text);
+                    if (Value >= Minimum && Value <= Maximum)
+                    {
+                        isValid = true;
+                        textColour = Color.Black;
+                    }
+                    else
+                    {
+                        isValid = false;
+                        textColour = Color.Red;
+                    }
                 }
             }
             else
@@ -90,15 +106,12 @@ namespace CometSimulation
 
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture, SpriteFont Font, int menuX)
         {
-            spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, Width - 20, 50), Colour);
+            spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, Width, 50), Colour);
             spriteBatch.DrawString(Font, Message, new Vector2(menuX + 20, Y - 30), Color.Black);
-            spriteBatch.DrawString(Font, textInput, new Vector2(menuX + 25, Y + 10), Color.Black);
+            spriteBatch.DrawString(Font, textInput, new Vector2(menuX + 25, Y + 10), textColour);
             if (inFocus)
             {
                 spriteBatch.Draw(Texture, new Rectangle(menuX + 25 + 10 * cursorPosition, Y + 10, 1, 30), cursorColour); //draws cursor
-
-                if (kb.minus == -1)
-                    spriteBatch.DrawString(Font, "-", new Vector2(menuX + 7, Y + 10), Color.Black);
             }
         }
     }

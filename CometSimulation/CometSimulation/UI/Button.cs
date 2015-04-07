@@ -16,7 +16,7 @@ namespace CometSimulation
     {
         bool isHovering;
         public bool Clicked;
-        int Width;
+        int Width = 160;
         int Y;
         Rectangle mousePos;
         string Message;
@@ -24,10 +24,9 @@ namespace CometSimulation
         MouseState ms;
         Color Colour;
 
-        public Button(string msg, int wid, int y)
+        public Button(string msg, int y)
         {
             Message = msg;
-            Width = wid - 20;
             Y = y;
             Colour = new Color(200, 200, 200);
         }
@@ -38,7 +37,7 @@ namespace CometSimulation
             ms = Mouse.GetState();
             mousePos = new Rectangle(ms.X, ms.Y, 1, 1);
 
-            if (mousePos.Intersects(new Rectangle(menuX, Y, Width, 50)))
+            if (mousePos.Intersects(new Rectangle(menuX+20, Y, Width, 50)))
                 isHovering = true;
             else
                 isHovering = false;
@@ -63,7 +62,7 @@ namespace CometSimulation
 
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture, SpriteFont Font, int menuX)
         {
-            spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, Width - 20, 50), Colour);
+            spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, Width, 50), Colour);
             spriteBatch.DrawString(Font, Message, new Vector2(menuX + 50, Y + 10), Color.Black);
         }
     }

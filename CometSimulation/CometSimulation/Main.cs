@@ -29,17 +29,19 @@ namespace CometSimulation
         MouseState ms;
         Rectangle rectMouse;
         Rectangle rectContainer;
-        Button btnComet = new Button("Comet", 200, 200);
-        Button btnPlanet = new Button("Planet", 200, 400);
-        Button btnReset = new Button("Reset", 200, 650);
-        Button btnExit = new Button("Exit", 200, 700);
-        Button btnCreate = new Button("Create", 200, 650);
-        Button btnBack = new Button("Back", 200, 700);
-        TextBox txt_startX = new TextBox("X Position:", 200, 200);
-        TextBox txt_startY = new TextBox("Y Position:", 200, 300);
-        TextBox txt_velX = new TextBox("X Velocity:", 200, 400);
-        TextBox txt_velY = new TextBox("Y Velocity:", 200, 500);
-        TextBox txt_diameter = new TextBox("Diameter:", 200, 600);
+        Button btnComet = new Button("Comet", 200);
+        Button btnPlanet = new Button("Planet", 275);
+        Button btnSave = new Button("Save", 400);
+        Button btnLoad = new Button("Load", 475);
+        Button btnReset = new Button("Reset", 625);
+        Button btnExit = new Button("Exit", 700);
+        Button btnCreate = new Button("Create", 625);
+        Button btnBack = new Button("Back", 700);
+        TextBox txt_startX = new TextBox("X Position (0 - 1366):", 0, 1366, 175);
+        TextBox txt_startY = new TextBox("Y Position (0 - 768):", 0, 768, 275);
+        Slider sldr_velX = new Slider(-5f, 5f, "X Velocity:", 380);
+        Slider sldr_velY = new Slider(-5f, 5f, "Y Velocity:", 470);
+        Slider sldr_diameter = new Slider(1f, 20f, "Diameter:", 560);
 
         public Main()
         {
@@ -105,6 +107,8 @@ namespace CometSimulation
                 case MenuState.Main:
                     btnComet.Update(X);
                     btnPlanet.Update(X);
+                    btnSave.Update(X);
+                    btnLoad.Update(X);
                     btnReset.Update(X);
                     btnExit.Update(X);
                     if (btnComet.Clicked)
@@ -122,20 +126,33 @@ namespace CometSimulation
                     btnBack.Update(X);
 
                     if (btnCreate.Clicked)
-                        manager.createComet(txt_startX.Value, txt_startY.Value, txt_velX.Value, txt_velY.Value, txt_diameter.Value);
+                        manager.createComet(txt_startX.Value, txt_startY.Value, sldr_velX.Value, sldr_velY.Value, sldr_diameter.Value);
 
                     if (btnBack.Clicked)
                         state = MenuState.Main;
 
                     txt_startX.Update(gameTime, X);
                     txt_startY.Update(gameTime, X);
-                    txt_velX.Update(gameTime, X);
-                    txt_velY.Update(gameTime, X);
-                    txt_diameter.Update(gameTime, X);
+                    sldr_velX.Update(gameTime, X);
+                    sldr_velY.Update(gameTime, X);
+                    sldr_diameter.Update(gameTime, X);
                     break;
 
                 case MenuState.Planet:
-                    //do stuff
+                    btnCreate.Update(X);
+                    btnBack.Update(X);
+
+                    if (btnCreate.Clicked)
+                        manager.createPlanet(txt_startX.Value, txt_startY.Value, sldr_velX.Value, sldr_velY.Value, sldr_diameter.Value);
+
+                    if (btnBack.Clicked)
+                        state = MenuState.Main;
+
+                    txt_startX.Update(gameTime, X);
+                    txt_startY.Update(gameTime, X);
+                    sldr_velX.Update(gameTime, X);
+                    sldr_velY.Update(gameTime, X);
+                    sldr_diameter.Update(gameTime, X);
                     break;
             }
 
@@ -159,6 +176,8 @@ namespace CometSimulation
                     spriteBatch.DrawString(font, "Comet Simulation", new Vector2(X + 20, 10), Color.Black);
                     btnComet.Draw(spriteBatch, texPixel, font, X);
                     btnPlanet.Draw(spriteBatch, texPixel, font, X);
+                    btnSave.Draw(spriteBatch, texPixel, font, X);
+                    btnLoad.Draw(spriteBatch, texPixel, font, X);
                     btnReset.Draw(spriteBatch, texPixel, font, X);
                     btnExit.Draw(spriteBatch, texPixel, font, X);
                     break;
@@ -168,13 +187,19 @@ namespace CometSimulation
                     btnBack.Draw(spriteBatch, texPixel, font, X);
                     txt_startX.Draw(spriteBatch, texBox, font, X);
                     txt_startY.Draw(spriteBatch, texBox, font, X);
-                    txt_velX.Draw(spriteBatch, texBox, font, X);
-                    txt_velY.Draw(spriteBatch, texBox, font, X);
-                    txt_diameter.Draw(spriteBatch, texBox, font, X);
+                    sldr_velX.Draw(spriteBatch, texBox, font, X);
+                    sldr_velY.Draw(spriteBatch, texBox, font, X);
+                    sldr_diameter.Draw(spriteBatch, texBox, font, X);
                     break;
 
                 case MenuState.Planet:
-                    //bla
+                    btnCreate.Draw(spriteBatch, texPixel, font, X);
+                    btnBack.Draw(spriteBatch, texPixel, font, X);
+                    txt_startX.Draw(spriteBatch, texBox, font, X);
+                    txt_startY.Draw(spriteBatch, texBox, font, X);
+                    sldr_velX.Draw(spriteBatch, texBox, font, X);
+                    sldr_velY.Draw(spriteBatch, texBox, font, X);
+                    sldr_diameter.Draw(spriteBatch, texBox, font, X);
                     break;
             }
             #endregion
