@@ -93,14 +93,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CometSimulation.exe" size="26624">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CometSimulation.exe" size="27136">
       <assemblyIdentity name="CometSimulation" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>uVQMQVagS3eoDJa0AutzeAeDi44=</dsig:DigestValue>
+        <dsig:DigestValue>O0I4V3rSwJXbtPWTTXameZ9OreQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -149,13 +149,13 @@
       <dsig:DigestValue>uuK/tqwbfanw/3TZy5KBlikeOwM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Star.xnb" size="40187">
+  <file name="Content\Star.xnb" size="41787">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>/7pi7IonfMy3wrN/qMB0PNwrJsA=</dsig:DigestValue>
+      <dsig:DigestValue>63g9SYnqEOsZYdO9zGSS40rY6C8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Icon\Game.ico" size="4286">

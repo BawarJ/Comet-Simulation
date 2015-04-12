@@ -72,7 +72,8 @@ namespace CometSimulation
             spriteBatch.DrawString(Font, Message, new Vector2(menuX + 25, Y - 30), Color.Black);
             spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, Width, 30), Color.Snow);
             spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, (int)Size, 30), Colour);
-            spriteBatch.DrawString(Font, Value.ToString(), new Vector2(menuX + 25, Y), Color.White);
+            if (isHovering)
+                spriteBatch.DrawString(Font, Value.ToString(), new Vector2(menuX + 22 + Size, Y), Colour);
         }
     }
 }

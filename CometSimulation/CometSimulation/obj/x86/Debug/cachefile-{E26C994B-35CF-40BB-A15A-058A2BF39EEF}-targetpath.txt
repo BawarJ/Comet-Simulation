@@ -1,6 +1,6 @@
-Content\Star.xnb
 Content\Comet.xnb
 Content\Planet.xnb
 Content\Pixel.xnb
 Content\Font.xnb
 Content\Box.xnb
+Content\Star.xnb

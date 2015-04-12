@@ -80,11 +80,12 @@ namespace CometSimulation
                 cursorColour.A = x;
                 if (kb.text != "")
                 {
-                    textInput = kb.text;
-                    Value = float.Parse(kb.text);
+                    
                     if (Value >= Minimum && Value <= Maximum)
                     {
                         isValid = true;
+                        textInput = kb.text;
+                        Value = float.Parse(kb.text);
                         textColour = Color.Black;
                     }
                     else

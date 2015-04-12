@@ -2,18 +2,6 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>Star.png</Source>
-      <Name>Star</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor">255, 255, 255, 255</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Star.xnb</Output>
-      <Time>2015-03-05T10:11:50+00:00</Time>
-    </Item>
-    <Item>
       <Source>Comet.png</Source>
       <Name>Comet</Name>
       <Importer>TextureImporter</Importer>
@@ -70,6 +58,18 @@
       <Options>None</Options>
       <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Box.xnb</Output>
       <Time>2015-03-18T23:28:16.2531467+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Star.jpg</Source>
+      <Name>Star</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor">0, 0, 0, 255</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Star.xnb</Output>
+      <Time>2015-04-09T16:49:46.1804717+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

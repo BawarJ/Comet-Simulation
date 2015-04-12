@@ -20,8 +20,8 @@ namespace CometSimulation
 
         Random rand = new Random();
 
-        float G = 0.001f;
-        float mass = 5000000;
+        float G = 0.00000000006673f;
+        float mass = 2*(float)Math.Exp(30);
         float theta;
         double dSq;
         Vector2 d;
@@ -34,9 +34,9 @@ namespace CometSimulation
             stars.Add(new Star(new Vector2(600, 300), mass, 80, Color.White));
         }
 
-        public void createComet(float startX, float startY, float velX, float velY, float diameter)
+        public void createComet(float startX, float startY, float velX, float velY, float m, float density, float methane)
         {
-            comets.Add(new Comet(new Vector2(startX, startY), new Vector2(velX, velY), diameter, Color.White));
+            comets.Add(new Comet(new Vector2(startX, startY), new Vector2(velX, velY), m, density, methane));
         }
         public void createPlanet(float startX, float startY, float velX, float velY, float diameter)
         {
@@ -67,7 +67,7 @@ namespace CometSimulation
                             c.Force.X += (float)Math.Sin(theta) * (float)c.F;
                             c.Force.Y += (float)Math.Cos(theta) * (float)c.F;
 
-                            c.gParticleVelocity = -d * 0.001f;
+                            c.gasDirection = -d * 0.001f;
                             c.particleVelocity = -d*0.0001f + c.Velocity;
                         }
                     }

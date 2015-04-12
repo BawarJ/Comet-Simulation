@@ -34,7 +34,7 @@ namespace CometSimulation
         public void Update()
         {
             Position = Vector2.Add(Position, Velocity);
-            Position = Vector2.Add(Position, new Vector2((float)random.NextDouble()-0.5f,(float)random.NextDouble()-0.5f));
+            Position = Vector2.Add(Position, new Vector2((float)random.NextDouble() - 0.5f, (float)random.NextDouble() - 0.5f));
             Length--;
             Colour.R = (byte)(Length / 40 * startingColour.R);
             Colour.G = (byte)(Length / 40 * startingColour.G);

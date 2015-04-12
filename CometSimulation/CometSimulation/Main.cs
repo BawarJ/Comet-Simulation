@@ -38,11 +38,14 @@ namespace CometSimulation
         Button btnExit = new Button("Exit", 700);
         Button btnCreate = new Button("Create", 625);
         Button btnBack = new Button("Back", 700);
-        TextBox txt_startX = new TextBox("X Position (0 - 1366):", 0, 1366, 175);
-        TextBox txt_startY = new TextBox("Y Position (0 - 768):", 0, 768, 275);
-        Slider sldr_velX = new Slider(-5f, 5f, "X Velocity:", 380);
-        Slider sldr_velY = new Slider(-5f, 5f, "Y Velocity:", 470);
-        Slider sldr_diameter = new Slider(1f, 20f, "Diameter:", 560);
+        TextBox txt_startX = new TextBox("X Position (0 - 1366):", 0, 1366, 50);
+        TextBox txt_startY = new TextBox("Y Position (0 - 768):", 0, 768, 150);
+        Slider sldr_velX = new Slider(-5f, 5f, "X Velocity:", 250);
+        Slider sldr_velY = new Slider(-5f, 5f, "Y Velocity:", 330);
+        Slider sldr_mass = new Slider(5f, 10f, "Mass:", 410);
+        Slider sldr_diameter = new Slider(5f, 20f, "Diameter:", 410);
+        Slider sldr_density = new Slider(5f, 10f, "Density:", 490);
+        Slider sldr_methane = new Slider(1f, 5f, "Methane Levels:", 570);
 
         public Main()
         {
@@ -131,7 +134,7 @@ namespace CometSimulation
                     btnBack.Update(X);
 
                     if (btnCreate.Clicked)
-                        manager.createComet(txt_startX.Value, txt_startY.Value, sldr_velX.Value, sldr_velY.Value, sldr_diameter.Value);
+                        manager.createComet(txt_startX.Value, txt_startY.Value, sldr_velX.Value, sldr_velY.Value, sldr_mass.Value, sldr_density.Value, sldr_methane.Value);
 
                     if (btnBack.Clicked)
                         state = MenuState.Main;
@@ -140,7 +143,9 @@ namespace CometSimulation
                     txt_startY.Update(gameTime, X);
                     sldr_velX.Update(gameTime, X);
                     sldr_velY.Update(gameTime, X);
-                    sldr_diameter.Update(gameTime, X);
+                    sldr_mass.Update(gameTime, X);
+                    sldr_density.Update(gameTime, X);
+                    sldr_methane.Update(gameTime, X);
                     break;
 
                 case MenuState.Planet:
@@ -194,7 +199,9 @@ namespace CometSimulation
                     txt_startY.Draw(spriteBatch, texBox, font, X);
                     sldr_velX.Draw(spriteBatch, texBox, font, X);
                     sldr_velY.Draw(spriteBatch, texBox, font, X);
-                    sldr_diameter.Draw(spriteBatch, texBox, font, X);
+                    sldr_mass.Draw(spriteBatch, texBox, font, X);
+                    sldr_density.Draw(spriteBatch, texBox, font, X);
+                    sldr_methane.Draw(spriteBatch, texBox, font, X);
                     break;
 
                 case MenuState.Planet:
