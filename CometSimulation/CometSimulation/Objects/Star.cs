@@ -66,7 +66,6 @@ namespace CometSimulation
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture)
         {
             Rectangle Rectangle = new Rectangle((int)Position.X - (int)Diameter/2, (int)Position.Y - (int)Diameter/2, (int)Diameter, (int)Diameter);
-            
             spriteBatch.Draw(Texture, Rectangle, Colour);
         }
     }

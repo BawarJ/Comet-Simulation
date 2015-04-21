@@ -20,6 +20,8 @@ namespace CometSimulation
         Texture2D texComet;
         Texture2D texPlanet;
         Texture2D texStar;
+        List<Texture2D> texStarArray = new List<Texture2D>();
+        int texIndex = 0;
         Texture2D texPixel;
         Texture2D texBox;
 
@@ -46,14 +48,15 @@ namespace CometSimulation
         Slider sldr_diameter = new Slider(5f, 20f, "Diameter:", 410);
         Slider sldr_density = new Slider(5f, 10f, "Density:", 490);
         Slider sldr_methane = new Slider(1f, 5f, "Methane Levels:", 570);
+        Checkbox chkbxOrbitTrail = new Checkbox("Display Orbit Tail", 0);
 
         public Main()
         {
             Content.RootDirectory = "Content";
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1366;
+            graphics.PreferredBackBufferWidth = 1024;
             graphics.PreferredBackBufferHeight = 768;
-            graphics.IsFullScreen = true;
+            graphics.IsFullScreen = false;
             IsMouseVisible = true;
 
             state = MenuState.Main;
@@ -78,7 +81,9 @@ namespace CometSimulation
             font = Content.Load<SpriteFont>("Font");
             texComet = Content.Load<Texture2D>("Comet");
             texPlanet = Content.Load<Texture2D>("Planet");
-            texStar = Content.Load<Texture2D>("Star");
+            //texStar = Content.Load<Texture2D>("Star");
+            for (int i = 0; i<= 15; i++)
+                texStarArray.Add(Content.Load<Texture2D>((i+1).ToString()));
             texPixel = Content.Load<Texture2D>("Pixel");
             texBox = Content.Load<Texture2D>("Box");
         }
@@ -105,6 +110,12 @@ namespace CometSimulation
                 }
             }
             #endregion
+
+            if (texIndex == 15)
+                texIndex = 0;
+            else
+                texIndex++;
+            texStar = texStarArray[texIndex];
 
             switch (state)
             {
@@ -134,7 +145,7 @@ namespace CometSimulation
                     btnBack.Update(X);
 
                     if (btnCreate.Clicked)
-                        manager.createComet(txt_startX.Value, txt_startY.Value, sldr_velX.Value, sldr_velY.Value, sldr_mass.Value, sldr_density.Value, sldr_methane.Value);
+                        manager.createComet(chkbxOrbitTrail.isChecked, txt_startX.Value, txt_startY.Value, sldr_velX.Value, sldr_velY.Value, sldr_mass.Value, sldr_density.Value, sldr_methane.Value);
 
                     if (btnBack.Clicked)
                         state = MenuState.Main;
@@ -146,6 +157,7 @@ namespace CometSimulation
                     sldr_mass.Update(gameTime, X);
                     sldr_density.Update(gameTime, X);
                     sldr_methane.Update(gameTime, X);
+                    chkbxOrbitTrail.Update(X);
                     break;
 
                 case MenuState.Planet:
@@ -163,6 +175,7 @@ namespace CometSimulation
                     sldr_velX.Update(gameTime, X);
                     sldr_velY.Update(gameTime, X);
                     sldr_diameter.Update(gameTime, X);
+                    chkbxOrbitTrail.Update(X);
                     break;
             }
 
@@ -202,6 +215,7 @@ namespace CometSimulation
                     sldr_mass.Draw(spriteBatch, texBox, font, X);
                     sldr_density.Draw(spriteBatch, texBox, font, X);
                     sldr_methane.Draw(spriteBatch, texBox, font, X);
+                    chkbxOrbitTrail.Draw(spriteBatch, texBox, font, X);
                     break;
 
                 case MenuState.Planet:
@@ -212,6 +226,7 @@ namespace CometSimulation
                     sldr_velX.Draw(spriteBatch, texBox, font, X);
                     sldr_velY.Draw(spriteBatch, texBox, font, X);
                     sldr_diameter.Draw(spriteBatch, texBox, font, X);
+                    chkbxOrbitTrail.Draw(spriteBatch, texBox, font, X);
                     break;
             }
             #endregion

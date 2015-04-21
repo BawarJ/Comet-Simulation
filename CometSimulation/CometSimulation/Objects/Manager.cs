@@ -34,9 +34,9 @@ namespace CometSimulation
             stars.Add(new Star(new Vector2(600, 300), mass, 80, Color.White));
         }
 
-        public void createComet(float startX, float startY, float velX, float velY, float m, float density, float methane)
+        public void createComet(bool displayOrbit, float startX, float startY, float velX, float velY, float m, float density, float methane)
         {
-            comets.Add(new Comet(new Vector2(startX, startY), new Vector2(velX, velY), m, density, methane));
+            comets.Add(new Comet(displayOrbit, new Vector2(startX, startY), new Vector2(velX, velY), m, density, methane));
         }
         public void createPlanet(float startX, float startY, float velX, float velY, float diameter)
         {

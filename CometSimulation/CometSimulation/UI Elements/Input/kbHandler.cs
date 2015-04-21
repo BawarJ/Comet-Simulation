@@ -113,11 +113,11 @@ namespace CometSimulation
                         text = text.Remove(text.Length - 1, 1);
                     }
                     else
-                    {
                         text = "";
-                    }
                     break;
             }
+
+            Console.WriteLine(text);
         }
 
         private void OnKeyUp(Keys key)

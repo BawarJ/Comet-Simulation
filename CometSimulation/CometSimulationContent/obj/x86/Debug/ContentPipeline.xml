@@ -11,7 +11,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Comet.xnb</Output>
-      <Time>2015-03-05T10:11:50+00:00</Time>
+      <Time>2015-04-21T11:47:58.2976088+01:00</Time>
     </Item>
     <Item>
       <Source>Planet.png</Source>
@@ -23,7 +23,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Planet.xnb</Output>
-      <Time>2015-03-05T10:40:10+00:00</Time>
+      <Time>2015-04-13T12:20:10+01:00</Time>
     </Item>
     <Item>
       <Source>Pixel.png</Source>
@@ -35,16 +35,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Pixel.xnb</Output>
-      <Time>2015-03-05T10:11:50+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Font.spritefont</Source>
-      <Name>Font</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Font.xnb</Output>
-      <Time>2015-03-05T10:11:50+00:00</Time>
+      <Time>2015-04-13T12:20:10+01:00</Time>
     </Item>
     <Item>
       <Source>Box.png</Source>
@@ -57,19 +48,187 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Box.xnb</Output>
-      <Time>2015-03-18T23:28:16.2531467+00:00</Time>
+      <Time>2015-04-13T12:20:10+01:00</Time>
     </Item>
     <Item>
-      <Source>Star.jpg</Source>
+      <Source>Font.spritefont</Source>
+      <Name>Font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Font.xnb</Output>
+      <Time>2015-04-13T12:20:10+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Star.png</Source>
       <Name>Star</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
-        <Data Key="ColorKeyColor">0, 0, 0, 255</Data>
+        <Data Key="ColorKeyColor">0, 0, 0, 0</Data>
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Star.xnb</Output>
-      <Time>2015-04-09T16:49:46.1804717+01:00</Time>
+      <Time>2015-04-21T11:38:37.2065162+01:00</Time>
+    </Item>
+    <Item>
+      <Source>1.png</Source>
+      <Name>1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor">127, 127, 127, 255</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\1.xnb</Output>
+      <Time>2015-04-21T20:56:39.6077641+01:00</Time>
+    </Item>
+    <Item>
+      <Source>2.png</Source>
+      <Name>2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor">127, 127, 127, 255</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\2.xnb</Output>
+      <Time>2015-04-21T20:56:50.5613907+01:00</Time>
+    </Item>
+    <Item>
+      <Source>3.png</Source>
+      <Name>3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor">127, 127, 127, 255</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\3.xnb</Output>
+      <Time>2015-04-21T20:57:02.823092+01:00</Time>
+    </Item>
+    <Item>
+      <Source>4.png</Source>
+      <Name>4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor">127, 127, 127, 255</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\4.xnb</Output>
+      <Time>2015-04-21T20:57:14.6937709+01:00</Time>
+    </Item>
+    <Item>
+      <Source>5.png</Source>
+      <Name>5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor">127, 127, 127, 255</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\5.xnb</Output>
+      <Time>2015-04-21T20:59:48.7845844+01:00</Time>
+    </Item>
+    <Item>
+      <Source>10.png</Source>
+      <Name>10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\10.xnb</Output>
+      <Time>2015-04-21T21:00:16.9451951+01:00</Time>
+    </Item>
+    <Item>
+      <Source>11.png</Source>
+      <Name>11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\11.xnb</Output>
+      <Time>2015-04-21T21:00:06.2145814+01:00</Time>
+    </Item>
+    <Item>
+      <Source>12.png</Source>
+      <Name>12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\12.xnb</Output>
+      <Time>2015-04-21T20:59:57.9111064+01:00</Time>
+    </Item>
+    <Item>
+      <Source>13.png</Source>
+      <Name>13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\13.xnb</Output>
+      <Time>2015-04-21T20:59:48.7845844+01:00</Time>
+    </Item>
+    <Item>
+      <Source>14.png</Source>
+      <Name>14</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\14.xnb</Output>
+      <Time>2015-04-21T20:57:14.6937709+01:00</Time>
+    </Item>
+    <Item>
+      <Source>15.png</Source>
+      <Name>15</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\15.xnb</Output>
+      <Time>2015-04-21T20:57:02.823092+01:00</Time>
+    </Item>
+    <Item>
+      <Source>16.png</Source>
+      <Name>16</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\16.xnb</Output>
+      <Time>2015-04-21T20:56:50.5613907+01:00</Time>
+    </Item>
+    <Item>
+      <Source>6.png</Source>
+      <Name>6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\6.xnb</Output>
+      <Time>2015-04-21T20:59:57.9111064+01:00</Time>
+    </Item>
+    <Item>
+      <Source>7.png</Source>
+      <Name>7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\7.xnb</Output>
+      <Time>2015-04-21T21:00:06.2145814+01:00</Time>
+    </Item>
+    <Item>
+      <Source>8.png</Source>
+      <Name>8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\8.xnb</Output>
+      <Time>2015-04-21T21:00:16.9451951+01:00</Time>
+    </Item>
+    <Item>
+      <Source>9.png</Source>
+      <Name>9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\9.xnb</Output>
+      <Time>2015-04-21T21:00:28.4908555+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -2,3 +2,4 @@ c:\users\bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimula
 N:\Downloads\CometSimulation\CometSimulation\CometSimulation\CometSimulationContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulationContent\obj\x86\Debug\CometSimulationContent.contentprojResolveAssemblyReference.cache
 N:\Downloads\Comet-Simulation-master(cursor)\Comet-Simulation-master\CometSimulation\CometSimulationContent\obj\x86\Debug\ResolveAssemblyReference.cache
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulationContent\obj\x86\Debug\CometSimulationContent.contentprojResolveAssemblyReference.cache

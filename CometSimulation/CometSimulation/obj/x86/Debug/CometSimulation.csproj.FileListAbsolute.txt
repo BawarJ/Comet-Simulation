@@ -49,3 +49,35 @@ C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimul
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\CometSimulation.application
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.exe.manifest
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.application
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\Content\Comet.xnb
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\Content\Planet.xnb
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\Content\Pixel.xnb
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\Content\Box.xnb
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\Content\Star.xnb
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\Content\Font.xnb
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\CometSimulation.exe.manifest
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\CometSimulation.application
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\CometSimulation.exe
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\bin\x86\Debug\CometSimulation.pdb
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.exe.manifest
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.application
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.exe
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.pdb
+N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.csprojResolveAssemblyReference.cache
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\1.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\2.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\3.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\4.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\5.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\10.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\11.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\12.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\13.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\14.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\15.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\16.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\6.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\7.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\8.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\9.xnb

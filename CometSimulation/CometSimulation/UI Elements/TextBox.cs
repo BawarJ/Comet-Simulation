@@ -15,7 +15,6 @@ namespace CometSimulation
     class TextBox
     {
         public float Value;
-        byte x;
         bool isHovering;
         public bool isClicking;
         public bool inFocus;
@@ -27,11 +26,10 @@ namespace CometSimulation
         Color Colour;
         Color cursorColour;
         public KbHandler kb = new KbHandler();
-        public string textInput = "";
+        public string textInput = "0";
         string Message;
         float Minimum;
         float Maximum;
-        bool isValid;
         Color textColour;
 
         public TextBox(string msg, float min, float max, int y)
@@ -47,6 +45,7 @@ namespace CometSimulation
 
         public void Update(GameTime gameTime, int menuX)
         {
+            #region Mouse Stuff
             pms = ms;
             ms = Mouse.GetState();
             mousePos = new Rectangle(ms.X, ms.Y, 1, 1);
@@ -66,38 +65,36 @@ namespace CometSimulation
             {
                 isClicking = true;
                 inFocus = true;
+                textInput = Value.ToString();
+                kb.text = textInput;
             }
             else
                 isClicking = false;
 
             if (!isHovering && ms.LeftButton == ButtonState.Pressed && pms.LeftButton == ButtonState.Released)
                 inFocus = false;
+            #endregion
 
             if (inFocus)
             {
                 Colour.R = 230;
-                x = (byte)(gameTime.TotalGameTime.Milliseconds/4);
-                cursorColour.A = x;
+                cursorColour.A = (byte)(gameTime.TotalGameTime.Milliseconds/4);
                 if (kb.text != "")
                 {
-                    
+
                     if (Value >= Minimum && Value <= Maximum)
                     {
-                        isValid = true;
                         textInput = kb.text;
                         Value = float.Parse(kb.text);
                         textColour = Color.Black;
                     }
                     else
                     {
-                        isValid = false;
+                        textInput = kb.text;
+                        Value = float.Parse(kb.text);
                         textColour = Color.Red;
                     }
                 }
-            }
-            else
-            {
-                kb.text = "";
             }
 
             kb.Update();

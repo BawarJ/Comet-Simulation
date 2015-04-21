@@ -22,6 +22,7 @@ namespace CometSimulation
         public float m;
         public float Diameter;
         float tailColour;
+        bool displayOrbit;
         List<Vector2> dots = new List<Vector2>();
         List<Vector2> gasParticles = new List<Vector2>();
         List<Particle> dustParticles = new List<Particle>();
@@ -30,8 +31,9 @@ namespace CometSimulation
         public Vector2 particleVelocity;
         public Vector2 gasDirection;
 
-        public Comet(Vector2 pos, Vector2 vel, float mass, float dens, float methane)
+        public Comet(bool dispOrbit, Vector2 pos, Vector2 vel, float mass, float dens, float methane)
         {
+            displayOrbit = dispOrbit;
             Position = pos;
             m = mass;
             Diameter = (mass / dens)*10;
@@ -47,13 +49,14 @@ namespace CometSimulation
             Velocity = Vector2.Add(Velocity, Acceleration);
             Position = Vector2.Add(Position, Velocity);
 
-            //dots.Add(Position); //orbit line
+            if (displayOrbit)
+                dots.Add(Position); //orbit line
 
             //create gas tail
             for (int i = 0; i <= 99; i++)
             {
-                gasParticles.Insert(i, new Vector2(Position.X + ((float)(rand.NextDouble() - 0.5) / 10 + Vector2.Normalize(gasDirection).X) * i * F/10,
-                                                   Position.Y + ((float)(rand.NextDouble() - 0.5) / 10 + Vector2.Normalize(gasDirection).Y) * i * F/10));
+                gasParticles.Insert(i, new Vector2(Position.X + ((float)(rand.NextDouble() - 0.5) / 10 + Vector2.Normalize(gasDirection).X) * i * F/5,
+                                                   Position.Y + ((float)(rand.NextDouble() - 0.5) / 10 + Vector2.Normalize(gasDirection).Y) * i * F/5));
                 if (gasParticles.Count > 99)
                     gasParticles.RemoveRange(99, gasParticles.Count-100);
             }
@@ -75,9 +78,11 @@ namespace CometSimulation
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture)
         {
             Rectangle Rectangle = new Rectangle((int)Position.X - (int)Diameter / 2, (int)Position.Y - (int)Diameter / 2, (int)Diameter, (int)Diameter);
-            /*
-            foreach (Vector2 d in dots)
-                spriteBatch.Draw(Texture, new Rectangle((int)d.X, (int)d.Y, 1, 1), Color.White);*/
+            
+            if (displayOrbit)
+                foreach (Vector2 d in dots)
+                    spriteBatch.Draw(Texture, new Rectangle((int)d.X, (int)d.Y, 1, 1), Color.White);
+
             foreach (Particle p in dustParticles)
                 spriteBatch.Draw(Texture, new Rectangle((int)p.Position.X, (int)p.Position.Y, 2, 2), p.Colour);
             for (int i = 0; i <= 99; i++)
