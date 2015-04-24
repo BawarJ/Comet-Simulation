@@ -47,8 +47,7 @@ namespace CometSimulation
         Slider sldr_mass = new Slider(5f, 10f, "Mass:", 410);
         Slider sldr_diameter = new Slider(5f, 20f, "Diameter:", 410);
         Slider sldr_density = new Slider(5f, 10f, "Density:", 490);
-        Slider sldr_methane = new Slider(1f, 5f, "Methane Levels:", 570);
-        Checkbox chkbxOrbitTrail = new Checkbox("Display Orbit Tail", 0);
+        Checkbox chkbxOrbitTrail = new Checkbox("Display Orbit Tail", 545);
 
         public Main()
         {
@@ -145,7 +144,7 @@ namespace CometSimulation
                     btnBack.Update(X);
 
                     if (btnCreate.Clicked)
-                        manager.createComet(chkbxOrbitTrail.isChecked, txt_startX.Value, txt_startY.Value, sldr_velX.Value, sldr_velY.Value, sldr_mass.Value, sldr_density.Value, sldr_methane.Value);
+                        manager.createComet(chkbxOrbitTrail.isChecked, txt_startX.Value, txt_startY.Value, sldr_velX.Value, sldr_velY.Value, sldr_mass.Value, sldr_density.Value);
 
                     if (btnBack.Clicked)
                         state = MenuState.Main;
@@ -156,7 +155,6 @@ namespace CometSimulation
                     sldr_velY.Update(gameTime, X);
                     sldr_mass.Update(gameTime, X);
                     sldr_density.Update(gameTime, X);
-                    sldr_methane.Update(gameTime, X);
                     chkbxOrbitTrail.Update(X);
                     break;
 
@@ -165,7 +163,7 @@ namespace CometSimulation
                     btnBack.Update(X);
 
                     if (btnCreate.Clicked)
-                        manager.createPlanet(txt_startX.Value, txt_startY.Value, sldr_velX.Value, sldr_velY.Value, sldr_diameter.Value);
+                        manager.createPlanet(chkbxOrbitTrail.isChecked, txt_startX.Value, txt_startY.Value, sldr_velX.Value, sldr_velY.Value, sldr_diameter.Value);
 
                     if (btnBack.Clicked)
                         state = MenuState.Main;
@@ -214,7 +212,6 @@ namespace CometSimulation
                     sldr_velY.Draw(spriteBatch, texBox, font, X);
                     sldr_mass.Draw(spriteBatch, texBox, font, X);
                     sldr_density.Draw(spriteBatch, texBox, font, X);
-                    sldr_methane.Draw(spriteBatch, texBox, font, X);
                     chkbxOrbitTrail.Draw(spriteBatch, texBox, font, X);
                     break;
 

@@ -14,6 +14,8 @@ namespace CometSimulation
 {
     class Planet
     {
+        public float rotation;
+        Vector2 origin;
         public Vector2 Position;
         public Vector2 Acceleration;
         public Vector2 Velocity;
@@ -22,17 +24,20 @@ namespace CometSimulation
         public float m;
         public float Diameter;
         Color Colour;
+        bool displayOrbit;
         List<Vector2> dots = new List<Vector2>();
         Random rand = new Random();
 
 
-        public Planet(Vector2 pos, Vector2 vel, float dia)
+        public Planet(bool dispOrbit, Vector2 pos, Vector2 vel, float dia)
         {
+            displayOrbit = dispOrbit;
             Position = pos;
             Diameter = dia;
             Colour = new Color((float)rand.NextDouble(),(float)rand.NextDouble(),(float)rand.NextDouble());
             Velocity = vel;
-            m = 1;
+            m = 1000f*Diameter;
+            origin.X = origin.Y = Diameter / 2;
         }
 
         public void Update()
@@ -40,8 +45,9 @@ namespace CometSimulation
             Acceleration.X = Force.X / m;
             Acceleration.Y = Force.Y / m;
 
-            dots.Add(Position);
-
+            if (displayOrbit)
+                dots.Add(Position);
+            
             Velocity = Vector2.Add(Velocity, Acceleration);
             Position = Vector2.Add(Position, Velocity);
         }
@@ -50,10 +56,11 @@ namespace CometSimulation
         {
             Rectangle Rectangle = new Rectangle((int)Position.X - (int)Diameter / 2, (int)Position.Y - (int)Diameter / 2, (int)Diameter, (int)Diameter);
 
-            foreach (Vector2 d in dots)
-                spriteBatch.Draw(Texture, new Rectangle((int)d.X, (int)d.Y, 1, 1), Colour);
+            if (displayOrbit)
+                foreach (Vector2 d in dots)
+                    spriteBatch.Draw(Texture, new Rectangle((int)d.X, (int)d.Y, 1, 1), Colour);
 
-            spriteBatch.Draw(Texture, Rectangle, Colour);
+            spriteBatch.Draw(Texture, Rectangle, null, Colour, rotation, origin, SpriteEffects.None, 0f);
         }
     }
 }

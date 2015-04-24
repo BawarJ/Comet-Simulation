@@ -80,8 +80,7 @@ namespace CometSimulation
                             float cvelY = float.Parse(textReader.ReadLine());
                             float cdiameter = float.Parse(textReader.ReadLine());
                             float cdensity = float.Parse(textReader.ReadLine());
-                            float cmethane = float.Parse(textReader.ReadLine());
-                            m.createComet(true, cposX, cposY, cvelX, cvelY, cdiameter, cdensity, cmethane);
+                            m.createComet(true, cposX, cposY, cvelX, cvelY, cdiameter, cdensity);
                             Input = textReader.ReadLine();
                         }
                         break;
@@ -93,7 +92,7 @@ namespace CometSimulation
                             float pvelX = float.Parse(textReader.ReadLine());
                             float pvelY = float.Parse(textReader.ReadLine());
                             float pdiameter = float.Parse(textReader.ReadLine());
-                            m.createPlanet(pposX, pposY, pvelX, pvelY, pdiameter);
+                            m.createPlanet(true, pposX, pposY, pvelX, pvelY, pdiameter);
                             Input = textReader.ReadLine();
                         }
                         break;

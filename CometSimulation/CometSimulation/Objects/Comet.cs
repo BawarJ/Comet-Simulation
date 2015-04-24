@@ -21,7 +21,7 @@ namespace CometSimulation
         public float F;
         public float m;
         public float Diameter;
-        float tailColour;
+        Color tailColour;
         bool displayOrbit;
         List<Vector2> dots = new List<Vector2>();
         List<Vector2> gasParticles = new List<Vector2>();
@@ -31,13 +31,13 @@ namespace CometSimulation
         public Vector2 particleVelocity;
         public Vector2 gasDirection;
 
-        public Comet(bool dispOrbit, Vector2 pos, Vector2 vel, float mass, float dens, float methane)
+        public Comet(bool dispOrbit, Vector2 pos, Vector2 vel, float mass, float dens)
         {
             displayOrbit = dispOrbit;
             Position = pos;
             m = mass;
             Diameter = (mass / dens)*10;
-            tailColour = methane;
+            tailColour = new Color(255, 255, 255);
             Velocity = vel;
         }
 
@@ -87,8 +87,8 @@ namespace CometSimulation
                 spriteBatch.Draw(Texture, new Rectangle((int)p.Position.X, (int)p.Position.Y, 2, 2), p.Colour);
             for (int i = 0; i <= 99; i++)
             {
-                Color gColour = new Color(100, 200, 255);
-                spriteBatch.Draw(Texture, new Rectangle((int)gasParticles[i].X, (int)gasParticles[i].Y, 1, 1), gColour);
+                Color gColour = new Color(tailColour.R - i*3, tailColour.G - i*2, tailColour.B - i);
+                spriteBatch.Draw(Texture, new Rectangle((int)gasParticles[i].X, (int)gasParticles[i].Y, 2, 2), gColour);
             }
 
             spriteBatch.Draw(Texture, Rectangle, Color.White);

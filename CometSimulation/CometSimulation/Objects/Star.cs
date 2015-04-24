@@ -16,8 +16,8 @@ namespace CometSimulation
     {
         public Vector2 Position;
         public Vector2 Velocity;
-        public double m;
-        public double Diameter;
+        public float m;
+        public float Diameter;
         Color Colour;
         Color startingColour;
         MouseState ms;
@@ -26,13 +26,13 @@ namespace CometSimulation
         public Boolean isClicking;
         public Boolean isHovering;
 
-        public Star(Vector2 pos, double mass, double dia, Color col)
+        public Star(Vector2 pos, float dia, Color col)
         {
             Position = pos;
             Diameter = dia;
             Colour = col;
             startingColour = col;
-            m = mass;
+            m = 20000000f;
             Velocity.X = 0;
         }
 

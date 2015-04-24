@@ -100,7 +100,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>XRph4O+M5Wcq2+FojSm42bjF7+0=</dsig:DigestValue>
+        <dsig:DigestValue>LcAzIEIja/E1hINGS9d/C4iYErY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -284,13 +284,13 @@
       <dsig:DigestValue>AOxpL/uXJMpLGqjJ5gtd/FE0vmI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Planet.xnb" size="3197131">
+  <file name="Content\Planet.xnb" size="3247391">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>uuK/tqwbfanw/3TZy5KBlikeOwM=</dsig:DigestValue>
+      <dsig:DigestValue>NCgwVIgf3yJgFOLWwQhmgJmsgWY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Star.xnb" size="41787">
