@@ -47,22 +47,29 @@ namespace CometSimulation
             if (mousePos.Intersects(new Rectangle(menuX + 20, Y, Width, 50)))
             {
                 isHovering = true;
-                Colour.B = 140;
+                Colour.B = 200;
+                Colour.R = 25;
             }
             else
             {
                 isHovering = false;
                 Colour.B = 100;
+                Colour.R = 100;
             }
-            
+
             if (isHovering && ms.LeftButton == ButtonState.Pressed && pms.LeftButton == ButtonState.Pressed)
             {
                 isClicking = true;
-                Colour.B = 180;
+                Colour.B = 200;
+                Colour.R = 25;
                 Size = ms.X - 20;
             }
             else
+            {
                 isClicking = false;
+                Colour.B = 100;
+                Colour.R = 100;
+            }
 
             Value = Minimum + (float)Math.Round((Size/Width)*Maximum*2);
         }

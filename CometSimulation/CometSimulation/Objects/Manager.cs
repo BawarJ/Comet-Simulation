@@ -17,6 +17,7 @@ namespace CometSimulation
         public List<Comet> comets = new List<Comet>();
         public List<Planet> planets = new List<Planet>();
         public List<Star> stars = new List<Star>();
+        public Boolean isPaused = false;
 
         Random rand = new Random();
 
@@ -24,7 +25,8 @@ namespace CometSimulation
         float theta;
         double dSq;
         Vector2 d;
-
+        public float timeDelay;
+        public float tempTimeDelay;
         MouseState ms;
         Vector2 mousePos;
 
@@ -37,9 +39,9 @@ namespace CometSimulation
         {
             comets.Add(new Comet(displayOrbit, new Vector2(startX, startY), new Vector2(velX, velY), m, density));
         }
-        public void createPlanet(bool displayOrbit, float startX, float startY, float velX, float velY, float diameter)
+        public void createPlanet(bool displayOrbit, float startX, float startY, float velX, float velY, float m, float density)
         {
-            planets.Add(new Planet(displayOrbit, new Vector2(startX, startY), new Vector2(velX, velY), diameter));
+            planets.Add(new Planet(displayOrbit, new Vector2(startX, startY), new Vector2(velX, velY), m, density));
         }
         public void resetScreen()
         {
@@ -51,6 +53,20 @@ namespace CometSimulation
         {
             ms = Mouse.GetState();
             mousePos = new Vector2(ms.X, ms.Y);
+            
+            if (tempTimeDelay > 0)
+            {
+                isPaused = true;
+                tempTimeDelay--;
+            }
+            else if (tempTimeDelay == 0)
+            {
+                isPaused = false;
+                tempTimeDelay = timeDelay;
+            }
+
+            if (!isPaused)
+            {
                 foreach (Comet c in comets)
                 {
                     c.Force = Vector2.Zero;
@@ -67,7 +83,7 @@ namespace CometSimulation
                             c.Force.Y += (float)Math.Cos(theta) * (float)c.F;
 
                             c.gasDirection = -d * 0.001f;
-                            c.particleVelocity = -d*0.0001f + c.Velocity;
+                            c.particleVelocity = -d * 0.0001f + c.Velocity;
                         }
                     }
                 }
@@ -86,15 +102,15 @@ namespace CometSimulation
                             theta = (float)Math.Atan2(d.X, d.Y);
                             p.Force.X += (float)Math.Sin(theta) * (float)p.F;
                             p.Force.Y += (float)Math.Cos(theta) * (float)p.F;
-                            p.rotation = theta;
                         }
                     }
                 }
 
-            foreach (Comet c in comets)
-                c.Update();
-            foreach (Planet p in planets)
-                p.Update();
+                foreach (Comet c in comets)
+                    c.Update();
+                foreach (Planet p in planets)
+                    p.Update();
+            }
             foreach (Star s in stars)
             {
                 if (s.isClicking)

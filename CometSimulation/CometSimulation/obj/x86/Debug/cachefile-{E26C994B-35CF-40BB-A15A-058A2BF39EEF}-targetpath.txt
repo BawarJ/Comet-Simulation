@@ -20,3 +20,5 @@ Content\6.xnb
 Content\7.xnb
 Content\8.xnb
 Content\9.xnb
+Content\Checkbox_Ticked.xnb
+Content\Checkbox_Unticked.xnb

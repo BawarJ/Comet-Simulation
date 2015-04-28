@@ -81,3 +81,5 @@ C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimul
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\7.xnb
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\8.xnb
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\9.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Checkbox_Ticked.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Checkbox_Unticked.xnb

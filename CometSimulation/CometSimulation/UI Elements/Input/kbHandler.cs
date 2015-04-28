@@ -117,7 +117,6 @@ namespace CometSimulation
                     break;
             }
 
-            Console.WriteLine(text);
         }
 
         private void OnKeyUp(Keys key)

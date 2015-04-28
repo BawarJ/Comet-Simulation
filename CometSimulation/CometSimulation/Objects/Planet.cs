@@ -14,14 +14,13 @@ namespace CometSimulation
 {
     class Planet
     {
-        public float rotation;
-        Vector2 origin;
         public Vector2 Position;
         public Vector2 Acceleration;
         public Vector2 Velocity;
         public Vector2 Force;
         public float F;
         public float m;
+        public float density;
         public float Diameter;
         Color Colour;
         bool displayOrbit;
@@ -29,20 +28,19 @@ namespace CometSimulation
         Random rand = new Random();
 
 
-        public Planet(bool dispOrbit, Vector2 pos, Vector2 vel, float dia)
+        public Planet(bool dispOrbit, Vector2 pos, Vector2 vel, float mass, float dens)
         {
             displayOrbit = dispOrbit;
             Position = pos;
-            Diameter = dia;
+            m = mass;
+            density = dens;
+            Diameter = (mass / dens) * 10;
             Colour = new Color((float)rand.NextDouble(),(float)rand.NextDouble(),(float)rand.NextDouble());
             Velocity = vel;
-            m = 1000f*Diameter;
-            origin.X = origin.Y = Diameter / 2;
         }
 
         public void Update()
-        {
-            Acceleration.X = Force.X / m;
+        {Acceleration.X = Force.X / m;
             Acceleration.Y = Force.Y / m;
 
             if (displayOrbit)
@@ -60,7 +58,7 @@ namespace CometSimulation
                 foreach (Vector2 d in dots)
                     spriteBatch.Draw(Texture, new Rectangle((int)d.X, (int)d.Y, 1, 1), Colour);
 
-            spriteBatch.Draw(Texture, Rectangle, null, Colour, rotation, origin, SpriteEffects.None, 0f);
+            spriteBatch.Draw(Texture, Rectangle, Colour);
         }
     }
 }

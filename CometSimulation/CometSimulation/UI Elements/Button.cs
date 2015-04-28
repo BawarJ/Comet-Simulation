@@ -48,12 +48,12 @@ namespace CometSimulation
                 Clicked = false;
 
             if (isHovering)
-                Colour.R = 100;
+                Colour.R = 25;
             else
                 Colour.R = 200;
 
             if (Clicked)
-                Colour.B = 100;
+                Colour.B = 255;
             else
                 Colour.B = 200;
             pms = ms;
@@ -63,7 +63,7 @@ namespace CometSimulation
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture, SpriteFont Font, int menuX)
         {
             spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, Width, 50), Colour);
-            spriteBatch.DrawString(Font, Message, new Vector2(menuX + 50, Y + 10), Color.Black);
+            spriteBatch.DrawString(Font, Message, new Vector2(menuX + 15 + Width/2 - Font.MeasureString(Message).X/2, Y + 15), Color.Black);
         }
     }
 }

@@ -57,7 +57,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Font.xnb</Output>
-      <Time>2015-04-13T12:20:10+01:00</Time>
+      <Time>2015-04-27T19:45:04.4351608+01:00</Time>
     </Item>
     <Item>
       <Source>Star.png</Source>
@@ -229,6 +229,24 @@
       <Options>None</Options>
       <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\9.xnb</Output>
       <Time>2015-04-21T21:00:28.4908555+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Checkbox_Ticked.png</Source>
+      <Name>Checkbox_Ticked</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Checkbox_Ticked.xnb</Output>
+      <Time>2015-04-27T12:43:51.7539839+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Checkbox_Unticked.png</Source>
+      <Name>Checkbox_Unticked</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Checkbox_Unticked.xnb</Output>
+      <Time>2015-04-27T12:30:07.3031279+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

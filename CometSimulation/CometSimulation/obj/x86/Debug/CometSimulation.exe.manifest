@@ -93,14 +93,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CometSimulation.exe" size="28160">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CometSimulation.exe" size="29184">
       <assemblyIdentity name="CometSimulation" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>LcAzIEIja/E1hINGS9d/C4iYErY=</dsig:DigestValue>
+        <dsig:DigestValue>foL1h7cMXh7P9w3lidqgJ4Hf+J8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -257,6 +257,24 @@
       <dsig:DigestValue>8BKtmTuxZqYunI7xDDRq9PDTE/Q=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Checkbox_Ticked.xnb" size="3787">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>thVtrP0SAaePd24KjOh7XagcPYg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Checkbox_Unticked.xnb" size="3787">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>oz1iTitVGNq1ZB0wZDFbMumEAVw=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Comet.xnb" size="84843">
     <hash>
       <dsig:Transforms>
@@ -272,7 +290,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>PcqLZBvDqmvfQW0mR+5Qr2RShRg=</dsig:DigestValue>
+      <dsig:DigestValue>9lFX7myry2oiRx1qHVIaAigAUlQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Pixel.xnb" size="191">

@@ -29,7 +29,6 @@ namespace CometSimulation
         {
             Message = msg;
             Y = y;
-            Colour = new Color(200, 200, 200);
         }
 
         public void Update(int menuX)
@@ -49,9 +48,9 @@ namespace CometSimulation
                 Clicked = false;
 
             if (isHovering)
-                Colour.B = 180;
+                Colour = new Color(100, 240, 240);
             else
-                Colour.B = 200;
+                Colour = Color.White;
 
             if (Clicked)
             {
@@ -60,19 +59,18 @@ namespace CometSimulation
                 else if (!isChecked)
                     isChecked = true;
             }
-
-            if (isChecked)
-                Colour.G = 255;
-            else
-                Colour.G = 200;
-
+            
             pms = ms;
 
         }
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D Texture, SpriteFont Font, int menuX)
+        public void Draw(SpriteBatch spriteBatch, List<Texture2D> Texture, SpriteFont Font, int menuX)
         {
-            spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y+10, 30, 30), Colour);
+            if (isChecked)
+                spriteBatch.Draw(Texture[1], new Rectangle(menuX + 20, Y + 10, 30, 30), Colour);
+            else
+                spriteBatch.Draw(Texture[0], new Rectangle(menuX + 20, Y+10, 30, 30), Colour);
+
             spriteBatch.DrawString(Font, Message, new Vector2(menuX + 50, Y + 10), Color.Black);
         }
     }

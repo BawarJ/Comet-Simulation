@@ -31,7 +31,8 @@ namespace CometSimulation
                 textWriter.WriteLine(m.comets[i].Position.Y);
                 textWriter.WriteLine(m.comets[i].Velocity.X);
                 textWriter.WriteLine(m.comets[i].Velocity.Y);
-                textWriter.WriteLine(m.comets[i].Diameter);
+                textWriter.WriteLine(m.comets[i].m);
+                textWriter.WriteLine(m.comets[i].density);
                 if (i != m.comets.Count-1)
                     textWriter.WriteLine("~");
             }
@@ -44,7 +45,8 @@ namespace CometSimulation
                 textWriter.WriteLine(m.planets[i].Position.Y);
                 textWriter.WriteLine(m.planets[i].Velocity.X);
                 textWriter.WriteLine(m.planets[i].Velocity.Y);
-                textWriter.WriteLine(m.planets[i].Diameter);
+                textWriter.WriteLine(m.planets[i].m);
+                textWriter.WriteLine(m.planets[i].density);
                 if (i != m.planets.Count-1)
                     textWriter.WriteLine("~");
             }
@@ -78,9 +80,9 @@ namespace CometSimulation
                             float cposY = float.Parse(textReader.ReadLine());
                             float cvelX = float.Parse(textReader.ReadLine());
                             float cvelY = float.Parse(textReader.ReadLine());
-                            float cdiameter = float.Parse(textReader.ReadLine());
+                            float cmass = float.Parse(textReader.ReadLine());
                             float cdensity = float.Parse(textReader.ReadLine());
-                            m.createComet(true, cposX, cposY, cvelX, cvelY, cdiameter, cdensity);
+                            m.createComet(false, cposX, cposY, cvelX, cvelY, cmass, cdensity);
                             Input = textReader.ReadLine();
                         }
                         break;
@@ -91,8 +93,9 @@ namespace CometSimulation
                             float pposY = float.Parse(textReader.ReadLine());
                             float pvelX = float.Parse(textReader.ReadLine());
                             float pvelY = float.Parse(textReader.ReadLine());
-                            float pdiameter = float.Parse(textReader.ReadLine());
-                            m.createPlanet(true, pposX, pposY, pvelX, pvelY, pdiameter);
+                            float cmass = float.Parse(textReader.ReadLine());
+                            float cdensity = float.Parse(textReader.ReadLine());
+                            m.createPlanet(true, pposX, pposY, pvelX, pvelY, cmass, cdensity);
                             Input = textReader.ReadLine();
                         }
                         break;

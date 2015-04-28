@@ -45,6 +45,8 @@ namespace CometSimulation
 
         public void Update(GameTime gameTime, int menuX)
         {
+            kb.Update();
+            Console.WriteLine(kb.text);
             #region Mouse Stuff
             pms = ms;
             ms = Mouse.GetState();
@@ -77,27 +79,25 @@ namespace CometSimulation
 
             if (inFocus)
             {
+
+                textInput = kb.text;
+
                 Colour.R = 230;
                 cursorColour.A = (byte)(gameTime.TotalGameTime.Milliseconds/4);
                 if (kb.text != "")
                 {
-
                     if (Value >= Minimum && Value <= Maximum)
                     {
-                        textInput = kb.text;
-                        Value = float.Parse(kb.text);
                         textColour = Color.Black;
+                        Value = float.Parse(kb.text);
                     }
                     else
                     {
-                        textInput = kb.text;
-                        Value = float.Parse(kb.text);
                         textColour = Color.Red;
+                        Value = float.Parse(kb.text);
                     }
                 }
             }
-
-            kb.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture, SpriteFont Font, int menuX)
