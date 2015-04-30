@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CometSimulation
 {
-    class Star
+    class Sun
     {
         public Vector2 Position;
         public Vector2 Velocity;
@@ -25,8 +25,9 @@ namespace CometSimulation
         Rectangle mousePos;
         public Boolean isClicking;
         public Boolean isHovering;
+        int frame = 0;
 
-        public Star(Vector2 pos, float dia, Color col)
+        public Sun(Vector2 pos, float dia, Color col)
         {
             Position = pos;
             Diameter = dia;
@@ -65,8 +66,15 @@ namespace CometSimulation
         
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture)
         {
-            Rectangle Rectangle = new Rectangle((int)Position.X - (int)Diameter/2, (int)Position.Y - (int)Diameter/2, (int)Diameter, (int)Diameter);
-            spriteBatch.Draw(Texture, Rectangle, Colour);
+            if (frame >= 15)
+                frame = 0;
+            else
+                frame++;
+
+            Rectangle sourceRectangle = new Rectangle(0, frame*100, 104, 100);
+            Rectangle destinationRectangle = new Rectangle((int)Position.X - (int)Diameter / 2, (int)Position.Y - (int)Diameter / 2, (int)Diameter, (int)Diameter);
+
+            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Colour);
         }
     }
 }

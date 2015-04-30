@@ -53,7 +53,7 @@ namespace CometSimulation
             textWriter.WriteLine("##");
 
             textWriter.WriteLine("#stars#");
-            foreach (Star s in m.stars)
+            foreach (Sun s in m.suns)
             {
                 textWriter.WriteLine(s.Position.X);
                 textWriter.WriteLine(s.Position.Y);
@@ -102,7 +102,7 @@ namespace CometSimulation
                     case "#stars#":
                         float sposX = float.Parse(textReader.ReadLine());
                         float sposY = float.Parse(textReader.ReadLine());
-                        foreach (Star s in m.stars)
+                        foreach (Sun s in m.suns)
                             s.Position = new Vector2(sposX, sposY);
                         break;
                 }

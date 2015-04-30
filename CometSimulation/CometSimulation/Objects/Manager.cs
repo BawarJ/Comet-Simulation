@@ -16,7 +16,7 @@ namespace CometSimulation
     {
         public List<Comet> comets = new List<Comet>();
         public List<Planet> planets = new List<Planet>();
-        public List<Star> stars = new List<Star>();
+        public List<Sun> suns = new List<Sun>();
         public Boolean isPaused = false;
 
         Random rand = new Random();
@@ -32,7 +32,7 @@ namespace CometSimulation
 
         public void Initialize()
         {
-            stars.Add(new Star(new Vector2(600, 300), 80, Color.White));
+            suns.Add(new Sun(new Vector2(600, 300), 80, Color.White));
         }
 
         public void createComet(bool displayOrbit, float startX, float startY, float velX, float velY, float m, float density)
@@ -70,7 +70,7 @@ namespace CometSimulation
                 foreach (Comet c in comets)
                 {
                     c.Force = Vector2.Zero;
-                    foreach (Star s in stars)
+                    foreach (Sun s in suns)
                     {
                         dSq = Vector2.DistanceSquared(s.Position, c.Position);
                         if (dSq != 0)
@@ -91,7 +91,7 @@ namespace CometSimulation
                 foreach (Planet p in planets)
                 {
                     p.Force = Vector2.Zero;
-                    foreach (Star s in stars)
+                    foreach (Sun s in suns)
                     {
                         dSq = Vector2.DistanceSquared(s.Position, p.Position);
                         if (dSq != 0)
@@ -111,7 +111,7 @@ namespace CometSimulation
                 foreach (Planet p in planets)
                     p.Update();
             }
-            foreach (Star s in stars)
+            foreach (Sun s in suns)
             {
                 if (s.isClicking)
                 {
@@ -127,7 +127,7 @@ namespace CometSimulation
                 c.Draw(spriteBatch, texComet);
             foreach (Planet p in planets)
                 p.Draw(spriteBatch, texPlanet);
-            foreach (Star s in stars)
+            foreach (Sun s in suns)
                 s.Draw(spriteBatch, texStar);
         }
     }

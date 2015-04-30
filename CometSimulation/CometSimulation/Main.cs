@@ -19,10 +19,8 @@ namespace CometSimulation
         Manager manager = new Manager();
         Texture2D texComet;
         Texture2D texPlanet;
-        Texture2D texStar;
-        List<Texture2D> texStarArray = new List<Texture2D>();
+        Texture2D texSun;
         List<Texture2D> texCheckbox = new List<Texture2D>();
-        int texIndex = 0;
         Texture2D texPixel;
         Texture2D texBox;
 
@@ -79,11 +77,10 @@ namespace CometSimulation
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            font = Content.Load<SpriteFont>("Font");
+            font = Content.Load<SpriteFont>("Font"); 
             texComet = Content.Load<Texture2D>("Comet");
             texPlanet = Content.Load<Texture2D>("Planet");
-            for (int i = 0; i<= 15; i++)
-                texStarArray.Add(Content.Load<Texture2D>((i+1).ToString()));
+            texSun = Content.Load<Texture2D>("Sun");
             texPixel = Content.Load<Texture2D>("Pixel");
             texBox = Content.Load<Texture2D>("Box");
             texCheckbox.Add(Content.Load<Texture2D>("Checkbox_Unticked"));
@@ -114,13 +111,7 @@ namespace CometSimulation
                 }
             }
             #endregion
-
-            if (texIndex == 15)
-                texIndex = 0;
-            else
-                texIndex++;
-            texStar = texStarArray[texIndex];
-
+            
             switch (state)
             {
                 case MenuState.Main:
@@ -210,7 +201,7 @@ namespace CometSimulation
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
 
-            manager.Draw(spriteBatch, texComet, texPlanet, texStar);
+            manager.Draw(spriteBatch, texComet, texPlanet, texSun);
 
             #region menu
             spriteBatch.Draw(texPixel, rectContainer, Color.White);

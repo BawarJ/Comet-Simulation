@@ -128,7 +128,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="Objects\Star.cs" />
+    <Compile Include="Objects\Sun.cs" />
     <Compile Include="UI Elements\Button.cs" />
     <Compile Include="UI Elements\Checkbox.cs" />
     <Compile Include="UI Elements\Slider.cs" />
