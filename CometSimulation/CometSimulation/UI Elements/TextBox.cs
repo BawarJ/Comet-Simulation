@@ -30,14 +30,12 @@ namespace CometSimulation
         string Message;
         float Minimum;
         float Maximum;
-        Color textColour;
 
         public TextBox(string msg, float min, float max, int y)
         {
             Y = y;
             Colour = new Color(255, 255, 255);
             cursorColour = new Color(0, 0, 0);
-            textColour = Color.Black;
             Message = msg;
             Minimum = min;
             Maximum = max;
@@ -46,7 +44,7 @@ namespace CometSimulation
         public void Update(GameTime gameTime, int menuX)
         {
             kb.Update();
-            Console.WriteLine(kb.text);
+
             #region Mouse Stuff
             pms = ms;
             ms = Mouse.GetState();
@@ -79,23 +77,15 @@ namespace CometSimulation
 
             if (inFocus)
             {
+                Colour.R = 230; //sets the textbox colour to a darker blue to indicate that it is in focus
+                cursorColour.A = (byte)(gameTime.TotalGameTime.Milliseconds / 4); //cursor blinking
 
-                textInput = kb.text;
-
-                Colour.R = 230;
-                cursorColour.A = (byte)(gameTime.TotalGameTime.Milliseconds/4);
-                if (kb.text != "")
+                bool Valid = float.TryParse(textInput, out Value);
+                if (Valid && Value >= Minimum && Value <= Maximum)
+                    textInput = kb.text;
+                else
                 {
-                    if (Value >= Minimum && Value <= Maximum)
-                    {
-                        textColour = Color.Black;
-                        Value = float.Parse(kb.text);
-                    }
-                    else
-                    {
-                        textColour = Color.Red;
-                        Value = float.Parse(kb.text);
-                    }
+                    textInput = "INVALID INPUT!\nClick here to reset";
                 }
             }
         }
@@ -104,7 +94,7 @@ namespace CometSimulation
         {
             spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, Width, 50), Colour);
             spriteBatch.DrawString(Font, Message, new Vector2(menuX + 20, Y - 30), Color.Black);
-            spriteBatch.DrawString(Font, textInput, new Vector2(menuX + 25, Y + 10), textColour);
+            spriteBatch.DrawString(Font, textInput, new Vector2(menuX + 25, Y + 5), Color.Black);
             if (inFocus)
             {
                 spriteBatch.Draw(Texture, new Rectangle(menuX + 25 + (int)Font.MeasureString(textInput).X, Y + 10, 1, 30), cursorColour); //draws cursor

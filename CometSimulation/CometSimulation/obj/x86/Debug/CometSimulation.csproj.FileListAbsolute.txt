@@ -67,3 +67,4 @@ N:\Downloads\Comet-Simulation-master COMET TAIL FIXD\Comet-Simulation-master\Com
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Checkbox_Ticked.xnb
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Checkbox_Unticked.xnb
 C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Sun.xnb
+C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Tab.xnb

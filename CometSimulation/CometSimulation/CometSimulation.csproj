@@ -133,7 +133,7 @@
     <Compile Include="UI Elements\Checkbox.cs" />
     <Compile Include="UI Elements\Slider.cs" />
     <Compile Include="UI Elements\TextBox.cs" />
-    <Compile Include="UI Elements\Input\kbHandler.cs" />
+    <Compile Include="UI Elements\kbHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon\Game.ico" />

@@ -93,14 +93,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CometSimulation.exe" size="29184">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CometSimulation.exe" size="30208">
       <assemblyIdentity name="CometSimulation" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>+2+pKpRkxo4VfknlMKTYAck5ir0=</dsig:DigestValue>
+        <dsig:DigestValue>+Ze2rE4p4Wt+0d8lFNSf1Mcd1KU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -119,7 +119,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>thVtrP0SAaePd24KjOh7XagcPYg=</dsig:DigestValue>
+      <dsig:DigestValue>w4dIWxHLZ57QtCYs6CTjeNaU7ik=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Checkbox_Unticked.xnb" size="3787">
@@ -174,6 +174,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>anCspj9SJEiwQljjoz9SMU9+HZo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Tab.xnb" size="4987">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>uG8MHTKwB3VPGXgk/me/LrlWlLs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Icon\Game.ico" size="4286">

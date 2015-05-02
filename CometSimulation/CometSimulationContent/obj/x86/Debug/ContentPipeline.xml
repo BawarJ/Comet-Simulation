@@ -66,7 +66,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Checkbox_Ticked.xnb</Output>
-      <Time>2015-04-27T12:43:51.7539839+01:00</Time>
+      <Time>2015-05-01T11:46:54.3523361+01:00</Time>
     </Item>
     <Item>
       <Source>Checkbox_Unticked.png</Source>
@@ -85,6 +85,15 @@
       <Options>None</Options>
       <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Sun.xnb</Output>
       <Time>2015-04-29T20:21:41.9232448+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tab.png</Source>
+      <Name>Tab</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Tab.xnb</Output>
+      <Time>2015-05-02T15:12:10.6716313+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

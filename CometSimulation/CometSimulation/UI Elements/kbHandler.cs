@@ -9,7 +9,7 @@ namespace CometSimulation
     public class KbHandler
     {
         private Keys[] lastPressedKeys;
-        public string text = "";
+        public string text;
 
         public KbHandler()
         {
@@ -103,9 +103,6 @@ namespace CometSimulation
                     break;
                 case Keys.NumPad9:
                     text += "9";
-                    break;
-                case Keys.OemPeriod:
-                    text += ".";
                     break;
                 case Keys.Back:
                     if (!string.IsNullOrWhiteSpace(text))
