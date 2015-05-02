@@ -43,6 +43,8 @@ namespace CometSimulation
 
         public void Update(GameTime gameTime, int menuX)
         {
+            bool Valid = true;
+
             kb.Update();
 
             #region Mouse Stuff
@@ -65,8 +67,13 @@ namespace CometSimulation
             {
                 isClicking = true;
                 inFocus = true;
-                textInput = Value.ToString();
-                kb.text = textInput;
+                if (Valid)
+                {
+                    textInput = Value.ToString();
+                    kb.text = textInput;
+                }
+                else
+                    textInput = kb.text = "";
             }
             else
                 isClicking = false;
@@ -80,7 +87,7 @@ namespace CometSimulation
                 Colour.R = 230; //sets the textbox colour to a darker blue to indicate that it is in focus
                 cursorColour.A = (byte)(gameTime.TotalGameTime.Milliseconds / 4); //cursor blinking
 
-                bool Valid = float.TryParse(textInput, out Value);
+                Valid = float.TryParse(textInput, out Value);
                 if (Valid && Value >= Minimum && Value <= Maximum)
                     textInput = kb.text;
                 else

@@ -48,7 +48,7 @@ namespace CometSimulation
                 Clicked = false;
 
             if (isHovering)
-                Colour = new Color(100, 240, 240);
+                Colour = new Color(150,150,150);
             else
                 Colour = Color.White;
 

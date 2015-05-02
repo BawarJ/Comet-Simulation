@@ -24,6 +24,7 @@ namespace CometSimulation
         Texture2D texPixel;
         Texture2D texBox;
         Texture2D texTab;
+        Texture2D texButton;
 
         MenuState state;
         FileManager fileManager = new FileManager();
@@ -88,7 +89,7 @@ namespace CometSimulation
             texCheckbox.Add(Content.Load<Texture2D>("Checkbox_Unticked"));
             texCheckbox.Add(Content.Load<Texture2D>("Checkbox_Ticked"));
             texTab = Content.Load<Texture2D>("Tab");
-
+            texButton = Content.Load<Texture2D>("Button");
         }
 
         protected override void Update(GameTime gameTime)
@@ -220,19 +221,19 @@ namespace CometSimulation
             {
                 case MenuState.Main:
                     spriteBatch.DrawString(font, "Comet Simulation", new Vector2(X + 20, 10), Color.Black);
-                    btnComet.Draw(spriteBatch, texPixel, font, X);
-                    btnPlanet.Draw(spriteBatch, texPixel, font, X);
+                    btnComet.Draw(spriteBatch, texButton, font, X);
+                    btnPlanet.Draw(spriteBatch, texButton, font, X);
                     sldr_timeDelay.Draw(spriteBatch, texBox, font, X);
-                    btnSave.Draw(spriteBatch, texPixel, font, X);
-                    btnLoad.Draw(spriteBatch, texPixel, font, X);
-                    btnInstructions.Draw(spriteBatch, texPixel, font, X);
-                    btnReset.Draw(spriteBatch, texPixel, font, X);
-                    btnExit.Draw(spriteBatch, texPixel, font, X);
+                    btnSave.Draw(spriteBatch, texButton, font, X);
+                    btnLoad.Draw(spriteBatch, texButton, font, X);
+                    btnInstructions.Draw(spriteBatch, texButton, font, X);
+                    btnReset.Draw(spriteBatch, texButton, font, X);
+                    btnExit.Draw(spriteBatch, texButton, font, X);
                     break;
 
                 case MenuState.Comet:
-                    btnCreate.Draw(spriteBatch, texPixel, font, X);
-                    btnBack.Draw(spriteBatch, texPixel, font, X);
+                    btnCreate.Draw(spriteBatch, texButton, font, X);
+                    btnBack.Draw(spriteBatch, texButton, font, X);
                     txt_startX.Draw(spriteBatch, texBox, font, X);
                     txt_startY.Draw(spriteBatch, texBox, font, X);
                     sldr_velX.Draw(spriteBatch, texBox, font, X);
@@ -243,8 +244,8 @@ namespace CometSimulation
                     break;
 
                 case MenuState.Planet:
-                    btnCreate.Draw(spriteBatch, texPixel, font, X);
-                    btnBack.Draw(spriteBatch, texPixel, font, X);
+                    btnCreate.Draw(spriteBatch, texButton, font, X);
+                    btnBack.Draw(spriteBatch, texButton, font, X);
                     txt_startX.Draw(spriteBatch, texBox, font, X);
                     txt_startY.Draw(spriteBatch, texBox, font, X);
                     sldr_velX.Draw(spriteBatch, texBox, font, X);
@@ -260,7 +261,7 @@ namespace CometSimulation
                     spriteBatch.DrawString(font, 
                         "1. Choose desired time \ndelay using slider. \n2. Click Comet/Planet \nbutton. \n3. Customise variables. \n4. Click Create button. \n5. Repeat as required. \n\nTo save current state, \nclick Save button. \nTo load state, \nclick Load button. \nTo clear the simulation, \nclick Reset button. \nTo exit simulation, \nclick Exit button. \n\nFor further assistance, \nseek User Manuals."
                         , new Vector2(X + 10, 200), Color.Black);
-                    btnBack.Draw(spriteBatch, texPixel, font, X);
+                    btnBack.Draw(spriteBatch, texButton, font, X);
                     break;
             }
             #endregion

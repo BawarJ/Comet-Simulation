@@ -48,14 +48,18 @@ namespace CometSimulation
                 Clicked = false;
 
             if (isHovering)
-                Colour.R = 25;
+            {
+                Colour.R = 150;
+                Colour.G = 150;
+                Colour.B = 150;
+            }
             else
+            {
                 Colour.R = 200;
-
-            if (Clicked)
-                Colour.B = 255;
-            else
+                Colour.G = 200;
                 Colour.B = 200;
+            }
+
             pms = ms;
 
         }
