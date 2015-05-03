@@ -10,8 +10,8 @@
         <Data Key="ColorKeyColor">255, 255, 255, 255</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Comet.xnb</Output>
-      <Time>2015-04-21T11:47:58.2976088+01:00</Time>
+      <Output>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Comet.xnb</Output>
+      <Time>2015-05-03T19:39:04.0517578+01:00</Time>
     </Item>
     <Item>
       <Source>Planet.png</Source>
@@ -22,8 +22,8 @@
         <Data Key="ColorKeyColor">255, 255, 255, 255</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Planet.xnb</Output>
-      <Time>2015-04-24T01:33:10.1409712+01:00</Time>
+      <Output>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Planet.xnb</Output>
+      <Time>2015-05-03T19:39:04.3046875+01:00</Time>
     </Item>
     <Item>
       <Source>Pixel.png</Source>
@@ -34,8 +34,8 @@
         <Data Key="ColorKeyColor">0, 0, 0, 255</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Pixel.xnb</Output>
-      <Time>2015-04-13T12:20:10+01:00</Time>
+      <Output>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Pixel.xnb</Output>
+      <Time>2015-01-26T12:22:28+00:00</Time>
     </Item>
     <Item>
       <Source>Box.png</Source>
@@ -47,17 +47,8 @@
         <Data Key="ColorKeyEnabled">False</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Box.xnb</Output>
-      <Time>2015-04-13T12:20:10+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Font.spritefont</Source>
-      <Name>Font</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Font.xnb</Output>
-      <Time>2015-04-27T19:45:04.4351608+01:00</Time>
+      <Output>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Box.xnb</Output>
+      <Time>2015-05-03T19:39:03.9052734+01:00</Time>
     </Item>
     <Item>
       <Source>Checkbox_Ticked.png</Source>
@@ -65,8 +56,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Checkbox_Ticked.xnb</Output>
-      <Time>2015-05-01T11:46:54.3523361+01:00</Time>
+      <Output>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Checkbox_Ticked.xnb</Output>
+      <Time>2015-05-03T19:39:04.046875+01:00</Time>
     </Item>
     <Item>
       <Source>Checkbox_Unticked.png</Source>
@@ -74,8 +65,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Checkbox_Unticked.xnb</Output>
-      <Time>2015-04-27T12:30:07.3031279+01:00</Time>
+      <Output>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Checkbox_Unticked.xnb</Output>
+      <Time>2015-05-03T19:39:04.0488281+01:00</Time>
     </Item>
     <Item>
       <Source>Sun.png</Source>
@@ -83,8 +74,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Sun.xnb</Output>
-      <Time>2015-04-29T20:21:41.9232448+01:00</Time>
+      <Output>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Sun.xnb</Output>
+      <Time>2015-05-03T19:39:04.3935546+01:00</Time>
     </Item>
     <Item>
       <Source>Tab.png</Source>
@@ -92,8 +83,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Tab.xnb</Output>
-      <Time>2015-05-02T15:12:10.6716313+01:00</Time>
+      <Output>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Tab.xnb</Output>
+      <Time>2015-05-03T19:39:04.3955078+01:00</Time>
     </Item>
     <Item>
       <Source>Button.png</Source>
@@ -101,8 +92,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Button.xnb</Output>
-      <Time>2015-05-02T18:35:55.9925838+01:00</Time>
+      <Output>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Button.xnb</Output>
+      <Time>2015-05-03T19:39:03.9414062+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Font.spritefont</Source>
+      <Name>Font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\Font.xnb</Output>
+      <Time>2015-05-03T19:39:04.2617187+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -110,10 +110,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulationContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulationContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Bawar\Documents\Visual Studio 2010\Projects\Comet-Simulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulationContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulationContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -142,7 +142,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-02-24T15:08:20.2302257+00:00</Value>
+        <Value>2013-03-10T20:13:27.2773438+00:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

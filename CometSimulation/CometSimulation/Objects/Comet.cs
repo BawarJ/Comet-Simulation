@@ -64,7 +64,7 @@ namespace CometSimulation
             }
 
             //create dust tail
-            dustParticles.Add(new Particle(Position, Color.Gray, particleVelocity));
+            dustParticles.Add(new Particle(Position, Color.LightGray, particleVelocity));
 
             foreach (Particle p in dustParticles)
             {
