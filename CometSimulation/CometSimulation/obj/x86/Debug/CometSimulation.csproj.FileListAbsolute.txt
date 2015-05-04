@@ -77,3 +77,4 @@ C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimula
 C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\bin\x86\Debug\CometSimulation.application
 C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.exe.manifest
 C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.application
+C:\Users\Bawar\documents\visual studio 2010\Projects\CometSimulation\CometSimulation\CometSimulation\obj\x86\Debug\CometSimulation.TrustInfo.xml

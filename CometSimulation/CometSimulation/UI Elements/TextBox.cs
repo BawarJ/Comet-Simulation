@@ -91,9 +91,7 @@ namespace CometSimulation
                 if (Valid && Value >= Minimum && Value <= Maximum)
                     textInput = kb.text;
                 else
-                {
                     textInput = "INVALID INPUT!\nClick here to reset";
-                }
             }
         }
 

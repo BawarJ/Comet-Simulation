@@ -92,69 +92,69 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CometSimulation.exe" size="26112">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CometSimulation.exe" size="25088">
       <assemblyIdentity name="CometSimulation" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>DsAjaPSbaFr094VgOa/nc+wRkWQ=</dsig:DigestValue>
+        <dsig:DigestValue>FpsgQyBuAKR+HXauxEyHRn4xIfk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Content\Box.xnb" size="40187">
+  <file name="Content\Box.xnb" size="322">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>8BKtmTuxZqYunI7xDDRq9PDTE/Q=</dsig:DigestValue>
+      <dsig:DigestValue>q4K5yvpID+AaPu5BFCZB7XroKUc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Button.xnb" size="32187">
+  <file name="Content\Button.xnb" size="9308">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>TjQ2BWvYoHlMky6Hg94Y9liBn5o=</dsig:DigestValue>
+      <dsig:DigestValue>xURKog8MqHpkOvTCLx/wis43V+Y=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Checkbox_Ticked.xnb" size="3787">
+  <file name="Content\Checkbox_Ticked.xnb" size="398">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>w4dIWxHLZ57QtCYs6CTjeNaU7ik=</dsig:DigestValue>
+      <dsig:DigestValue>bWrEjxpB1ThqWm7llM2IjoMD8i8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Checkbox_Unticked.xnb" size="3787">
+  <file name="Content\Checkbox_Unticked.xnb" size="262">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>oz1iTitVGNq1ZB0wZDFbMumEAVw=</dsig:DigestValue>
+      <dsig:DigestValue>Y199lrBkylQ36K88++pd2zPFSNo=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Comet.xnb" size="84843">
+  <file name="Content\Comet.xnb" size="21148">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Lbn/uk9ueTedNevRSzoERW7IWLo=</dsig:DigestValue>
+      <dsig:DigestValue>hiNJdVSFCYw7GJRYX96aXgzbRww=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Font.xnb" size="21678">
+  <file name="Content\Font.xnb" size="5206">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9lFX7myry2oiRx1qHVIaAigAUlQ=</dsig:DigestValue>
+      <dsig:DigestValue>Rfb540dtRFMw0oYYMISuDpILYCo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Pixel.xnb" size="191">
@@ -166,31 +166,31 @@
       <dsig:DigestValue>AOxpL/uXJMpLGqjJ5gtd/FE0vmI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Planet.xnb" size="3247391">
+  <file name="Content\Planet.xnb" size="1229608">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>NCgwVIgf3yJgFOLWwQhmgJmsgWY=</dsig:DigestValue>
+      <dsig:DigestValue>EPVbmtjanRSXzAfgcKs9sX5h8OI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Sun.xnb" size="665787">
+  <file name="Content\Sun.xnb" size="322848">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>anCspj9SJEiwQljjoz9SMU9+HZo=</dsig:DigestValue>
+      <dsig:DigestValue>7gDXIUP/nrtSdvOLw//6G4NsLXs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Tab.xnb" size="4987">
+  <file name="Content\Tab.xnb" size="1718">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>uG8MHTKwB3VPGXgk/me/LrlWlLs=</dsig:DigestValue>
+      <dsig:DigestValue>xV5PnHJkL1FeJ5hbOeptCC6oqjM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Icon\Game.ico" size="4286">

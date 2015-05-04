@@ -43,13 +43,13 @@ namespace CometSimulation
         Button btnCreate = new Button("Create", 625);
         Button btnBack = new Button("Back", 700);
         Slider sldr_timeDelay = new Slider(0f, 10f, "Time Delay:", 125);
-        TextBox txt_startX = new TextBox("X Position (0 - 1024):", 0, 1366, 50);
+        TextBox txt_startX = new TextBox("X Position (0 - 1024):", 0, 1024, 50);
         TextBox txt_startY = new TextBox("Y Position (0 - 768):", 0, 768, 150);
         Slider sldr_velX = new Slider(-5f, 5f, "X Velocity:", 250);
         Slider sldr_velY = new Slider(-5f, 5f, "Y Velocity:", 330);
         Slider sldr_mass = new Slider(5f, 10f, "Mass:", 410);
         Slider sldr_density = new Slider(5f, 10f, "Density:", 490);
-        Checkbox chkbxOrbitTrail = new Checkbox("Display Orbit Tail", 545);
+        Checkbox chkbxOrbitTrail = new Checkbox("Display Orbit Trail", 545);
 
         public Main()
         {

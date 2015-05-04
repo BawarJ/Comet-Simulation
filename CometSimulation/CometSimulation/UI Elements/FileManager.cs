@@ -24,33 +24,39 @@ namespace CometSimulation
 
             textWriter.WriteLine("#BEGIN#");
 
-            textWriter.WriteLine("#comets#");
-            for (int i = 0; i <= m.comets.Count - 1; i++)
+            if (m.comets.Count > 0)
             {
-                textWriter.WriteLine(m.comets[i].Position.X);
-                textWriter.WriteLine(m.comets[i].Position.Y);
-                textWriter.WriteLine(m.comets[i].Velocity.X);
-                textWriter.WriteLine(m.comets[i].Velocity.Y);
-                textWriter.WriteLine(m.comets[i].m);
-                textWriter.WriteLine(m.comets[i].density);
-                if (i != m.comets.Count-1)
-                    textWriter.WriteLine("~");
+                textWriter.WriteLine("#comets#");
+                for (int i = 0; i <= m.comets.Count - 1; i++)
+                {
+                    textWriter.WriteLine(m.comets[i].Position.X);
+                    textWriter.WriteLine(m.comets[i].Position.Y);
+                    textWriter.WriteLine(m.comets[i].Velocity.X);
+                    textWriter.WriteLine(m.comets[i].Velocity.Y);
+                    textWriter.WriteLine(m.comets[i].m);
+                    textWriter.WriteLine(m.comets[i].density);
+                    if (i != m.comets.Count - 1)
+                        textWriter.WriteLine("~");
+                }
+                textWriter.WriteLine("##");
             }
-            textWriter.WriteLine("##");
 
-            textWriter.WriteLine("#planets#");
-            for (int i = 0; i <= m.planets.Count - 1; i++)
+            if (m.planets.Count > 0)
             {
-                textWriter.WriteLine(m.planets[i].Position.X);
-                textWriter.WriteLine(m.planets[i].Position.Y);
-                textWriter.WriteLine(m.planets[i].Velocity.X);
-                textWriter.WriteLine(m.planets[i].Velocity.Y);
-                textWriter.WriteLine(m.planets[i].m);
-                textWriter.WriteLine(m.planets[i].density);
-                if (i != m.planets.Count-1)
-                    textWriter.WriteLine("~");
+                textWriter.WriteLine("#planets#");
+                for (int i = 0; i <= m.planets.Count - 1; i++)
+                {
+                    textWriter.WriteLine(m.planets[i].Position.X);
+                    textWriter.WriteLine(m.planets[i].Position.Y);
+                    textWriter.WriteLine(m.planets[i].Velocity.X);
+                    textWriter.WriteLine(m.planets[i].Velocity.Y);
+                    textWriter.WriteLine(m.planets[i].m);
+                    textWriter.WriteLine(m.planets[i].density);
+                    if (i != m.planets.Count - 1)
+                        textWriter.WriteLine("~");
+                }
+                textWriter.WriteLine("##");
             }
-            textWriter.WriteLine("##");
 
             textWriter.WriteLine("#stars#");
             foreach (Sun s in m.suns)
