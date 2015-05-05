@@ -129,7 +129,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UI Elements\FileManager.cs" />
+    <Compile Include="UI Elements\FileHandler.cs" />
     <Compile Include="Simulation\Comet.cs" />
     <Compile Include="Simulation\Manager.cs" />
     <Compile Include="Simulation\Planet.cs" />

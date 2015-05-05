@@ -13,26 +13,32 @@ namespace CometSimulation
 {
     public class Main : Microsoft.Xna.Framework.Game
     {
+        #region Variables
+
+            //Textures and Graphics
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         SpriteFont font;
-        Manager manager = new Manager();
         Texture2D texComet;
         Texture2D texPlanet;
         Texture2D texSun;
-        List<Texture2D> texCheckbox = new List<Texture2D>();
         Texture2D texPixel;
         Texture2D texBox;
         Texture2D texTab;
         Texture2D texButton;
+        List<Texture2D> texCheckbox = new List<Texture2D>();
 
-        MenuState state;
-        FileManager fileManager = new FileManager();
+            //Other
+        Manager manager = new Manager();
+        FileHandler fileManager = new FileHandler();
         int X = 0;
         int Inc = 10;
         MouseState ms;
         Rectangle rectMouse;
         Rectangle rectContainer;
+
+            //Menu
+        MenuState state;
         Button btnComet = new Button("Comet", 200);
         Button btnPlanet = new Button("Planet", 250);
         Button btnSave = new Button("Save", 350);
@@ -50,9 +56,11 @@ namespace CometSimulation
         Slider sldr_mass = new Slider(5f, 10f, "Mass:", 410);
         Slider sldr_density = new Slider(5f, 10f, "Density:", 490);
         Checkbox chkbxOrbitTrail = new Checkbox("Display Orbit Trail", 545);
+        #endregion
 
         public Main()
         {
+                //Set up the window
             Content.RootDirectory = "Content";
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1024;
@@ -60,9 +68,10 @@ namespace CometSimulation
             graphics.IsFullScreen = false;
             IsMouseVisible = true;
 
-            state = MenuState.Main;
+            state = MenuState.Main; //Sets the initial MenuState to the MainMenu
         }
 
+            //Creates 4 Menu States
         public enum MenuState
         {
             Main,
@@ -71,6 +80,7 @@ namespace CometSimulation
             Instructions
         }
 
+            //Initialises the simulation
         protected override void Initialize()
         {
             manager.Initialize();
@@ -80,6 +90,8 @@ namespace CometSimulation
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            #region Load Textures 
+                //Loads required textures
             font = Content.Load<SpriteFont>("Font"); 
             texComet = Content.Load<Texture2D>("Comet");
             texPlanet = Content.Load<Texture2D>("Planet");
@@ -90,15 +102,19 @@ namespace CometSimulation
             texCheckbox.Add(Content.Load<Texture2D>("Checkbox_Ticked"));
             texTab = Content.Load<Texture2D>("Tab");
             texButton = Content.Load<Texture2D>("Button");
+            #endregion
         }
 
+            //Runs once every frame
         protected override void Update(GameTime gameTime)
         {
-            #region Mouse Stuff
+            #region Menu Slide Reveal
+
             ms = Mouse.GetState();
             rectMouse = new Rectangle(ms.X, ms.Y, 1, 1);
             rectContainer = new Rectangle(X, 0, 200, 768);
 
+            //When the mouse hovers left the menu is revealed
             if (ms.X < 10 || rectMouse.Intersects(rectContainer))
             {
                 if (X < 0)
@@ -117,6 +133,7 @@ namespace CometSimulation
             
             switch (state)
             {
+                #region MAIN MENU
                 case MenuState.Main:
                     btnComet.Update(X);
                     btnPlanet.Update(X);
@@ -149,7 +166,9 @@ namespace CometSimulation
                     if (btnExit.Clicked)
                         Exit();
                     break;
+                #endregion
 
+                #region COMET MENU
                 case MenuState.Comet:
                     btnCreate.Update(X);
                     btnBack.Update(X);
@@ -170,7 +189,9 @@ namespace CometSimulation
                     sldr_density.Update(gameTime, X);
                     chkbxOrbitTrail.Update(X);
                     break;
+                #endregion
 
+                #region PLANET MENU
                 case MenuState.Planet:
                     btnCreate.Update(X);
                     btnBack.Update(X);
@@ -191,14 +212,16 @@ namespace CometSimulation
                     sldr_density.Update(gameTime, X);
                     chkbxOrbitTrail.Update(X);
                     break;
+                #endregion
 
+                #region INSTRUCTIONS PAGE
                 case MenuState.Instructions:
                     btnBack.Update(X);
 
                     if (btnBack.Clicked)
                         state = MenuState.Main;
                     break;
-
+                #endregion
             }
 
             manager.Update();
@@ -210,15 +233,17 @@ namespace CometSimulation
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
 
+                //Draws the Simulation
             manager.Draw(spriteBatch, texComet, texPlanet, texSun);
 
-            #region menu
+            #region Draw Menu
             spriteBatch.Draw(texPixel, rectContainer, Color.White);
             spriteBatch.Draw(texTab, new Rectangle(rectContainer.X + rectContainer.Width, rectContainer.Height/4, 15, 80), Color.White);
             spriteBatch.DrawString(font, "Menu", new Vector2(rectContainer.X + rectContainer.Width + 18, rectContainer.Height / 4 +18), Color.Black, MathHelper.ToRadians(90), Vector2.Zero, 0.9f, SpriteEffects.None, 0);
 
             switch (state)
             {
+                #region MAIN MENU
                 case MenuState.Main:
                     spriteBatch.DrawString(font, "Comet Simulation", new Vector2(X + 20, 10), Color.Black);
                     btnComet.Draw(spriteBatch, texButton, font, X);
@@ -230,7 +255,9 @@ namespace CometSimulation
                     btnReset.Draw(spriteBatch, texButton, font, X);
                     btnExit.Draw(spriteBatch, texButton, font, X);
                     break;
+                #endregion
 
+                #region COMET MENU
                 case MenuState.Comet:
                     btnCreate.Draw(spriteBatch, texButton, font, X);
                     btnBack.Draw(spriteBatch, texButton, font, X);
@@ -242,7 +269,9 @@ namespace CometSimulation
                     sldr_density.Draw(spriteBatch, texBox, font, X);
                     chkbxOrbitTrail.Draw(spriteBatch, texCheckbox, font, X);
                     break;
+                #endregion
 
+                #region PLANET MENU
                 case MenuState.Planet:
                     btnCreate.Draw(spriteBatch, texButton, font, X);
                     btnBack.Draw(spriteBatch, texButton, font, X);
@@ -254,7 +283,9 @@ namespace CometSimulation
                     sldr_density.Draw(spriteBatch, texBox, font, X);
                     chkbxOrbitTrail.Draw(spriteBatch, texCheckbox, font, X);
                     break;
+                #endregion
 
+                #region INSTRUCTIONS PAGE
                 case MenuState.Instructions:
                     spriteBatch.DrawString(font, "Instructions Page", new Vector2(X + 20, 10), Color.Black);
                     spriteBatch.DrawString(font, "In order to use this \nsimulation, follow the \nfollowing steps.", new Vector2(X + 10, 100), Color.Black);
@@ -263,6 +294,7 @@ namespace CometSimulation
                         , new Vector2(X + 10, 200), Color.Black);
                     btnBack.Draw(spriteBatch, texButton, font, X);
                     break;
+                #endregion
             }
             #endregion
 

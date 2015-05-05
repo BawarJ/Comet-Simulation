@@ -7,13 +7,13 @@ using Microsoft.Xna.Framework;
 
 namespace CometSimulation
 {
-    class FileManager
+    class FileHandler
     {
         TextReader textReader;
         TextWriter textWriter;
         string Input;
 
-        public FileManager()
+        public FileHandler()
         {
 
         }
