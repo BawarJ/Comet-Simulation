@@ -25,7 +25,7 @@ namespace CometSimulation
         Rectangle mousePos;
         public Boolean isClicking;
         public Boolean isHovering;
-        int frame = 0;
+        int Frame = 0;
 
         public Sun(Vector2 pos, float dia, Color col)
         {
@@ -67,12 +67,12 @@ namespace CometSimulation
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture)
         {
             //extracts frames from spritesheet texture to create an animation
-            if (frame >= 15)
-                frame = 0;
+            if (Frame >= 15)
+                Frame = 0;
             else
-                frame++;
+                Frame++;
 
-            Rectangle sourceRectangle = new Rectangle(0, frame*100, 104, 100);
+            Rectangle sourceRectangle = new Rectangle(0, Frame*100, 104, 100);
             Rectangle destinationRectangle = new Rectangle((int)Position.X - (int)Diameter / 2, (int)Position.Y - (int)Diameter / 2, (int)Diameter, (int)Diameter);
 
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Colour);

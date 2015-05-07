@@ -12,12 +12,7 @@ namespace CometSimulation
         TextReader textReader;
         TextWriter textWriter;
         string Input;
-
-        public FileHandler()
-        {
-
-        }
-
+        
         public void Save(Manager m)
         {
             textWriter = new StreamWriter("state.txt");
@@ -34,7 +29,7 @@ namespace CometSimulation
                     textWriter.WriteLine(m.comets[i].Velocity.X);
                     textWriter.WriteLine(m.comets[i].Velocity.Y);
                     textWriter.WriteLine(m.comets[i].m);
-                    textWriter.WriteLine(m.comets[i].density);
+                    textWriter.WriteLine(m.comets[i].Density);
                     if (i != m.comets.Count - 1)
                         textWriter.WriteLine("~");
                 }
@@ -51,7 +46,7 @@ namespace CometSimulation
                     textWriter.WriteLine(m.planets[i].Velocity.X);
                     textWriter.WriteLine(m.planets[i].Velocity.Y);
                     textWriter.WriteLine(m.planets[i].m);
-                    textWriter.WriteLine(m.planets[i].density);
+                    textWriter.WriteLine(m.planets[i].Density);
                     if (i != m.planets.Count - 1)
                         textWriter.WriteLine("~");
                 }

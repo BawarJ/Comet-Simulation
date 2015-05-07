@@ -28,7 +28,7 @@ namespace CometSimulation
         Texture2D texButton;
         List<Texture2D> texCheckbox = new List<Texture2D>();
 
-            //Other
+        //Other
         Manager manager = new Manager();
         FileHandler fileManager = new FileHandler();
         int X = 0;
@@ -37,7 +37,7 @@ namespace CometSimulation
         Rectangle rectMouse;
         Rectangle rectContainer;
 
-            //Menu
+        //Menu
         MenuState state;
         Button btnComet = new Button("Comet", 200);
         Button btnPlanet = new Button("Planet", 250);
@@ -48,14 +48,14 @@ namespace CometSimulation
         Button btnExit = new Button("Exit", 700);
         Button btnCreate = new Button("Create", 625);
         Button btnBack = new Button("Back", 700);
-        Slider sldr_timeDelay = new Slider(0f, 10f, "Time Delay:", 125);
-        TextBox txt_startX = new TextBox("X Position (0 - 1024):", 0, 1024, 50);
-        TextBox txt_startY = new TextBox("Y Position (0 - 768):", 0, 768, 150);
-        Slider sldr_velX = new Slider(-5f, 5f, "X Velocity:", 250);
-        Slider sldr_velY = new Slider(-5f, 5f, "Y Velocity:", 330);
-        Slider sldr_mass = new Slider(5f, 10f, "Mass:", 410);
-        Slider sldr_density = new Slider(5f, 10f, "Density:", 490);
-        Checkbox chkbxOrbitTrail = new Checkbox("Display Orbit Trail", 545);
+        Slider sldrTimeDelay = new Slider(0f, 10f, "Time Delay:", 125);
+        Textbox txtStartX = new Textbox("X Position (0 - 1024):", 0, 1024, 50);
+        Textbox txtStartY = new Textbox("Y Position (0 - 768):", 0, 768, 150);
+        Slider sldrVelX = new Slider(-5f, 5f, "X Velocity:", 250);
+        Slider sldrVelY = new Slider(-5f, 5f, "Y Velocity:", 330);
+        Slider sldrMass = new Slider(5f, 10f, "Mass:", 410);
+        Slider sldrDensity = new Slider(5f, 10f, "Density:", 490);
+        Checkbox chkOrbitTrail = new Checkbox("Display Orbit Trail", 545);
         #endregion
 
         public Main()
@@ -136,15 +136,15 @@ namespace CometSimulation
                 case MenuState.Main:
                     btnComet.Update(X);
                     btnPlanet.Update(X);
-                    sldr_timeDelay.Update(gameTime, X);
+                    sldrTimeDelay.Update(gameTime, X);
                     btnSave.Update(X);
                     btnLoad.Update(X);
                     btnInstructions.Update(X);
                     btnReset.Update(X);
                     btnExit.Update(X);
-                    if (sldr_timeDelay.isClicking)
+                    if (sldrTimeDelay.isClicking)
                     {
-                        manager.timeDelay = sldr_timeDelay.Value;
+                        manager.timeDelay = sldrTimeDelay.Value;
                         manager.tempTimeDelay = manager.timeDelay;
                     }
                     if (btnComet.Clicked)
@@ -174,19 +174,19 @@ namespace CometSimulation
 
                     if (btnCreate.Clicked)
                     {
-                        manager.createComet(chkbxOrbitTrail.isChecked, txt_startX.Value, txt_startY.Value, sldr_velX.Value, sldr_velY.Value, sldr_mass.Value, sldr_density.Value);
+                        manager.createComet(chkOrbitTrail.isChecked, txtStartX.Value, txtStartY.Value, sldrVelX.Value, sldrVelY.Value, sldrMass.Value, sldrDensity.Value);
                         state = MenuState.Main;
                     }
                     if (btnBack.Clicked)
                         state = MenuState.Main;
 
-                    txt_startX.Update(gameTime, X);
-                    txt_startY.Update(gameTime, X);
-                    sldr_velX.Update(gameTime, X);
-                    sldr_velY.Update(gameTime, X);
-                    sldr_mass.Update(gameTime, X);
-                    sldr_density.Update(gameTime, X);
-                    chkbxOrbitTrail.Update(X);
+                    txtStartX.Update(gameTime, X);
+                    txtStartY.Update(gameTime, X);
+                    sldrVelX.Update(gameTime, X);
+                    sldrVelY.Update(gameTime, X);
+                    sldrMass.Update(gameTime, X);
+                    sldrDensity.Update(gameTime, X);
+                    chkOrbitTrail.Update(X);
                     break;
                 #endregion
 
@@ -197,19 +197,19 @@ namespace CometSimulation
 
                     if (btnCreate.Clicked)
                     {
-                        manager.createPlanet(chkbxOrbitTrail.isChecked, txt_startX.Value, txt_startY.Value, sldr_velX.Value, sldr_velY.Value, sldr_mass.Value, sldr_density.Value);
+                        manager.createPlanet(chkOrbitTrail.isChecked, txtStartX.Value, txtStartY.Value, sldrVelX.Value, sldrVelY.Value, sldrMass.Value, sldrDensity.Value);
                         state = MenuState.Main;
                     }
                     if (btnBack.Clicked)
                         state = MenuState.Main;
 
-                    txt_startX.Update(gameTime, X);
-                    txt_startY.Update(gameTime, X);
-                    sldr_velX.Update(gameTime, X);
-                    sldr_velY.Update(gameTime, X);
-                    sldr_mass.Update(gameTime, X);
-                    sldr_density.Update(gameTime, X);
-                    chkbxOrbitTrail.Update(X);
+                    txtStartX.Update(gameTime, X);
+                    txtStartY.Update(gameTime, X);
+                    sldrVelX.Update(gameTime, X);
+                    sldrVelY.Update(gameTime, X);
+                    sldrMass.Update(gameTime, X);
+                    sldrDensity.Update(gameTime, X);
+                    chkOrbitTrail.Update(X);
                     break;
                 #endregion
 
@@ -247,7 +247,7 @@ namespace CometSimulation
                     spriteBatch.DrawString(font, "Comet Simulation", new Vector2(X + 20, 10), Color.Black);
                     btnComet.Draw(spriteBatch, texButton, font, X);
                     btnPlanet.Draw(spriteBatch, texButton, font, X);
-                    sldr_timeDelay.Draw(spriteBatch, texBox, font, X);
+                    sldrTimeDelay.Draw(spriteBatch, texBox, font, X);
                     btnSave.Draw(spriteBatch, texButton, font, X);
                     btnLoad.Draw(spriteBatch, texButton, font, X);
                     btnInstructions.Draw(spriteBatch, texButton, font, X);
@@ -260,13 +260,13 @@ namespace CometSimulation
                 case MenuState.Comet:
                     btnCreate.Draw(spriteBatch, texButton, font, X);
                     btnBack.Draw(spriteBatch, texButton, font, X);
-                    txt_startX.Draw(spriteBatch, texBox, font, X);
-                    txt_startY.Draw(spriteBatch, texBox, font, X);
-                    sldr_velX.Draw(spriteBatch, texBox, font, X);
-                    sldr_velY.Draw(spriteBatch, texBox, font, X);
-                    sldr_mass.Draw(spriteBatch, texBox, font, X);
-                    sldr_density.Draw(spriteBatch, texBox, font, X);
-                    chkbxOrbitTrail.Draw(spriteBatch, texCheckbox, font, X);
+                    txtStartX.Draw(spriteBatch, texBox, font, X);
+                    txtStartY.Draw(spriteBatch, texBox, font, X);
+                    sldrVelX.Draw(spriteBatch, texBox, font, X);
+                    sldrVelY.Draw(spriteBatch, texBox, font, X);
+                    sldrMass.Draw(spriteBatch, texBox, font, X);
+                    sldrDensity.Draw(spriteBatch, texBox, font, X);
+                    chkOrbitTrail.Draw(spriteBatch, texCheckbox, font, X);
                     break;
                 #endregion
 
@@ -274,13 +274,13 @@ namespace CometSimulation
                 case MenuState.Planet:
                     btnCreate.Draw(spriteBatch, texButton, font, X);
                     btnBack.Draw(spriteBatch, texButton, font, X);
-                    txt_startX.Draw(spriteBatch, texBox, font, X);
-                    txt_startY.Draw(spriteBatch, texBox, font, X);
-                    sldr_velX.Draw(spriteBatch, texBox, font, X);
-                    sldr_velY.Draw(spriteBatch, texBox, font, X);
-                    sldr_mass.Draw(spriteBatch, texBox, font, X);
-                    sldr_density.Draw(spriteBatch, texBox, font, X);
-                    chkbxOrbitTrail.Draw(spriteBatch, texCheckbox, font, X);
+                    txtStartX.Draw(spriteBatch, texBox, font, X);
+                    txtStartY.Draw(spriteBatch, texBox, font, X);
+                    sldrVelX.Draw(spriteBatch, texBox, font, X);
+                    sldrVelY.Draw(spriteBatch, texBox, font, X);
+                    sldrMass.Draw(spriteBatch, texBox, font, X);
+                    sldrDensity.Draw(spriteBatch, texBox, font, X);
+                    chkOrbitTrail.Draw(spriteBatch, texCheckbox, font, X);
                     break;
                 #endregion
 

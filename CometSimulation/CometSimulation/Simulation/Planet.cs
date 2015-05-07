@@ -20,7 +20,7 @@ namespace CometSimulation
         public Vector2 Force;
         public float F;
         public float m;
-        public float density;
+        public float Density;
         public float Diameter;
         Color Colour;
         bool displayOrbit;
@@ -33,7 +33,7 @@ namespace CometSimulation
             displayOrbit = dispOrbit;
             Position = pos;
             m = mass;
-            density = dens;
+            Density = dens;
             Diameter = (mass / dens) * 10;
             Colour = new Color((float)rand.NextDouble(),(float)rand.NextDouble(),(float)rand.NextDouble());
             Velocity = vel;

@@ -21,8 +21,8 @@ namespace CometSimulation
         int Width = 160;
         int Y;
         Rectangle mousePos;
-        MouseState pms;
         MouseState ms;
+        MouseState pms;
         Color Colour;
         string Message;
         float Minimum;

@@ -141,7 +141,7 @@
     <Compile Include="UI Elements\Button.cs" />
     <Compile Include="UI Elements\Checkbox.cs" />
     <Compile Include="UI Elements\Slider.cs" />
-    <Compile Include="UI Elements\TextBox.cs" />
+    <Compile Include="UI Elements\Textbox.cs" />
     <Compile Include="UI Elements\kbHandler.cs" />
   </ItemGroup>
   <ItemGroup>

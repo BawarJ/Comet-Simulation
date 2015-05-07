@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CometSimulation
 {
-    class TextBox
+    class Textbox
     {
         public float Value;
         bool isHovering;
@@ -21,17 +21,17 @@ namespace CometSimulation
         int Width = 160;
         int Y;
         Rectangle mousePos;
-        MouseState pms;
         MouseState ms;
+        MouseState pms;
         Color Colour;
         Color cursorColour;
-        public KbHandler kb = new KbHandler();
+        public kbHandler kb = new kbHandler();
         public string textInput = "0";
         string Message;
         float Minimum;
         float Maximum;
 
-        public TextBox(string msg, float min, float max, int y)
+        public Textbox(string msg, float min, float max, int y)
         {
             Y = y;
             Colour = new Color(255, 255, 255);

@@ -20,9 +20,9 @@ namespace CometSimulation
         int Width = 160;
         int Y;
         Rectangle mousePos;
-        string Message;
-        MouseState pms;
         MouseState ms;
+        MouseState pms;
+        string Message;
         Color Colour;
 
         public Checkbox(string msg, int y)

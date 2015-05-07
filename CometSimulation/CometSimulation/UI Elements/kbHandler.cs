@@ -6,12 +6,12 @@ using Microsoft.Xna.Framework.Input;
 
 namespace CometSimulation
 {
-    public class KbHandler
+    public class kbHandler
     {
         private Keys[] lastPressedKeys;
         public string text;
 
-        public KbHandler()
+        public kbHandler()
         {
             lastPressedKeys = new Keys[0];
         }
