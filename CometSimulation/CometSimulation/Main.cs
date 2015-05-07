@@ -15,7 +15,7 @@ namespace CometSimulation
     {
         #region Variables
 
-            //Textures and Graphics
+        //Textures and Graphics
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         SpriteFont font;
@@ -60,7 +60,7 @@ namespace CometSimulation
 
         public Main()
         {
-                //Set up the window
+            //Set up the window
             Content.RootDirectory = "Content";
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1024;
@@ -68,21 +68,21 @@ namespace CometSimulation
             graphics.IsFullScreen = false;
             IsMouseVisible = true;
 
-            state = MenuState.Main; //Sets the initial MenuState to the MainMenu
+            state = MenuState.Main; //Sets the initial MenuState to the Main Menu
         }
 
-            //Creates 4 Menu States
         public enum MenuState
         {
+            //Creates 4 Menu States
             Main,
             Comet,
             Planet,
             Instructions
         }
 
-            //Initialises the simulation
         protected override void Initialize()
         {
+            //Initialises the simulation
             manager.Initialize();
             base.Initialize();
         }
@@ -105,7 +105,6 @@ namespace CometSimulation
             #endregion
         }
 
-            //Runs once every frame
         protected override void Update(GameTime gameTime)
         {
             #region Menu Slide Reveal
@@ -233,7 +232,7 @@ namespace CometSimulation
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
 
-                //Draws the Simulation
+            //Draws the Simulation
             manager.Draw(spriteBatch, texComet, texPlanet, texSun);
 
             #region Draw Menu

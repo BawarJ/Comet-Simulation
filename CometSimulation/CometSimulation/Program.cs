@@ -10,9 +10,9 @@ namespace CometSimulation
         /// </summary>
         static void Main(string[] args)
         {
-            using (Main game = new Main())
+            using (Main simulation = new Main())
             {
-                game.Run();
+                simulation.Run();
             }
         }
     }

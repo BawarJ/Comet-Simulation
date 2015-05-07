@@ -14,46 +14,55 @@ namespace CometSimulation
 {
     class Manager
     {
+        #region Variables
+        //declare variables
         public List<Comet> comets = new List<Comet>();
         public List<Planet> planets = new List<Planet>();
-        public List<Sun> suns = new List<Sun>();
+        public List<Sun> sun = new List<Sun>();
         public Boolean isPaused = false;
-
         Random rand = new Random();
-
-        float G = (float)Math.Exp(-11)*7;
-        float theta;
-        double dSq;
-        Vector2 d;
         public float timeDelay;
         public float tempTimeDelay;
         MouseState ms;
         Vector2 mousePos;
+        float G = (float)Math.Exp(-11)*7;
+        float theta;
+        double dSq;
+        Vector2 d;
+        #endregion
 
         public void Initialize()
         {
-            suns.Add(new Sun(new Vector2(600, 300), 80, Color.White));
+            //sun is created when the program is initialised
+            sun.Add(new Sun(new Vector2(600, 300), 80, Color.White));
         }
 
         public void createComet(bool displayOrbit, float startX, float startY, float velX, float velY, float m, float density)
         {
+            //adds comet to list
             comets.Add(new Comet(displayOrbit, new Vector2(startX, startY), new Vector2(velX, velY), m, density));
         }
         public void createPlanet(bool displayOrbit, float startX, float startY, float velX, float velY, float m, float density)
         {
+            //adds planet to list
             planets.Add(new Planet(displayOrbit, new Vector2(startX, startY), new Vector2(velX, velY), m, density));
         }
         public void resetScreen()
         {
+            //clears contents of both lists
             comets.RemoveRange(0, comets.Count);
             planets.RemoveRange(0, planets.Count);
         }
 
         public void Update()
         {
+            #region Mouse
             ms = Mouse.GetState();
             mousePos = new Vector2(ms.X, ms.Y);
-            
+            #endregion
+
+            #region Time Delay
+            //simulation is slowed down based upon the timeDelay slider
             if (tempTimeDelay > 0)
             {
                 isPaused = true;
@@ -64,20 +73,22 @@ namespace CometSimulation
                 isPaused = false;
                 tempTimeDelay = timeDelay;
             }
+            #endregion
 
             if (!isPaused)
             {
+                #region COMETS
                 foreach (Comet c in comets)
                 {
                     c.Force = Vector2.Zero;
-                    foreach (Sun s in suns)
+                    foreach (Sun s in sun)
                     {
                         dSq = Vector2.DistanceSquared(s.Position, c.Position);
                         if (dSq != 0)
                         {
                             d.X = s.Position.X - c.Position.X;
                             d.Y = s.Position.Y - c.Position.Y;
-                            c.F = (float)(G * c.m * s.m / dSq);
+                            c.F = (float)((G * c.m * s.m)/ dSq); //Formula
                             theta = (float)Math.Atan2(d.X, d.Y);
                             c.Force.X += (float)Math.Sin(theta) * (float)c.F;
                             c.Force.Y += (float)Math.Cos(theta) * (float)c.F;
@@ -86,12 +97,14 @@ namespace CometSimulation
                             c.particleVelocity = -d * 0.0001f + c.Velocity;
                         }
                     }
+                    c.Update();
                 }
-
+                #endregion
+                #region PLANETS
                 foreach (Planet p in planets)
                 {
                     p.Force = Vector2.Zero;
-                    foreach (Sun s in suns)
+                    foreach (Sun s in sun)
                     {
                         dSq = Vector2.DistanceSquared(s.Position, p.Position);
                         if (dSq != 0)
@@ -104,21 +117,22 @@ namespace CometSimulation
                             p.Force.Y += (float)Math.Cos(theta) * (float)p.F;
                         }
                     }
-                }
-
-                foreach (Comet c in comets)
-                    c.Update();
-                foreach (Planet p in planets)
                     p.Update();
+                }
+                #endregion
             }
-            foreach (Sun s in suns)
+
+            #region SUN
+            foreach (Sun s in sun)
             {
+                //allows the user to click and drag sun
                 if (s.isClicking)
                 {
                     s.Position = mousePos;
                 }
                 s.Update();
             }
+            #endregion
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D texComet, Texture2D texPlanet, Texture2D texStar)
@@ -127,7 +141,7 @@ namespace CometSimulation
                 c.Draw(spriteBatch, texComet);
             foreach (Planet p in planets)
                 p.Draw(spriteBatch, texPlanet);
-            foreach (Sun s in suns)
+            foreach (Sun s in sun)
                 s.Draw(spriteBatch, texStar);
         }
     }
