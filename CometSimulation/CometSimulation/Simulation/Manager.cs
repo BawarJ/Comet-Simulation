@@ -137,6 +137,7 @@ namespace CometSimulation
 
         public void Draw(SpriteBatch spriteBatch, Texture2D texComet, Texture2D texPlanet, Texture2D texStar)
         {
+            //iterates through each list and draws each object
             foreach (Comet c in comets)
                 c.Draw(spriteBatch, texComet);
             foreach (Planet p in planets)

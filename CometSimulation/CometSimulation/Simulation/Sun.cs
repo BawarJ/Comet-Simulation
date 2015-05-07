@@ -66,6 +66,7 @@ namespace CometSimulation
         
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture)
         {
+            //extracts frames from spritesheet texture to create an animation
             if (frame >= 15)
                 frame = 0;
             else

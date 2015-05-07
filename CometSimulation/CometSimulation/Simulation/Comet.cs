@@ -14,6 +14,7 @@ namespace CometSimulation
 {
     class Comet
     {
+        #region Variables
         public Vector2 Position;
         public Vector2 Acceleration;
         public Vector2 Velocity;
@@ -24,13 +25,14 @@ namespace CometSimulation
         public float Diameter;
         Color tailColour;
         bool displayOrbit;
-        List<Vector2> dots = new List<Vector2>();
+        List<Vector2> orbitTrail = new List<Vector2>();
         List<Vector2> gasParticles = new List<Vector2>();
         List<Particle> dustParticles = new List<Particle>();
         List<Particle> dustParticlesToRemove = new List<Particle>();
         Random rand = new Random();
         public Vector2 particleVelocity;
         public Vector2 gasDirection;
+        #endregion
 
         public Comet(bool dispOrbit, Vector2 pos, Vector2 vel, float mass, float dens)
         {
@@ -52,7 +54,7 @@ namespace CometSimulation
             Position = Vector2.Add(Position, Velocity);
 
             if (displayOrbit)
-                dots.Add(Position); //orbit line
+                orbitTrail.Add(Position); //orbit line
 
             //create gas tail
             for (int i = 0; i <= 99; i++)
@@ -66,13 +68,14 @@ namespace CometSimulation
             //create dust tail
             dustParticles.Add(new Particle(Position, Color.LightGray, particleVelocity));
 
+            //update dust tail
             foreach (Particle p in dustParticles)
             {
                 p.Update();
                 if (p.Length == 0)
                     dustParticlesToRemove.Add(p);
             }
-
+            //remove dust tail particles after they are dead
             foreach (Particle r in dustParticlesToRemove)
                 dustParticles.Remove(r);
         }
@@ -82,8 +85,8 @@ namespace CometSimulation
             Rectangle Rectangle = new Rectangle((int)Position.X - (int)Diameter / 2, (int)Position.Y - (int)Diameter / 2, (int)Diameter, (int)Diameter);
             
             if (displayOrbit)
-                foreach (Vector2 d in dots)
-                    spriteBatch.Draw(Texture, new Rectangle((int)d.X, (int)d.Y, 1, 1), Color.White);
+                foreach (Vector2 t in orbitTrail)
+                    spriteBatch.Draw(Texture, new Rectangle((int)t.X, (int)t.Y, 1, 1), Color.White);
 
             foreach (Particle p in dustParticles)
                 spriteBatch.Draw(Texture, new Rectangle((int)p.Position.X, (int)p.Position.Y, 2, 2), p.Colour);

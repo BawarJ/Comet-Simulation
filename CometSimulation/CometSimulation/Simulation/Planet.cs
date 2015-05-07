@@ -24,7 +24,7 @@ namespace CometSimulation
         public float Diameter;
         Color Colour;
         bool displayOrbit;
-        List<Vector2> dots = new List<Vector2>();
+        List<Vector2> orbitTrail = new List<Vector2>();
         Random rand = new Random();
 
 
@@ -44,7 +44,7 @@ namespace CometSimulation
             Acceleration.Y = Force.Y / m;
 
             if (displayOrbit)
-                dots.Add(Position);
+                orbitTrail.Add(Position);
             
             Velocity = Vector2.Add(Velocity, Acceleration);
             Position = Vector2.Add(Position, Velocity);
@@ -55,8 +55,8 @@ namespace CometSimulation
             Rectangle Rectangle = new Rectangle((int)Position.X - (int)Diameter / 2, (int)Position.Y - (int)Diameter / 2, (int)Diameter, (int)Diameter);
 
             if (displayOrbit)
-                foreach (Vector2 d in dots)
-                    spriteBatch.Draw(Texture, new Rectangle((int)d.X, (int)d.Y, 1, 1), Colour);
+                foreach (Vector2 t in orbitTrail)
+                    spriteBatch.Draw(Texture, new Rectangle((int)t.X, (int)t.Y, 1, 1), Colour);
 
             spriteBatch.Draw(Texture, Rectangle, Colour);
         }
