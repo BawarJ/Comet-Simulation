@@ -75,25 +75,37 @@ namespace CometSimulation
             }
             #endregion
 
+            //If the simulation is not paused do the following
             if (!isPaused)
             {
                 #region COMETS
+                //Iterates through the loop for each comet in the list
                 foreach (Comet c in comets)
                 {
+                    //Reset the comet Force value
                     c.Force = Vector2.Zero;
+
+                    //Iterates through the loop for each sun in the list
+                    //(There is only one sun but there is room for expansion)
                     foreach (Sun s in sun)
                     {
                         dSq = Vector2.DistanceSquared(s.Position, c.Position);
                         if (dSq != 0)
                         {
+                            //Distance between sun and comet
                             d.X = s.Position.X - c.Position.X;
                             d.Y = s.Position.Y - c.Position.Y;
-                            c.F = (float)((G * c.Mass * s.Mass)/ dSq); //Formula 
+                            //Newton's Law of Universal Gravitation
+                            c.F = (float)((G * c.Mass * s.Mass)/ dSq);
+                            //Angle between sun and comet
                             theta = (float)Math.Atan2(d.X, d.Y);
+                            //Force to be applied to the comet
                             c.Force.X += (float)Math.Sin(theta) * (float)c.F;
                             c.Force.Y += (float)Math.Cos(theta) * (float)c.F;
 
+                            //Direction to draw gas tail (away from sun)
                             c.gasDirection = -d * 0.001f;
+                            //Initial velocity to emit dust tail particles
                             c.particleVelocity = -d * 0.0001f + c.Velocity;
                         }
                     }
@@ -101,18 +113,25 @@ namespace CometSimulation
                 }
                 #endregion
                 #region PLANETS
+                //Iterates through the loop for each planet in the list
                 foreach (Planet p in planets)
                 {
+                    //Reset the planet Force value
                     p.Force = Vector2.Zero;
+                    //Iterates through the loop for each sun in the list
                     foreach (Sun s in sun)
                     {
                         dSq = Vector2.DistanceSquared(s.Position, p.Position);
                         if (dSq != 0)
                         {
+                            //Distance between sun and planet
                             d.X = s.Position.X - p.Position.X;
                             d.Y = s.Position.Y - p.Position.Y;
-                            p.F = (float)(G * p.Mass * s.Mass / dSq); //Formula
+                            //Newton's Law of Universal Gravitation
+                            p.F = (float)(G * p.Mass * s.Mass / dSq);
+                            //Angle between sun and planet
                             theta = (float)Math.Atan2(d.X, d.Y);
+                            //Force to be applied to the planet
                             p.Force.X += (float)Math.Sin(theta) * (float)p.F;
                             p.Force.Y += (float)Math.Cos(theta) * (float)p.F;
                         }
@@ -125,7 +144,7 @@ namespace CometSimulation
             #region SUN
             foreach (Sun s in sun)
             {
-                //allows the user to click and drag sun
+                //Allows the user to click and drag sun
                 if (s.isClicking)
                 {
                     s.Position = mousePos;
