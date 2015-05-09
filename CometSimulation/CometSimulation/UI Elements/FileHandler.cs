@@ -13,58 +13,64 @@ namespace CometSimulation
         TextWriter textWriter;
         string Input;
         
+        //This function will save the simulation state when called
         public void Save(Manager m)
         {
+            //Specifies the file to write to
             textWriter = new StreamWriter("state.txt");
 
-            textWriter.WriteLine("#BEGIN#");
+            textWriter.WriteLine("#BEGIN#"); //Start of file
 
+            //If comets are present save their variables
             if (m.comets.Count > 0)
             {
-                textWriter.WriteLine("#comets#");
+                textWriter.WriteLine("#comets#"); //Start of comets
                 for (int i = 0; i <= m.comets.Count - 1; i++)
                 {
                     textWriter.WriteLine(m.comets[i].Position.X);
                     textWriter.WriteLine(m.comets[i].Position.Y);
                     textWriter.WriteLine(m.comets[i].Velocity.X);
                     textWriter.WriteLine(m.comets[i].Velocity.Y);
-                    textWriter.WriteLine(m.comets[i].m);
+                    textWriter.WriteLine(m.comets[i].Mass);
                     textWriter.WriteLine(m.comets[i].Density);
                     if (i != m.comets.Count - 1)
-                        textWriter.WriteLine("~");
+                        textWriter.WriteLine("~"); //End of comet
                 }
-                textWriter.WriteLine("##");
+                textWriter.WriteLine("##"); //End of comets
             }
 
             if (m.planets.Count > 0)
             {
-                textWriter.WriteLine("#planets#");
+                //If planets are present save their variables
+                textWriter.WriteLine("#planets#"); //Start of planets
                 for (int i = 0; i <= m.planets.Count - 1; i++)
                 {
                     textWriter.WriteLine(m.planets[i].Position.X);
                     textWriter.WriteLine(m.planets[i].Position.Y);
                     textWriter.WriteLine(m.planets[i].Velocity.X);
                     textWriter.WriteLine(m.planets[i].Velocity.Y);
-                    textWriter.WriteLine(m.planets[i].m);
+                    textWriter.WriteLine(m.planets[i].Mass);
                     textWriter.WriteLine(m.planets[i].Density);
                     if (i != m.planets.Count - 1)
-                        textWriter.WriteLine("~");
+                        textWriter.WriteLine("~"); //End of planet
                 }
-                textWriter.WriteLine("##");
+                textWriter.WriteLine("##"); //End of planets
             }
 
+            //Save the sun position
             textWriter.WriteLine("#stars#");
             foreach (Sun s in m.sun)
             {
                 textWriter.WriteLine(s.Position.X);
                 textWriter.WriteLine(s.Position.Y);
             }
-            textWriter.WriteLine("##");
+            textWriter.WriteLine("##"); //End of stars
 
-            textWriter.Write("#END#");
+            textWriter.Write("#END#"); //End of file
             textWriter.Close();
         }
 
+        //This function will load the simulation state when called
         public void Load(Manager m)
         {
             textReader = new StreamReader("state.txt");
@@ -74,6 +80,7 @@ namespace CometSimulation
                 Input = textReader.ReadLine();
                 switch (Input)
                 {
+                    //Load and create any comets
                     case "#comets#":
                         while (Input != "##")
                         {
@@ -87,6 +94,8 @@ namespace CometSimulation
                             Input = textReader.ReadLine();
                         }
                         break;
+
+                    //Load and create any planets
                      case "#planets#":
                         while (Input != "##")
                         {
@@ -100,6 +109,8 @@ namespace CometSimulation
                             Input = textReader.ReadLine();
                         }
                         break;
+
+                    //Load sun position
                     case "#stars#":
                         float sposX = float.Parse(textReader.ReadLine());
                         float sposY = float.Parse(textReader.ReadLine());

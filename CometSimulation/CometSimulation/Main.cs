@@ -30,9 +30,9 @@ namespace CometSimulation
 
         //Other
         Manager manager = new Manager();
-        FileHandler fileManager = new FileHandler();
+        FileHandler fileHandler = new FileHandler();
         int X = 0;
-        int Inc = 10;
+        int menuSpeed = 20;
         MouseState ms;
         Rectangle rectMouse;
         Rectangle rectContainer;
@@ -91,7 +91,7 @@ namespace CometSimulation
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             #region Load Textures 
-                //Loads required textures
+            //Loads required textures
             font = Content.Load<SpriteFont>("Font"); 
             texComet = Content.Load<Texture2D>("Comet");
             texPlanet = Content.Load<Texture2D>("Planet");
@@ -117,12 +117,12 @@ namespace CometSimulation
             if (ms.X < 10 || rectMouse.Intersects(rectContainer))
             {
                 if (X < 0)
-                    X += Inc;
+                    X += menuSpeed;
             }
             else
             {
                 if (X > 0 - 200)
-                    X -= Inc;
+                    X -= menuSpeed;
                 if (X <= 0 - 200)
                 {
                     X = -200;
@@ -130,10 +130,12 @@ namespace CometSimulation
             }
             #endregion
             
+            //Checks which MenuState is active
             switch (state)
             {
                 #region MAIN MENU
                 case MenuState.Main:
+                    //Update UI Components
                     btnComet.Update(X);
                     btnPlanet.Update(X);
                     sldrTimeDelay.Update(gameTime, X);
@@ -142,26 +144,35 @@ namespace CometSimulation
                     btnInstructions.Update(X);
                     btnReset.Update(X);
                     btnExit.Update(X);
+
+                    //If the Time Delay slider is being clicked,
+                    //Change the program Time Delay value
                     if (sldrTimeDelay.isClicking)
                     {
                         manager.timeDelay = sldrTimeDelay.Value;
                         manager.tempTimeDelay = manager.timeDelay;
                     }
+
+                    //Menu Navigation using buttons
                     if (btnComet.Clicked)
                         state = MenuState.Comet;
                     if (btnPlanet.Clicked)
                         state = MenuState.Planet;
-                    if (btnSave.Clicked)
-                        fileManager.Save(manager);
-                    if (btnLoad.Clicked)
-                    {
-                        manager.resetScreen();
-                        fileManager.Load(manager);
-                    }
                     if (btnInstructions.Clicked)
                         state = MenuState.Instructions;
+                    //Save/Load using buttons
+                    if (btnSave.Clicked)
+                        fileHandler.Save(manager);
+                    if (btnLoad.Clicked)
+                    {
+                        //Clears screen before loading
+                        manager.resetScreen();
+                        fileHandler.Load(manager);
+                    }
+                    //Clear screen using button
                     if (btnReset.Clicked)
                         manager.resetScreen();
+                    //Closes the program
                     if (btnExit.Clicked)
                         Exit();
                     break;
@@ -169,40 +180,32 @@ namespace CometSimulation
 
                 #region COMET MENU
                 case MenuState.Comet:
+                    //Update UI Components
+                    txtStartX.Update(gameTime, X);
+                    txtStartY.Update(gameTime, X);
+                    sldrVelX.Update(gameTime, X);
+                    sldrVelY.Update(gameTime, X);
+                    sldrMass.Update(gameTime, X);
+                    sldrDensity.Update(gameTime, X);
+                    chkOrbitTrail.Update(X);
                     btnCreate.Update(X);
                     btnBack.Update(X);
 
+                    //Creates comet using user-defined variables
                     if (btnCreate.Clicked)
                     {
                         manager.createComet(chkOrbitTrail.isChecked, txtStartX.Value, txtStartY.Value, sldrVelX.Value, sldrVelY.Value, sldrMass.Value, sldrDensity.Value);
                         state = MenuState.Main;
                     }
+                    //Navigates back to Main Menu
                     if (btnBack.Clicked)
                         state = MenuState.Main;
-
-                    txtStartX.Update(gameTime, X);
-                    txtStartY.Update(gameTime, X);
-                    sldrVelX.Update(gameTime, X);
-                    sldrVelY.Update(gameTime, X);
-                    sldrMass.Update(gameTime, X);
-                    sldrDensity.Update(gameTime, X);
-                    chkOrbitTrail.Update(X);
                     break;
                 #endregion
 
                 #region PLANET MENU
                 case MenuState.Planet:
-                    btnCreate.Update(X);
-                    btnBack.Update(X);
-
-                    if (btnCreate.Clicked)
-                    {
-                        manager.createPlanet(chkOrbitTrail.isChecked, txtStartX.Value, txtStartY.Value, sldrVelX.Value, sldrVelY.Value, sldrMass.Value, sldrDensity.Value);
-                        state = MenuState.Main;
-                    }
-                    if (btnBack.Clicked)
-                        state = MenuState.Main;
-
+                    //Update UI Components
                     txtStartX.Update(gameTime, X);
                     txtStartY.Update(gameTime, X);
                     sldrVelX.Update(gameTime, X);
@@ -210,19 +213,34 @@ namespace CometSimulation
                     sldrMass.Update(gameTime, X);
                     sldrDensity.Update(gameTime, X);
                     chkOrbitTrail.Update(X);
+                    btnCreate.Update(X);
+                    btnBack.Update(X);
+
+                    //Creates planet using user-defined variables
+                    if (btnCreate.Clicked)
+                    {
+                        manager.createPlanet(chkOrbitTrail.isChecked, txtStartX.Value, txtStartY.Value, sldrVelX.Value, sldrVelY.Value, sldrMass.Value, sldrDensity.Value);
+                        state = MenuState.Main;
+                    }
+                    //Navigates back to Main Menu
+                    if (btnBack.Clicked)
+                        state = MenuState.Main;
                     break;
                 #endregion
 
                 #region INSTRUCTIONS PAGE
                 case MenuState.Instructions:
+                    //Update UI Component
                     btnBack.Update(X);
 
+                    //Navigates back to Main Menu
                     if (btnBack.Clicked)
                         state = MenuState.Main;
                     break;
                 #endregion
             }
 
+            //Updates manager
             manager.Update();
             base.Update(gameTime);
         }
@@ -236,10 +254,12 @@ namespace CometSimulation
             manager.Draw(spriteBatch, texComet, texPlanet, texSun);
 
             #region Draw Menu
+            //Draws the UI
             spriteBatch.Draw(texPixel, rectContainer, Color.White);
             spriteBatch.Draw(texTab, new Rectangle(rectContainer.X + rectContainer.Width, rectContainer.Height/4, 15, 80), Color.White);
             spriteBatch.DrawString(font, "Menu", new Vector2(rectContainer.X + rectContainer.Width + 18, rectContainer.Height / 4 +18), Color.Black, MathHelper.ToRadians(90), Vector2.Zero, 0.9f, SpriteEffects.None, 0);
 
+            //Checks which MenuState is active
             switch (state)
             {
                 #region MAIN MENU

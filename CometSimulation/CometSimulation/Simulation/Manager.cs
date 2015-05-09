@@ -15,7 +15,7 @@ namespace CometSimulation
     class Manager
     {
         #region Variables
-        //declare variables
+        //Declare variables
         public List<Comet> comets = new List<Comet>();
         public List<Planet> planets = new List<Planet>();
         public List<Sun> sun = new List<Sun>();
@@ -33,23 +33,23 @@ namespace CometSimulation
 
         public void Initialize()
         {
-            //sun is created when the program is initialised
+            //Sun is created when the program is initialised
             sun.Add(new Sun(new Vector2(600, 300), 80, Color.White));
         }
 
         public void createComet(bool displayOrbit, float startX, float startY, float velX, float velY, float m, float density)
         {
-            //adds comet to list
+            //Adds comet to list
             comets.Add(new Comet(displayOrbit, new Vector2(startX, startY), new Vector2(velX, velY), m, density));
         }
         public void createPlanet(bool displayOrbit, float startX, float startY, float velX, float velY, float m, float density)
         {
-            //adds planet to list
+            //Adds planet to list
             planets.Add(new Planet(displayOrbit, new Vector2(startX, startY), new Vector2(velX, velY), m, density));
         }
         public void resetScreen()
         {
-            //clears contents of both lists
+            //Clears contents of both lists
             comets.RemoveRange(0, comets.Count);
             planets.RemoveRange(0, planets.Count);
         }
@@ -62,7 +62,7 @@ namespace CometSimulation
             #endregion
 
             #region Time Delay
-            //simulation is slowed down based upon the timeDelay slider
+            //Simulation is slowed down based upon the timeDelay slider
             if (tempTimeDelay > 0)
             {
                 isPaused = true;
@@ -88,7 +88,7 @@ namespace CometSimulation
                         {
                             d.X = s.Position.X - c.Position.X;
                             d.Y = s.Position.Y - c.Position.Y;
-                            c.F = (float)((G * c.m * s.m)/ dSq); //Formula
+                            c.F = (float)((G * c.Mass * s.Mass)/ dSq); //Formula 
                             theta = (float)Math.Atan2(d.X, d.Y);
                             c.Force.X += (float)Math.Sin(theta) * (float)c.F;
                             c.Force.Y += (float)Math.Cos(theta) * (float)c.F;
@@ -111,7 +111,7 @@ namespace CometSimulation
                         {
                             d.X = s.Position.X - p.Position.X;
                             d.Y = s.Position.Y - p.Position.Y;
-                            p.F = (float)(G * p.m * s.m / dSq);
+                            p.F = (float)(G * p.Mass * s.Mass / dSq); //Formula
                             theta = (float)Math.Atan2(d.X, d.Y);
                             p.Force.X += (float)Math.Sin(theta) * (float)p.F;
                             p.Force.Y += (float)Math.Cos(theta) * (float)p.F;
@@ -137,7 +137,7 @@ namespace CometSimulation
 
         public void Draw(SpriteBatch spriteBatch, Texture2D texComet, Texture2D texPlanet, Texture2D texStar)
         {
-            //iterates through each list and draws each object
+            //Iterates through each list and draws each object
             foreach (Comet c in comets)
                 c.Draw(spriteBatch, texComet);
             foreach (Planet p in planets)

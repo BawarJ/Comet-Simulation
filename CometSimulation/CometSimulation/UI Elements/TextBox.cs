@@ -14,6 +14,7 @@ namespace CometSimulation
 {
     class Textbox
     {
+        #region Variables
         public float Value;
         bool isHovering;
         public bool isClicking;
@@ -30,6 +31,7 @@ namespace CometSimulation
         string Message;
         float Minimum;
         float Maximum;
+        #endregion
 
         public Textbox(string msg, float min, float max, int y)
         {
@@ -43,15 +45,18 @@ namespace CometSimulation
 
         public void Update(GameTime gameTime, int menuX)
         {
+            //private variable
             bool Valid = true;
 
+            //Updates the kbHandler object
             kb.Update();
 
-            #region Mouse Stuff
             pms = ms;
             ms = Mouse.GetState();
             mousePos = new Rectangle(ms.X, ms.Y, 1, 1);
 
+            //Checks if the mouse is hovering on the textbox
+            //Highlights the textbox if it is hovering
             if (mousePos.Intersects(new Rectangle(menuX+20, Y, Width, 50)))
             {
                 isHovering = true;
@@ -63,10 +68,14 @@ namespace CometSimulation
                 Colour.R = 255;
             }
             
+            //Checks if the mouse is clicking on the textbox
             if (isHovering && ms.LeftButton == ButtonState.Pressed && pms.LeftButton == ButtonState.Released)
             {
                 isClicking = true;
                 inFocus = true;
+
+                //If the input is valid, set the contents of the textbox equal to its numeric value
+                //Otherwise, set the textbox to be empty, ready for user input
                 if (Valid)
                 {
                     textInput = Value.ToString();
@@ -80,14 +89,17 @@ namespace CometSimulation
 
             if (!isHovering && ms.LeftButton == ButtonState.Pressed && pms.LeftButton == ButtonState.Released)
                 inFocus = false;
-            #endregion
 
             if (inFocus)
             {
                 Colour.R = 230; //sets the textbox colour to a darker blue to indicate that it is in focus
                 cursorColour.A = (byte)(gameTime.TotalGameTime.Milliseconds / 4); //cursor blinking
 
+                //Parses the string input into a float value to be used by to set the object variables
                 Valid = float.TryParse(textInput, out Value);
+
+                //If the Value is valid and within the acceptable range, output its text equivalent
+                //Otherwise display error message
                 if (Valid && Value >= Minimum && Value <= Maximum)
                     textInput = kb.text;
                 else
@@ -102,7 +114,8 @@ namespace CometSimulation
             spriteBatch.DrawString(Font, textInput, new Vector2(menuX + 25, Y + 5), Color.Black);
             if (inFocus)
             {
-                spriteBatch.Draw(Texture, new Rectangle(menuX + 25 + (int)Font.MeasureString(textInput).X, Y + 10, 1, 30), cursorColour); //draws cursor
+                //draws cursor
+                spriteBatch.Draw(Texture, new Rectangle(menuX + 25 + (int)Font.MeasureString(textInput).X, Y + 10, 1, 30), cursorColour);
             }
         }
     }

@@ -14,6 +14,7 @@ namespace CometSimulation
 {
     class Button
     {
+        #region Variables
         bool isHovering;
         public bool Clicked;
         int Width = 160;
@@ -23,6 +24,7 @@ namespace CometSimulation
         MouseState pms;
         string Message;
         Color Colour;
+        #endregion
 
         public Button(string msg, int y)
         {
@@ -33,20 +35,22 @@ namespace CometSimulation
 
         public void Update(int menuX)
         {
-            
             ms = Mouse.GetState();
             mousePos = new Rectangle(ms.X, ms.Y, 1, 1);
 
+            //Checks if mouse is hovering on button
             if (mousePos.Intersects(new Rectangle(menuX+20, Y, Width, 50)))
                 isHovering = true;
             else
                 isHovering = false;
 
+            //Checks if button has been clicked
             if (isHovering && pms.LeftButton == ButtonState.Released && ms.LeftButton == ButtonState.Pressed)
                 Clicked = true;
             else
                 Clicked = false;
 
+            //Highlight button if it is being hovered over
             if (isHovering)
             {
                 Colour.R = 150;
@@ -66,6 +70,7 @@ namespace CometSimulation
 
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture, SpriteFont Font, int menuX)
         {
+            //Draws the button and accompanying text
             spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, Width, 50), Colour);
             spriteBatch.DrawString(Font, Message, new Vector2(menuX + 15 + Width/2 - Font.MeasureString(Message).X/2, Y + 15), Color.Black);
         }

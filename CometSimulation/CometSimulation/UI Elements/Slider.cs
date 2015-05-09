@@ -14,8 +14,9 @@ namespace CometSimulation
 {
     class Slider
     {
+        #region Variables
         public float Value;
-        float Size;
+        float currentValue;
         bool isHovering;
         public bool isClicking;
         int Width = 160;
@@ -27,15 +28,18 @@ namespace CometSimulation
         string Message;
         float Minimum;
         float Maximum;
+        #endregion
 
         public Slider(float min, float max, string msg, int y)
         {
+            #region Variables
             Y = y;
             Colour = new Color(100, 100, 100);
             Message = msg;
             Minimum = min;
             Maximum = max;
-            Size = Width / 2;
+            currentValue = Width / 2;
+            #endregion
         }
 
         public void Update(GameTime gameTime, int menuX)
@@ -44,6 +48,8 @@ namespace CometSimulation
             ms = Mouse.GetState();
             mousePos = new Rectangle(ms.X, ms.Y, 1, 1);
 
+            //If the mouse is hovering on the slider, highlight the slider colour
+            //Otherwise set to default colour
             if (mousePos.Intersects(new Rectangle(menuX + 20, Y, Width, 50)))
             {
                 isHovering = true;
@@ -57,12 +63,11 @@ namespace CometSimulation
                 Colour.R = 100;
             }
 
+            //If the mouse is being clicked, set the new slider value to the current mouse position
             if (isHovering && ms.LeftButton == ButtonState.Pressed && pms.LeftButton == ButtonState.Pressed)
             {
                 isClicking = true;
-                Colour.B = 200;
-                Colour.R = 25;
-                Size = ms.X - 20;
+                currentValue = ms.X - 20;
             }
             else
             {
@@ -71,16 +76,18 @@ namespace CometSimulation
                 Colour.R = 100;
             }
 
-            Value = Minimum + (float)Math.Round((Size/Width)*Maximum*2);
+            //Rounds slider value
+            Value = Minimum + (float)Math.Round((currentValue/Width)*Maximum*2);
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture, SpriteFont Font, int menuX)
         {
             spriteBatch.DrawString(Font, Message, new Vector2(menuX + 25, Y - 30), Color.Black);
             spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, Width, 30), Color.Snow);
-            spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, (int)Size, 30), Colour);
+            spriteBatch.Draw(Texture, new Rectangle(menuX + 20, Y, (int)currentValue, 30), Colour);
             if (isHovering)
-                spriteBatch.DrawString(Font, Value.ToString(), new Vector2(menuX + 22 + Size, Y), Colour);
+                //Draws numeric value if mouse is hovering on slider
+                spriteBatch.DrawString(Font, Value.ToString(), new Vector2(menuX + 22 + currentValue, Y), Colour);
         }
     }
 }

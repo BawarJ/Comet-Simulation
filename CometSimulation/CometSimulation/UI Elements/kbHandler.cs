@@ -13,6 +13,7 @@ namespace CometSimulation
 
         public kbHandler()
         {
+            //An array of the Keys type
             lastPressedKeys = new Keys[0];
         }
 
@@ -20,30 +21,24 @@ namespace CometSimulation
         {
             KeyboardState kbState = Keyboard.GetState();
             Keys[] pressedKeys = kbState.GetPressedKeys();
-
-            //check if any of the previous update's keys are no longer pressed
-            foreach (Keys key in lastPressedKeys)
-            {
-                if (!pressedKeys.Contains(key))
-                    OnKeyUp(key);
-            }
-
-            //check if the currently pressed keys were already pressed
+            
+            //checks if the currently pressed keys were already pressed
             foreach (Keys key in pressedKeys)
             {
                 if (!lastPressedKeys.Contains(key))
                     OnKeyDown(key);
             }
             
-            //save the currently pressed keys so we can compare on the next update
+            //saves the currently pressed keys so they can be compared next update
             lastPressedKeys = pressedKeys;
         }
 
-        //Create your own   
+        //Checks when a key has been pressed
         private void OnKeyDown(Keys key)
         {
             switch (key)
             {
+                //Only accepts numeric input
                 case Keys.D0:
                     text += "0";
                     break;
@@ -104,6 +99,7 @@ namespace CometSimulation
                 case Keys.NumPad9:
                     text += "9";
                     break;
+                //Backspace key used to erase input
                 case Keys.Back:
                     if (!string.IsNullOrWhiteSpace(text))
                     {
@@ -114,11 +110,6 @@ namespace CometSimulation
                     break;
             }
 
-        }
-
-        private void OnKeyUp(Keys key)
-        {
-            //do stuff
         }
     }
 }

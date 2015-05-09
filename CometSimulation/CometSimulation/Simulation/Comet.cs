@@ -20,7 +20,7 @@ namespace CometSimulation
         public Vector2 Velocity;
         public Vector2 Force;
         public float F;
-        public float m;
+        public float Mass;
         public float Density;
         public float Diameter;
         Color tailColour;
@@ -38,44 +38,52 @@ namespace CometSimulation
         {
             displayOrbit = dispOrbit;
             Position = pos;
-            m = mass;
+            Velocity = vel;
+            Mass = mass;
             Density = dens;
+            //Diameter of the comet is calculated from the Mass and Density values
             Diameter = (mass / dens)*10;
             tailColour = new Color(255, 255, 255);
-            Velocity = vel;
         }
 
         public void Update()
         {
-            //motion of the comet
-            Acceleration.X = Force.X / m;
-            Acceleration.Y = Force.Y / m;
+            //Motion of the comet
+            //Calculated using Newton's Second Law of Motion: F = ma
+            Acceleration.X = Force.X / Mass;
+            Acceleration.Y = Force.Y / Mass;
+
+            //Calculates the velocity and position of the comet
             Velocity = Vector2.Add(Velocity, Acceleration);
             Position = Vector2.Add(Position, Velocity);
 
+            //If the displayOrbit checkbox has been checked, draw the trail
             if (displayOrbit)
-                orbitTrail.Add(Position); //orbit line
+                orbitTrail.Add(Position);
 
-            //create gas tail
+            //Create gas ion tail
             for (int i = 0; i <= 99; i++)
             {
+                //Uses vector equation to draw line of gas particles in the direction away from the sun
                 gasParticles.Insert(i, new Vector2(Position.X + ((float)(rand.NextDouble() - 0.5) / 10 + Vector2.Normalize(gasDirection).X) * i * F/5,
                                                    Position.Y + ((float)(rand.NextDouble() - 0.5) / 10 + Vector2.Normalize(gasDirection).Y) * i * F/5));
                 if (gasParticles.Count > 99)
+                    //Removes all particles beyond 99 (only stores 100 particles)
                     gasParticles.RemoveRange(99, gasParticles.Count-100);
             }
 
-            //create dust tail
+            //Create dust tail
             dustParticles.Add(new Particle(Position, Color.LightGray, particleVelocity));
 
-            //update dust tail
+            //Update dust tail
             foreach (Particle p in dustParticles)
             {
                 p.Update();
+                //Remove particle if it is dead
                 if (p.Length == 0)
                     dustParticlesToRemove.Add(p);
             }
-            //remove dust tail particles after they are dead
+            //Remove dust tail particles after they are dead
             foreach (Particle r in dustParticlesToRemove)
                 dustParticles.Remove(r);
         }
@@ -83,13 +91,17 @@ namespace CometSimulation
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture)
         {
             Rectangle Rectangle = new Rectangle((int)Position.X - (int)Diameter / 2, (int)Position.Y - (int)Diameter / 2, (int)Diameter, (int)Diameter);
-            
+
+            //If the displayOrbit checkbox has been checked, draw the trail
             if (displayOrbit)
                 foreach (Vector2 t in orbitTrail)
                     spriteBatch.Draw(Texture, new Rectangle((int)t.X, (int)t.Y, 1, 1), Color.White);
 
+            //Draws the dust tail
             foreach (Particle p in dustParticles)
                 spriteBatch.Draw(Texture, new Rectangle((int)p.Position.X, (int)p.Position.Y, 2, 2), p.Colour);
+
+            //Draws the gas ion tail
             for (int i = 0; i <= 99; i++)
             {
                 Color gColour = new Color(tailColour.R - i*3, tailColour.G - i*2, tailColour.B - i);

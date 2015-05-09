@@ -14,12 +14,14 @@ namespace CometSimulation
 {
     class Particle
     {
+        #region Variables
         public Vector2 Position;
         public Vector2 Velocity;
         public float Length;
         public Color Colour;
         public Color startingColour;
         private Random rand = new Random();
+        #endregion
 
         public Particle(Vector2 pos, Color col, Vector2 vel)
         {
@@ -32,8 +34,11 @@ namespace CometSimulation
 
         public void Update()
         {
+            //Particle movement
             Position = Vector2.Add(Position, Velocity);
             Position = Vector2.Add(Position, new Vector2((float)rand.NextDouble() - 0.5f, (float)rand.NextDouble() - 0.5f));
+            
+            //Increments the particle life by -1
             Length--;
 
             //colour fades out towards end of the particles life

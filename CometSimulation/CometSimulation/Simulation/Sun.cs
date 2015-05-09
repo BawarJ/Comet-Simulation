@@ -14,9 +14,9 @@ namespace CometSimulation
 {
     class Sun
     {
+        #region Variables
         public Vector2 Position;
-        public Vector2 Velocity;
-        public float m;
+        public float Mass;
         public float Diameter;
         Color Colour;
         Color startingColour;
@@ -26,6 +26,7 @@ namespace CometSimulation
         public Boolean isClicking;
         public Boolean isHovering;
         int Frame = 0;
+        #endregion
 
         public Sun(Vector2 pos, float dia, Color col)
         {
@@ -33,15 +34,11 @@ namespace CometSimulation
             Diameter = dia;
             Colour = col;
             startingColour = col;
-            m = 20000000f;
-            Velocity.X = 0;
+            Mass = 20000000f; //Rounded constant
         }
 
         public void Update()
         {
-            Position = Vector2.Add(Position, Velocity);
-
-            //mouse code
             ms = Mouse.GetState();
             mousePos = new Rectangle(ms.X, ms.Y, 1, 1);
 
@@ -55,24 +52,26 @@ namespace CometSimulation
             else
                 isClicking = false;
 
+            //If mouse is hovering over the sun highlight its colour
             if (isHovering)
                 Colour.R = 100;
             else
                 Colour.R = startingColour.R;
-
 
             pms = Mouse.GetState();
         }
         
         public void Draw(SpriteBatch spriteBatch, Texture2D Texture)
         {
-            //extracts frames from spritesheet texture to create an animation
+            //Extracts frames from spritesheet texture to create an animation
             if (Frame >= 15)
                 Frame = 0;
             else
                 Frame++;
 
+            //The location in the texture spritesheet to draw from
             Rectangle sourceRectangle = new Rectangle(0, Frame*100, 104, 100);
+            //The location in the simulation to draw the sun to
             Rectangle destinationRectangle = new Rectangle((int)Position.X - (int)Diameter / 2, (int)Position.Y - (int)Diameter / 2, (int)Diameter, (int)Diameter);
 
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Colour);
